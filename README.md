@@ -29,6 +29,8 @@ Do not change nameservers unless you intentionally want Spaceship to stop managi
 
 ## GitHub Pages setup
 
+This repo is private. GitHub Pages can publish from private repositories only if the GitHub account/organization plan supports private-repo Pages. On GitHub Free, GitHub Pages works from public repositories.
+
 After this folder is pushed to a GitHub repo named `idlemeets-site`:
 
 1. Open the repo on GitHub.
@@ -42,6 +44,8 @@ After this folder is pushed to a GitHub repo named `idlemeets-site`:
 9. Click `Save`.
 10. Wait for GitHub to check the domain.
 11. Turn on `Enforce HTTPS` once GitHub allows it.
+
+If GitHub does not let you enable Pages while the repo is private, keep the repo private for now and pause. The clean choices are either upgrading GitHub for private-repo Pages or making only this website repo public later.
 
 ## Spaceship DNS records
 
