@@ -85,7 +85,10 @@ Replace `YOUR-GITHUB-USERNAME` with the real GitHub username or organization tha
 ## Live links
 
 - App Store: `https://apps.apple.com/us/app/idle-car-meets/id6762639080`
-- Instagram: `https://www.instagram.com/idlemeets/`
+- Instagram: `https://instagram.com/idlemeets`
+- TikTok: `https://tiktok.com/@idlemeets`
+- YouTube: `https://www.youtube.com/@idlemeets`
+- X: `https://x.com/idlemeets`
 - Current contact email: `idle@engineer.com`
 
 Later, replace the contact email with a domain email address after email hosting is configured for `idlemeets.com`.
