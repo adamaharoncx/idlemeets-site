@@ -82,11 +82,13 @@ TTL: Automatic or default
 
 Replace `YOUR-GITHUB-USERNAME` with the real GitHub username or organization that owns the `idlemeets-site` repo.
 
-## Placeholders to replace
+## Live links
 
-- App Store URL in `index.html` and `download/index.html`.
-- Instagram URL in page footers and support page.
-- Contact email addresses after domain email is configured.
+- App Store: `https://apps.apple.com/us/app/idle-car-meets/id6762639080`
+- Instagram: `https://www.instagram.com/idlemeets/`
+- Current contact email: `idle@engineer.com`
+
+Later, replace the contact email with a domain email address after email hosting is configured for `idlemeets.com`.
 
 ## Local testing
 

@@ -165,13 +165,6 @@ p {
   background: rgba(255, 255, 255, 0.06);
 }
 
-.button-disabled {
-  color: rgba(251, 251, 253, 0.62);
-  cursor: not-allowed;
-  background: rgba(255, 255, 255, 0.045);
-  box-shadow: none;
-}
-
 .hero {
   display: grid;
   grid-template-columns: minmax(0, 1.05fr) minmax(320px, 0.95fr);
