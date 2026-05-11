@@ -16,6 +16,9 @@
     <loc>https://idlemeets.com/support/help/reset-password/</loc>
   </url>
   <url>
+    <loc>https://idlemeets.com/support/help/password-reset-email/</loc>
+  </url>
+  <url>
     <loc>https://idlemeets.com/support/help/account-access/</loc>
   </url>
   <url>
@@ -23,6 +26,9 @@
   </url>
   <url>
     <loc>https://idlemeets.com/support/help/report-safety-issue/</loc>
+  </url>
+  <url>
+    <loc>https://idlemeets.com/support/help/report-user-or-meet/</loc>
   </url>
   <url>
     <loc>https://idlemeets.com/support/help/host-a-meet/</loc>
