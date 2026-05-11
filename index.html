@@ -3,6 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#000000">
     <title>Idle | Car meets, finally organized.</title>
     <meta name="description" content="Idle is an iPhone app for discovering nearby meets, hosting events, building your garage, messaging connections, and staying connected to local car groups.">
     <meta name="apple-itunes-app" content="app-id=6762639080">
@@ -21,11 +22,36 @@
     <meta name="twitter:title" content="Idle | Car meets, finally organized.">
     <meta name="twitter:description" content="Discover meets. Host events. Build your garage. Message connections. Stay connected to the local scene.">
     <meta name="twitter:image" content="https://idlemeets.com/assets/idle-social-preview.png">
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        "name": "Idle",
+        "description": "Idle is an iPhone app for discovering nearby car meets, hosting events, building your garage, messaging connections, and staying connected to local car groups.",
+        "applicationCategory": "SocialNetworkingApplication",
+        "operatingSystem": "iOS",
+        "url": "https://idlemeets.com/",
+        "downloadUrl": "https://apps.apple.com/us/app/idle-car-meets/id6762639080",
+        "image": "https://idlemeets.com/assets/idle-social-preview.png",
+        "publisher": {
+          "@type": "Organization",
+          "name": "Idle",
+          "url": "https://idlemeets.com/"
+        },
+        "sameAs": [
+          "https://instagram.com/idlemeets",
+          "https://tiktok.com/@idlemeets",
+          "https://www.youtube.com/@idlemeets",
+          "https://x.com/idlemeets"
+        ]
+      }
+    </script>
     <link rel="canonical" href="https://idlemeets.com/">
     <link rel="icon" href="assets/idle-mark.svg" type="image/svg+xml">
-    <link rel="stylesheet" href="styles.css?v=20260510">
+    <link rel="stylesheet" href="styles.css?v=20260511b">
   </head>
   <body class="landing-page">
+    <a class="skip-link" href="#main-content">Skip to main content</a>
     <header class="site-header">
       <div class="site-shell nav" aria-label="Main navigation">
         <a class="brand" href="./" aria-label="Idle home">
@@ -35,164 +61,101 @@
         <nav class="nav-links" aria-label="Site links">
           <a href="download/">Download</a>
           <a href="support/">Support</a>
+          <a class="hide-small" href="support/help/">Help Center</a>
           <a class="hide-small" href="privacy/">Privacy</a>
         </nav>
       </div>
     </header>
 
-    <main>
+    <main id="main-content">
       <section class="site-shell hero home-hero">
         <div class="hero-copy" data-reveal>
           <span class="hero-logo" aria-hidden="true"><img src="assets/idle-app-mark.png" alt=""></span>
-          <h1 class="hero-title">Idle</h1>
-          <h2 class="hero-subtitle">Car meets, finally organized.</h2>
-          <p class="hero-body">Discover what is happening nearby, host with confidence, build your garage, and stay connected to the scene around you.</p>
+          <p class="story-label">Idle for iPhone</p>
+          <h1 class="hero-title">Car meets, finally organized.</h1>
+          <p class="hero-body">Discover what is happening nearby, host with confidence, build your garage, message connections, and stay connected to the scene around you.</p>
           <div class="hero-actions" aria-label="Primary actions">
-            <a class="button button-primary" href="https://apps.apple.com/us/app/idle-car-meets/id6762639080" rel="noopener">Download on the App Store</a>
+            <a class="button button-primary app-store-cta" href="https://apps.apple.com/us/app/idle-car-meets/id6762639080" rel="noopener">Download on the App Store</a>
             <a class="button button-secondary" href="support/">Get support</a>
           </div>
           <p class="hero-note">Built for iPhone. Designed for meets, garages, groups, messages, and real local connections.</p>
         </div>
 
-        <div class="hero-visual no-shot-visual" data-reveal aria-label="Idle product system illustration">
-          <div class="orbit-stage">
-            <span class="orbit-line orbit-one"></span>
-            <span class="orbit-line orbit-two"></span>
-            <span class="orbit-line orbit-three"></span>
-            <span class="orbit-node node-host">Host</span>
-            <span class="orbit-node node-garage">Garage</span>
-            <span class="orbit-node node-groups">Groups</span>
-            <span class="center-mark"><img src="assets/idle-app-mark.png" alt=""></span>
-          </div>
-          <div class="floating-proof proof-top">
-            <span>Nearby</span>
-            <strong>Active meet discovery</strong>
-          </div>
-          <div class="floating-proof proof-bottom">
-            <span>Local scene</span>
-            <strong>Meets, garages, groups</strong>
-          </div>
+        <div class="hero-index-panel" data-reveal aria-label="Idle product areas">
+          <a href="#discover">
+            <strong>Discover</strong>
+            <span>Find nearby meets with the context that matters.</span>
+          </a>
+          <a href="#host">
+            <strong>Host</strong>
+            <span>Create plans, flyers, parking notes, and visibility.</span>
+          </a>
+          <a href="#garage">
+            <strong>Garage</strong>
+            <span>Build a profile around what you drive.</span>
+          </a>
+          <a href="#connections">
+            <strong>Connections</strong>
+            <span>Message and stay connected after the meet.</span>
+          </a>
+          <a href="#groups">
+            <strong>Groups</strong>
+            <span>Keep local crews and private meets organized.</span>
+          </a>
         </div>
       </section>
 
-      <section class="site-shell section product-intro" data-reveal>
-        <div class="section-header">
+      <section class="site-shell section product-index" data-reveal>
+        <div class="section-header editorial-header">
+          <p class="story-label">Product</p>
           <h2 class="section-title">Everything around the meet, in one place.</h2>
-          <p class="section-lede">Idle keeps the plan, the host, the cars, the groups, and the conversation close together so the scene feels easier to follow.</p>
+          <p class="section-lede">Idle keeps the plan, the host, the cars, the groups, and the conversation close together so the scene is easier to follow.</p>
         </div>
-        <div class="feature-strip">
-          <article>
-            <span>01</span>
-            <h3>Discover meets nearby</h3>
-            <p>See what is worth pulling up to with location, host context, rules, and the details that matter before you leave.</p>
-          </article>
-          <article>
-            <span>02</span>
-            <h3>Host a meet</h3>
-            <p>Create the plan, build the flyer, add parking or ride-out details, and share the meet without scattered messages.</p>
-          </article>
-          <article>
-            <span>03</span>
-            <h3>Build your identity</h3>
-            <p>Show your garage, profile, groups, hosted activity, and connections in a way that feels native to the car scene.</p>
-          </article>
-        </div>
-      </section>
 
-      <section class="product-story">
-        <div class="site-shell story-grid">
-          <article class="story-card story-large" data-reveal>
-            <div class="story-copy">
-              <p class="story-label">Meet discovery</p>
-              <h2>Know what is happening before you roll out.</h2>
-              <p>Idle brings nearby meets into a clean, visual home feed with enough context to decide quickly and show up prepared.</p>
+        <div class="editorial-stack">
+          <article id="discover" class="editorial-row" data-reveal>
+            <span class="editorial-number">01</span>
+            <div>
+              <p class="story-label">Discover</p>
+              <h3>Know what is happening before you roll out.</h3>
             </div>
-            <div class="product-panel meet-panel" aria-hidden="true">
-              <div class="panel-topline">
-                <span>Melbourne</span>
-                <span>7:30 PM</span>
-              </div>
-              <h3>Harbor Night Meet</h3>
-              <p>No revving. No burnouts. Clear parking. Hosted nearby.</p>
-              <div class="panel-actions">
-                <span>Going</span>
-                <span>Invite</span>
-                <span>Map</span>
-              </div>
-            </div>
+            <p>See nearby meets with location, host context, rules, and the practical details that help you decide quickly.</p>
           </article>
 
-          <article class="story-card" data-reveal>
-            <div class="story-copy">
+          <article id="host" class="editorial-row" data-reveal>
+            <span class="editorial-number">02</span>
+            <div>
+              <p class="story-label">Host</p>
+              <h3>Create the meet, make the flyer, share fast.</h3>
+            </div>
+            <p>Structure the plan from the start with date, time, location, visibility, parking notes, ride-outs, and clean sharing.</p>
+          </article>
+
+          <article id="garage" class="editorial-row" data-reveal>
+            <span class="editorial-number">03</span>
+            <div>
               <p class="story-label">Garage</p>
-              <h2>Your cars have a place.</h2>
-              <p>Build a garage that travels with your profile and helps the right connections understand what you drive.</p>
+              <h3>Your cars have a place.</h3>
             </div>
-            <div class="product-panel garage-panel" aria-hidden="true">
-              <div class="garage-stack">
-                <span></span>
-                <span></span>
-                <span></span>
-              </div>
-              <div class="panel-chip">2024 BMW M240i RWD</div>
-              <div class="panel-row">
-                <span>Primary badge</span>
-                <strong>Garage identity</strong>
-              </div>
-            </div>
+            <p>Build a garage and profile identity that helps the right connections understand what you drive and what you show up in.</p>
           </article>
 
-          <article class="story-card" data-reveal>
-            <div class="story-copy">
-              <p class="story-label">Hosting</p>
-              <h2>Create the meet, make the flyer, share fast.</h2>
-              <p>Host tools keep the basics structured from the start, with support for flyers, parking plans, ride-outs, and visibility.</p>
+          <article id="connections" class="editorial-row" data-reveal>
+            <span class="editorial-number">04</span>
+            <div>
+              <p class="story-label">Connections</p>
+              <h3>Keep the conversation close to the scene.</h3>
             </div>
-            <div class="product-panel host-panel" aria-hidden="true">
-              <div class="host-steps">
-                <span>Create</span>
-                <span>Flyer</span>
-                <span>Share</span>
-              </div>
-              <div class="host-row">
-                <span>Title</span>
-                <strong>Midnight Lines</strong>
-              </div>
-              <div class="host-row">
-                <span>Location</span>
-                <strong>Harbor Garage</strong>
-              </div>
-            </div>
+            <p>Message connections, follow up after meets, and keep the people you actually meet from getting lost in scattered threads.</p>
           </article>
-        </div>
-      </section>
 
-      <section class="site-shell section showcase" data-reveal>
-        <div class="section-header">
-          <h2 class="section-title">Built for the whole scene.</h2>
-          <p class="section-lede">From group discovery to profile identity, Idle gives every part of a meet somewhere intentional to live.</p>
-        </div>
-        <div class="showcase-grid">
-          <article class="showcase-card">
-            <div class="showcase-symbol" aria-hidden="true">01</div>
+          <article id="groups" class="editorial-row" data-reveal>
+            <span class="editorial-number">05</span>
             <div>
-              <h3>Join groups</h3>
-              <p>Stay connected to groups, private meets, requests, and the local scene without losing the thread.</p>
+              <p class="story-label">Groups</p>
+              <h3>Stay connected to local crews.</h3>
             </div>
-          </article>
-          <article class="showcase-card">
-            <div class="showcase-symbol" aria-hidden="true">02</div>
-            <div>
-              <h3>Profile proof</h3>
-              <p>Let people see your garage, hosted history, groups, and connections in one polished profile.</p>
-            </div>
-          </article>
-          <article class="showcase-card">
-            <div class="showcase-symbol" aria-hidden="true">03</div>
-            <div>
-              <h3>Clear meet details</h3>
-              <p>Add parking plans and host notes so attendees know where to go and what to expect.</p>
-            </div>
+            <p>Join groups, follow private meet activity, and keep local crews organized without making the app feel noisy.</p>
           </article>
         </div>
       </section>
@@ -203,22 +166,26 @@
             <h2>Idle is live on iPhone.</h2>
             <p>Download the app and find the next meet, garage, group, or connection around you.</p>
           </div>
-          <a class="button button-primary" href="https://apps.apple.com/us/app/idle-car-meets/id6762639080" rel="noopener">Download on the App Store</a>
+          <a class="button button-primary app-store-cta" href="https://apps.apple.com/us/app/idle-car-meets/id6762639080" rel="noopener">Download on the App Store</a>
         </div>
       </section>
     </main>
-
     <footer class="site-footer">
       <div class="site-shell footer-inner">
-        <span>&copy; 2026 Idle. All rights reserved.</span>
-        <div class="footer-links">
-          <a href="support/">Support</a>
-          <a href="privacy/">Privacy</a>
-          <a href="https://instagram.com/idlemeets" rel="noopener">Instagram</a>
-          <a href="https://tiktok.com/@idlemeets" rel="noopener">TikTok</a>
-          <a href="https://www.youtube.com/@idlemeets" rel="noopener">YouTube</a>
-          <a href="https://x.com/idlemeets" rel="noopener">X</a>
+        <div class="footer-social" aria-label="Idle social links">
+          <a href="https://apps.apple.com/us/app/idle-car-meets/id6762639080" rel="noopener" aria-label="Download Idle on the App Store">App Store</a>
+          <a href="https://instagram.com/idlemeets" rel="noopener" aria-label="Instagram">Instagram</a>
+          <a href="https://tiktok.com/@idlemeets" rel="noopener" aria-label="TikTok">TikTok</a>
+          <a href="https://www.youtube.com/@idlemeets" rel="noopener" aria-label="YouTube">YouTube</a>
+          <a href="https://x.com/idlemeets" rel="noopener" aria-label="X">X</a>
         </div>
+        <span class="footer-copy">&copy; 2026 Idle. All rights reserved.</span>
+        <nav class="footer-page-links" aria-label="Footer links">
+          <a href="download/">Download</a>
+          <a href="support/">Support</a>
+          <a href="support/help/">Help Center</a>
+          <a href="privacy/">Privacy</a>
+        </nav>
       </div>
     </footer>
     <script src="script.js" defer></script>

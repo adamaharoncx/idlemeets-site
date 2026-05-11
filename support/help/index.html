@@ -3,13 +3,30 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#000000">
     <title>Help Center | Idle Support</title>
     <meta name="description" content="Help articles for Idle account access, password resets, missing reset emails, safety reports, hosting meets, garage profiles, and account deletion.">
+    <meta property="og:site_name" content="Idle">
+    <meta property="og:title" content="Help Center | Idle Support">
+    <meta property="og:description" content="Help articles for Idle account access, safety reports, hosting meets, garage profiles, and account deletion.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://idlemeets.com/support/help/">
+    <meta property="og:image" content="https://idlemeets.com/assets/idle-social-preview.png">
+    <meta property="og:image:secure_url" content="https://idlemeets.com/assets/idle-social-preview.png">
+    <meta property="og:image:type" content="image/png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="Idle. Car meets, finally organized.">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Help Center | Idle Support">
+    <meta name="twitter:description" content="Help articles for Idle account access, safety reports, hosting meets, garage profiles, and account deletion.">
+    <meta name="twitter:image" content="https://idlemeets.com/assets/idle-social-preview.png">
     <link rel="canonical" href="https://idlemeets.com/support/help/">
     <link rel="icon" href="../../assets/idle-mark.svg" type="image/svg+xml">
-    <link rel="stylesheet" href="../../styles.css?v=20260510">
+    <link rel="stylesheet" href="../../styles.css?v=20260511">
   </head>
   <body>
+    <a class="skip-link" href="#main-content">Skip to main content</a>
     <header class="site-header">
       <div class="site-shell nav" aria-label="Main navigation">
         <a class="brand" href="../../" aria-label="Idle home">
@@ -19,16 +36,40 @@
         <nav class="nav-links" aria-label="Site links">
           <a href="../../download/">Download</a>
           <a href="../">Support</a>
+          <a class="hide-small" href="../../support/help/">Help Center</a>
           <a class="hide-small" href="../../privacy/">Privacy</a>
         </nav>
       </div>
     </header>
 
-    <main class="site-shell">
+    <main id="main-content" class="site-shell">
       <section class="page-hero help-hero">
         <p class="breadcrumb"><a href="../">Support</a> / Help Center</p>
         <h1>Help Center</h1>
         <p>Quick answers for common Idle questions. If an article does not solve it, email support and include the details listed on the Support page.</p>
+      </section>
+
+      <section class="help-category-nav" aria-label="Help topics">
+        <a href="#account-help">
+          <span>Account</span>
+          <strong>Sign in and password</strong>
+        </a>
+        <a href="#hosting-help">
+          <span>Hosting</span>
+          <strong>Create cleaner meets</strong>
+        </a>
+        <a href="#garage-help">
+          <span>Garage</span>
+          <strong>Profile and car identity</strong>
+        </a>
+        <a href="#safety-help">
+          <span>Safety</span>
+          <strong>Reports and blocking</strong>
+        </a>
+        <a href="#privacy-help">
+          <span>Privacy</span>
+          <strong>Account deletion</strong>
+        </a>
       </section>
 
       <section class="help-contact-panel support-assistant-panel">
@@ -46,7 +87,7 @@
           <p class="story-label">Account</p>
           <h2 id="account-help" class="section-title">Access and account settings</h2>
         </div>
-        <div class="article-link-grid">
+        <div class="article-link-grid article-row-list">
           <a class="article-card" href="reset-password/">
             <span>Password</span>
             <strong>Reset your password</strong>
@@ -62,30 +103,43 @@
             <strong>Trouble accessing your account</strong>
             <p>What to check if sign in, email links, or Apple sign-in are not working.</p>
           </a>
-          <a class="article-card" href="delete-account/">
-            <span>Privacy</span>
-            <strong>How to delete your account</strong>
-            <p>How to request account deletion and what to include if you need help.</p>
-          </a>
         </div>
       </section>
 
-      <section class="help-section" aria-labelledby="product-help">
+      <section class="help-section" aria-labelledby="hosting-help">
         <div class="section-header">
-          <p class="story-label">Using Idle</p>
-          <h2 id="product-help" class="section-title">Meets, garage, profile, and safety</h2>
+          <p class="story-label">Hosting</p>
+          <h2 id="hosting-help" class="section-title">Create and manage meets</h2>
         </div>
-        <div class="article-link-grid">
+        <div class="article-link-grid article-row-list">
           <a class="article-card" href="host-a-meet/">
             <span>Hosting</span>
             <strong>Host a meet</strong>
             <p>Prepare the title, time, location, rules, flyer, parking plan, and visibility.</p>
           </a>
+        </div>
+      </section>
+
+      <section class="help-section" aria-labelledby="garage-help">
+        <div class="section-header">
+          <p class="story-label">Garage</p>
+          <h2 id="garage-help" class="section-title">Profile and car identity</h2>
+        </div>
+        <div class="article-link-grid article-row-list">
           <a class="article-card" href="manage-garage-profile/">
             <span>Profile</span>
             <strong>Manage your garage and profile</strong>
             <p>Keep your garage, primary badge, profile, and connections clear.</p>
           </a>
+        </div>
+      </section>
+
+      <section class="help-section" aria-labelledby="safety-help">
+        <div class="section-header">
+          <p class="story-label">Safety</p>
+          <h2 id="safety-help" class="section-title">Reports, blocking, and safety</h2>
+        </div>
+        <div class="article-link-grid article-row-list">
           <a class="article-card" href="report-user-or-meet/">
             <span>Reporting</span>
             <strong>How to report a user or meet</strong>
@@ -99,6 +153,20 @@
         </div>
       </section>
 
+      <section class="help-section" aria-labelledby="privacy-help">
+        <div class="section-header">
+          <p class="story-label">Privacy</p>
+          <h2 id="privacy-help" class="section-title">Account deletion</h2>
+        </div>
+        <div class="article-link-grid article-row-list">
+          <a class="article-card" href="delete-account/">
+            <span>Privacy</span>
+            <strong>How to delete your account</strong>
+            <p>How to request account deletion and what to include if you need help.</p>
+          </a>
+        </div>
+      </section>
+
       <section class="help-contact-panel">
         <div>
           <p class="mini-label">Still need help?</p>
@@ -108,18 +176,22 @@
         <a class="button button-primary" href="mailto:idle@engineer.com">idle@engineer.com</a>
       </section>
     </main>
-
     <footer class="site-footer">
       <div class="site-shell footer-inner">
-        <span>&copy; 2026 Idle. All rights reserved.</span>
-        <div class="footer-links">
-          <a href="../">Support</a>
-          <a href="../../privacy/">Privacy</a>
-          <a href="https://instagram.com/idlemeets" rel="noopener">Instagram</a>
-          <a href="https://tiktok.com/@idlemeets" rel="noopener">TikTok</a>
-          <a href="https://www.youtube.com/@idlemeets" rel="noopener">YouTube</a>
-          <a href="https://x.com/idlemeets" rel="noopener">X</a>
+        <div class="footer-social" aria-label="Idle social links">
+          <a href="https://apps.apple.com/us/app/idle-car-meets/id6762639080" rel="noopener" aria-label="Download Idle on the App Store">App Store</a>
+          <a href="https://instagram.com/idlemeets" rel="noopener" aria-label="Instagram">Instagram</a>
+          <a href="https://tiktok.com/@idlemeets" rel="noopener" aria-label="TikTok">TikTok</a>
+          <a href="https://www.youtube.com/@idlemeets" rel="noopener" aria-label="YouTube">YouTube</a>
+          <a href="https://x.com/idlemeets" rel="noopener" aria-label="X">X</a>
         </div>
+        <span class="footer-copy">&copy; 2026 Idle. All rights reserved.</span>
+        <nav class="footer-page-links" aria-label="Footer links">
+          <a href="../../download/">Download</a>
+          <a href="../../support/">Support</a>
+          <a href="../../support/help/">Help Center</a>
+          <a href="../../privacy/">Privacy</a>
+        </nav>
       </div>
     </footer>
   </body>
