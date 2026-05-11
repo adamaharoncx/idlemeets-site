@@ -916,6 +916,37 @@ p {
   overflow-wrap: anywhere;
 }
 
+.support-assistant-card {
+  padding: clamp(24px, 4vw, 34px);
+  border: 1px solid rgba(125, 92, 255, 0.3);
+  border-radius: var(--radius);
+  background:
+    radial-gradient(circle at 92% 8%, rgba(125, 92, 255, 0.22), transparent 17rem),
+    linear-gradient(145deg, rgba(255, 255, 255, 0.085), rgba(255, 255, 255, 0.035)),
+    rgba(255, 255, 255, 0.045);
+  box-shadow: var(--shadow);
+}
+
+.support-assistant-card h2 {
+  margin-bottom: 10px;
+}
+
+.support-assistant-card p {
+  max-width: 650px;
+}
+
+.assistant-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin: 22px 0 14px;
+}
+
+.support-note {
+  color: var(--faint);
+  font-size: 0.92rem;
+}
+
 .breadcrumb {
   margin-bottom: 18px;
   color: var(--faint);
@@ -1016,6 +1047,10 @@ p {
 
 .help-contact-panel p:last-child {
   margin-bottom: 0;
+}
+
+.support-assistant-panel {
+  margin-bottom: clamp(50px, 8vw, 82px);
 }
 
 .help-article {
