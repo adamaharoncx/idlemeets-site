@@ -1208,7 +1208,7 @@ p {
 
 .help-category-nav {
   display: grid;
-  grid-template-columns: repeat(5, minmax(0, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(152px, 1fr));
   margin-bottom: clamp(52px, 8vw, 86px);
   border-top: 1px solid rgba(255, 255, 255, 0.13);
   border-bottom: 1px solid rgba(255, 255, 255, 0.13);
