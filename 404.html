@@ -9,6 +9,30 @@
     <meta name="robots" content="noindex">
     <link rel="icon" href="/assets/idle-mark.svg" type="image/svg+xml">
     <link rel="stylesheet" href="/styles.css?v=20260512a">
+    <style>
+      .meet-link-visual {
+        display: grid;
+        place-items: center;
+        width: min(34vw, 136px);
+        aspect-ratio: 1;
+        margin: 0 auto clamp(26px, 4vw, 38px);
+        border-radius: 30%;
+        background: rgba(255, 255, 255, 0.95);
+        box-shadow: 0 22px 80px rgba(255, 255, 255, 0.08);
+      }
+
+      .meet-link-mark {
+        width: 68%;
+        height: 68%;
+        background: #000;
+        -webkit-mask: url("/assets/idle-mark.svg") center / contain no-repeat;
+        mask: url("/assets/idle-mark.svg") center / contain no-repeat;
+      }
+
+      .meet-link-visual[hidden] {
+        display: none;
+      }
+    </style>
   </head>
   <body class="not-found-page">
     <a class="skip-link" href="#main-content">Skip to main content</a>
@@ -30,7 +54,7 @@
 
     <main id="main-content" class="not-found-main">
       <section class="site-shell not-found-hero" aria-labelledby="not-found-title">
-        <div class="simple-engine-visual" aria-hidden="true">
+        <div class="simple-engine-visual" aria-hidden="true" data-default-visual>
           <svg class="simple-engine-icon" viewBox="0 0 540 330">
             <path d="M22 142h54v-34c0-32 20-52 52-52h52c16 0 27-7 34-20l9-16h118l12 24c6 12 17 18 31 18h48v46h52v112h-52v46h-80c-18 0-31 7-42 22l-22 30H167l-39-42H76c-32 0-52-20-52-52v-82z"/>
             <path d="M224 20v-20h112v20"/>
@@ -38,13 +62,16 @@
             <path d="M22 142v82"/>
           </svg>
         </div>
+        <div class="meet-link-visual" aria-hidden="true" data-meet-visual hidden>
+          <span class="meet-link-mark"></span>
+        </div>
 
         <div class="not-found-copy">
-          <h1 id="not-found-title">404</h1>
-          <p>Page not found.</p>
+          <h1 id="not-found-title" data-fallback-title>404</h1>
+          <p data-fallback-copy>Page not found.</p>
           <div class="link-row not-found-actions">
-            <a class="button button-primary" href="/">Back to Idle</a>
-            <a class="button button-secondary" href="/support/help/">Help Center</a>
+            <a class="button button-primary" href="/" data-primary-action>Back to Idle</a>
+            <a class="button button-secondary" href="/support/help/" data-secondary-action>Help Center</a>
           </div>
         </div>
       </section>
@@ -68,5 +95,45 @@
         </nav>
       </div>
     </footer>
+    <script>
+      (function () {
+        if (!window.location.pathname.startsWith("/meet/")) {
+          return;
+        }
+
+        document.title = "Open this meet in Idle | Idle";
+
+        var title = document.querySelector("[data-fallback-title]");
+        var copy = document.querySelector("[data-fallback-copy]");
+        var primaryAction = document.querySelector("[data-primary-action]");
+        var secondaryAction = document.querySelector("[data-secondary-action]");
+        var defaultVisual = document.querySelector("[data-default-visual]");
+        var meetVisual = document.querySelector("[data-meet-visual]");
+
+        if (title) {
+          title.textContent = "Open this meet in Idle";
+        }
+
+        if (copy) {
+          copy.textContent = "This meet opens in the Idle app. If you do not have Idle yet, download it from the App Store.";
+        }
+
+        if (primaryAction) {
+          primaryAction.textContent = "Download Idle";
+          primaryAction.href = "https://apps.apple.com/us/app/idle-car-meets/id6762639080";
+          primaryAction.rel = "noopener";
+        }
+
+        if (secondaryAction) {
+          secondaryAction.textContent = "Back to Idle";
+          secondaryAction.href = "/";
+        }
+
+        if (defaultVisual && meetVisual) {
+          defaultVisual.hidden = true;
+          meetVisual.hidden = false;
+        }
+      })();
+    </script>
   </body>
 </html>
