@@ -88,6 +88,7 @@ Replace `YOUR-GITHUB-USERNAME` with the real GitHub username or organization tha
 - Instagram: `https://instagram.com/idlemeets`
 - TikTok: `https://tiktok.com/@idlemeets`
 - YouTube: `https://www.youtube.com/@idlemeets`
+- Snapchat: `https://www.snapchat.com/@idlemeets`
 - X: `https://x.com/idlemeets`
 - Current contact email: `idle@engineer.com`
 
