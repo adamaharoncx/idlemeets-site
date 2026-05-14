@@ -5,6 +5,8 @@
       {
         "appID": "AM3486YJ4M.com.adam.Idle",
         "paths": [
+          "/meet",
+          "/meet/",
           "/meet/*"
         ]
       }
