@@ -9,7 +9,14 @@
           "/meet/",
           "/meet/*",
           "/group",
-          "/group/"
+          "/group/",
+          "/group/*",
+          "/profile",
+          "/profile/",
+          "/profile/*",
+          "/invite/group",
+          "/invite/group/",
+          "/invite/group/*"
         ]
       }
     ]
