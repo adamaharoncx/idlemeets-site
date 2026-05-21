@@ -90,7 +90,7 @@ Replace `YOUR-GITHUB-USERNAME` with the real GitHub username or organization tha
 - YouTube: `https://www.youtube.com/@idlemeets`
 - Snapchat: `https://www.snapchat.com/@idlemeets`
 - X: `https://x.com/idlemeets`
-- Current contact email: `idle@engineer.com`
+- Current contact email: `support@idlemeets.com`
 
 Later, replace the contact email with a domain email address after email hosting is configured for `idlemeets.com`.
 
