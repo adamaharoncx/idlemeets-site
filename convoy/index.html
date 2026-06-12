@@ -1,0 +1,233 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#000000">
+    <title>Convoy invite on Idle</title>
+    <meta name="description" content="Join this convoy in Idle. Download Idle from the App Store if you do not have it yet.">
+    <meta name="apple-itunes-app" content="app-id=6762639080">
+    <link rel="canonical" href="https://idlemeets.com/convoy/">
+    <meta property="og:site_name" content="Idle">
+    <meta property="og:title" content="Convoy invite on Idle">
+    <meta property="og:description" content="Join this convoy in Idle. Download Idle from the App Store if you do not have it yet.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://idlemeets.com/convoy/">
+    <meta property="og:image" content="https://idlemeets.com/assets/idle-social-preview-20260513a.png">
+    <meta property="og:image:secure_url" content="https://idlemeets.com/assets/idle-social-preview-20260513a.png">
+    <meta property="og:image:type" content="image/png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="Idle. Join this convoy in Idle.">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Convoy invite on Idle">
+    <meta name="twitter:description" content="Join this convoy in Idle. Download Idle from the App Store if you do not have it yet.">
+    <meta name="twitter:image" content="https://idlemeets.com/assets/idle-social-preview-20260513a.png">
+    <link rel="icon" href="/assets/idle-mark.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="/styles.css?v=20260512a">
+    <style>
+      .convoy-link-visual {
+        display: grid;
+        place-items: center;
+        width: min(18vw, 86px);
+        aspect-ratio: 1;
+        margin: 0 auto clamp(20px, 3vw, 30px);
+        color: #fff;
+        filter: drop-shadow(0 18px 54px rgba(255, 255, 255, 0.08));
+      }
+
+      .convoy-link-mark {
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+      }
+
+      .convoy-code-card {
+        display: none;
+        width: min(100%, 360px);
+        margin-top: 20px;
+        padding: 17px 18px 18px;
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        border-radius: 18px;
+        background: rgba(255, 255, 255, 0.045);
+      }
+
+      .convoy-code-card.is-visible {
+        display: grid;
+        gap: 10px;
+      }
+
+      .convoy-code-label {
+        color: var(--faint);
+        font-size: 0.75rem;
+        font-weight: 800;
+        letter-spacing: 0.12em;
+        line-height: 1;
+        text-transform: uppercase;
+      }
+
+      .convoy-code-value {
+        color: #fff;
+        font-size: clamp(2rem, 9vw, 3rem);
+        font-weight: 850;
+        letter-spacing: 0.08em;
+        line-height: 0.95;
+        overflow-wrap: anywhere;
+      }
+
+      .convoy-code-note {
+        color: var(--muted);
+        font-size: 0.95rem;
+        line-height: 1.45;
+      }
+
+      .convoy-page .not-found-hero {
+        padding-top: clamp(34px, 5vw, 58px);
+        padding-bottom: clamp(42px, 6vw, 70px);
+      }
+
+      .convoy-page .not-found-copy h1 {
+        max-width: 650px;
+        font-size: clamp(3.3rem, 8vw, 5.6rem);
+        line-height: 0.9;
+      }
+
+      .convoy-page .not-found-copy p {
+        max-width: 500px;
+      }
+
+      .convoy-page .brand-mark::before {
+        display: none;
+      }
+
+      .convoy-page .brand-mark img {
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+      }
+    </style>
+  </head>
+  <body class="not-found-page convoy-page">
+    <a class="skip-link" href="#main-content">Skip to main content</a>
+    <header class="site-header">
+      <div class="site-shell nav" aria-label="Main navigation">
+        <a class="brand" href="/" aria-label="Idle home">
+          <span class="brand-mark"><img src="/assets/idle-symbol-white-transparent.png" alt=""></span>
+          <span>Idle</span>
+        </a>
+        <nav class="nav-links" aria-label="Site links">
+          <a href="/download/">Download</a>
+          <a href="/updates/">Updates</a>
+          <a href="/support/">Support</a>
+          <a class="hide-small" href="/support/help/">Help Center</a>
+          <a class="hide-small" href="/privacy/">Privacy</a>
+        </nav>
+      </div>
+    </header>
+
+    <main id="main-content" class="not-found-main">
+      <section class="site-shell not-found-hero" aria-labelledby="convoy-link-title">
+        <div class="convoy-link-visual" aria-hidden="true">
+          <img class="convoy-link-mark" src="/assets/idle-symbol-white-transparent.png" alt="">
+        </div>
+
+        <div class="not-found-copy">
+          <h1 id="convoy-link-title">Join this convoy</h1>
+          <p>This convoy opens in Idle. If you do not have the app yet, download it and enter the join code.</p>
+
+          <div class="convoy-code-card" data-code-card>
+            <span class="convoy-code-label">Join code</span>
+            <strong class="convoy-code-value" data-code-value></strong>
+            <span class="convoy-code-note">Keep this code handy after installing Idle.</span>
+          </div>
+
+          <div class="link-row not-found-actions">
+            <a class="button button-primary app-store-cta" href="https://apps.apple.com/us/app/idle-car-meets/id6762639080" rel="noopener">Download Idle</a>
+            <button class="button button-secondary" type="button" data-copy-code hidden>Copy code</button>
+            <a class="button button-secondary" href="/">Back to Idle</a>
+          </div>
+        </div>
+      </section>
+    </main>
+    <footer class="site-footer">
+      <div class="site-shell footer-inner">
+        <div class="footer-social" aria-label="Idle social links">
+          <a href="https://apps.apple.com/us/app/idle-car-meets/id6762639080" rel="noopener" aria-label="Download Idle on the App Store">App Store</a>
+          <a href="https://instagram.com/idlemeets" rel="noopener" aria-label="Instagram">Instagram</a>
+          <a href="https://tiktok.com/@idlemeets" rel="noopener" aria-label="TikTok">TikTok</a>
+          <a href="https://www.youtube.com/@idlemeets" rel="noopener" aria-label="YouTube">YouTube</a>
+          <a href="https://www.snapchat.com/@idlemeets" rel="noopener" aria-label="Snapchat">Snapchat</a>
+          <a href="https://x.com/idlemeets" rel="noopener" aria-label="X">X</a>
+        </div>
+        <span class="footer-copy">&copy; 2026 Idle. All rights reserved.</span>
+        <nav class="footer-page-links" aria-label="Footer links">
+          <a href="/download/">Download</a>
+          <a href="/updates/">Updates</a>
+          <a href="/support/">Support</a>
+          <a href="/support/help/">Help Center</a>
+          <a href="/privacy/">Privacy</a>
+        </nav>
+      </div>
+    </footer>
+    <script>
+      (function () {
+        var params = new URLSearchParams(window.location.search);
+        var rawCode = params.get("code");
+        var code = rawCode ? rawCode.trim().toUpperCase().replace(/[^A-Z0-9-]/g, "") : "";
+        var codeCard = document.querySelector("[data-code-card]");
+        var codeValue = document.querySelector("[data-code-value]");
+        var copyButton = document.querySelector("[data-copy-code]");
+
+        if (!code) {
+          return;
+        }
+
+        if (codeCard && codeValue) {
+          codeValue.textContent = code;
+          codeCard.classList.add("is-visible");
+        }
+
+        if (!copyButton) {
+          return;
+        }
+
+        function copyWithFallback(value) {
+          var textArea = document.createElement("textarea");
+
+          textArea.value = value;
+          textArea.setAttribute("readonly", "");
+          textArea.style.position = "fixed";
+          textArea.style.top = "0";
+          textArea.style.left = "-9999px";
+          document.body.appendChild(textArea);
+          textArea.select();
+
+          try {
+            return document.execCommand("copy");
+          } finally {
+            document.body.removeChild(textArea);
+          }
+        }
+
+        copyButton.hidden = false;
+        copyButton.addEventListener("click", function () {
+          var clipboardWrite = navigator.clipboard && navigator.clipboard.writeText
+            ? navigator.clipboard.writeText(code)
+            : Promise.reject();
+
+          clipboardWrite.catch(function () {
+            if (!copyWithFallback(code)) {
+              throw new Error("Copy command failed");
+            }
+          }).then(function () {
+            copyButton.textContent = "Copied";
+          }).catch(function () {
+            copyButton.textContent = "Copy failed";
+          });
+        });
+      })();
+    </script>
+  </body>
+</html>
