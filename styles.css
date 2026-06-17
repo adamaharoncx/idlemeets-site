@@ -927,6 +927,18 @@ p {
   background: #000;
 }
 
+.final-download .button-secondary {
+  color: #070707;
+  border-color: rgba(0, 0, 0, 0.16);
+  background: rgba(7, 7, 7, 0.045);
+}
+
+.final-download .button-secondary:hover,
+.final-download .button-secondary:focus-visible {
+  border-color: rgba(0, 0, 0, 0.3);
+  background: rgba(7, 7, 7, 0.08);
+}
+
 .download-hero {
   display: grid;
   grid-template-columns: minmax(0, 0.9fr) minmax(300px, 0.75fr);
@@ -1040,6 +1052,64 @@ p {
 .download-proof-list p {
   max-width: 620px;
   margin-bottom: 0;
+}
+
+.features-hero {
+  max-width: 940px;
+  padding-bottom: clamp(58px, 8vw, 88px);
+}
+
+.features-hero .link-row {
+  margin-top: 28px;
+}
+
+.feature-list {
+  padding-bottom: clamp(76px, 10vw, 136px);
+  border-top: 1px solid rgba(255, 255, 255, 0.13);
+}
+
+.feature-row {
+  display: grid;
+  grid-template-columns: 72px minmax(0, 0.74fr) minmax(260px, 0.84fr);
+  gap: clamp(22px, 4vw, 52px);
+  align-items: start;
+  padding: clamp(32px, 5vw, 56px) 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.13);
+}
+
+.feature-row h2 {
+  max-width: 620px;
+  margin: 0;
+  color: #fff;
+  font-size: clamp(1.9rem, 4vw, 4rem);
+  font-weight: 840;
+  line-height: 1;
+}
+
+.feature-row ul {
+  display: grid;
+  gap: 12px;
+  margin: 1.85rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.feature-row li {
+  position: relative;
+  padding-left: 20px;
+  color: rgba(247, 247, 244, 0.68);
+  font-size: clamp(1rem, 1.7vw, 1.14rem);
+}
+
+.feature-row li::before {
+  position: absolute;
+  top: 0.72em;
+  left: 0;
+  width: 6px;
+  height: 6px;
+  content: "";
+  border-radius: 50%;
+  background: rgba(247, 247, 244, 0.84);
 }
 
 .download-points strong {
@@ -1909,7 +1979,8 @@ body.not-found-page::after {
     width: 100%;
   }
 
-  .editorial-row {
+  .editorial-row,
+  .feature-row {
     grid-template-columns: 56px minmax(0, 1fr);
   }
 
@@ -2076,7 +2147,8 @@ body.not-found-page::after {
     padding: 20px 0;
   }
 
-  .editorial-row {
+  .editorial-row,
+  .feature-row {
     grid-template-columns: 1fr;
     gap: 14px;
   }
@@ -2088,6 +2160,14 @@ body.not-found-page::after {
 
   .editorial-row h3 {
     font-size: clamp(2rem, 11vw, 3.2rem);
+  }
+
+  .feature-row h2 {
+    font-size: clamp(2rem, 11vw, 3.2rem);
+  }
+
+  .feature-row ul {
+    margin-top: 0;
   }
 
   .section {
