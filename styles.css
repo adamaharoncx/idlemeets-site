@@ -162,11 +162,11 @@ p {
   height: 100%;
   content: "";
   background: currentColor;
-  -webkit-mask-image: url("assets/idle-mark.svg");
+  -webkit-mask-image: url("assets/idle-app-mark.png");
   -webkit-mask-position: center;
   -webkit-mask-repeat: no-repeat;
   -webkit-mask-size: contain;
-  mask-image: url("assets/idle-mark.svg");
+  mask-image: url("assets/idle-app-mark.png");
   mask-position: center;
   mask-repeat: no-repeat;
   mask-size: contain;
