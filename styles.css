@@ -1660,17 +1660,24 @@ p {
   background: rgba(0, 0, 0, 0.18);
 }
 
+.site-footer .site-shell {
+  width: min(100% - 40px, 1320px);
+}
+
 .footer-inner {
+  position: relative;
   display: grid;
-  grid-template-columns: minmax(160px, 0.8fr) auto minmax(420px, 1.2fr);
+  grid-template-columns: minmax(130px, 0.6fr) auto minmax(590px, 1.45fr);
   align-items: center;
-  gap: 20px;
+  gap: 16px;
   min-height: 122px;
   color: var(--faint);
   font-size: 0.92rem;
 }
 
 .footer-copy {
+  position: relative;
+  left: 36px;
   justify-self: center;
   text-align: center;
   white-space: nowrap;
@@ -1691,7 +1698,8 @@ p {
 .footer-page-links {
   justify-self: end;
   justify-content: flex-end;
-  gap: 12px 22px;
+  flex-wrap: nowrap;
+  gap: 10px 14px;
   min-height: 0;
   padding: 0;
   border: 0;
@@ -1702,6 +1710,7 @@ p {
   padding: 4px 0;
   color: rgba(247, 247, 244, 0.62);
   font-weight: 700;
+  white-space: nowrap;
 }
 
 .footer-page-links a:hover,
@@ -1797,6 +1806,34 @@ p {
 .footer-social a[href*="apps.apple.com"]:hover,
 .footer-social a[href*="apps.apple.com"]:focus-visible {
   color: #fff;
+}
+
+@media (max-width: 1120px) and (min-width: 981px) {
+  .footer-inner {
+    grid-template-columns: 1fr;
+    justify-items: center;
+    gap: 16px;
+    padding: 30px 0;
+  }
+
+  .footer-social,
+  .footer-page-links {
+    justify-self: center;
+    justify-content: center;
+  }
+
+  .footer-copy {
+    position: static;
+    left: auto;
+    order: 2;
+    white-space: normal;
+  }
+
+  .footer-page-links {
+    order: 3;
+    flex-wrap: wrap;
+    max-width: 460px;
+  }
 }
 
 body.not-found-page {
@@ -2258,12 +2295,16 @@ body.not-found-page::after {
   }
 
   .footer-copy {
+    position: static;
+    left: auto;
     order: 2;
     white-space: normal;
   }
 
   .footer-page-links {
     order: 3;
+    flex-wrap: wrap;
+    max-width: 460px;
   }
 
   .not-found-actions {
