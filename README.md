@@ -12,9 +12,15 @@ This site is intentionally simple:
 ## Pages
 
 - `/`
+- `/download/`
+- `/features/`
+- `/hosts/`
+- `/submit-meet/`
 - `/privacy/`
 - `/support/`
-- `/download/`
+- `/support/help/`
+- `/support/requests/`
+- `/updates/`
 
 ## Beginner explanation
 
