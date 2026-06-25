@@ -14,6 +14,7 @@ This site is intentionally simple:
 - `/`
 - `/download/`
 - `/features/`
+- `/car-meet-app/`
 - `/hosts/`
 - `/submit-meet/`
 - `/privacy/`

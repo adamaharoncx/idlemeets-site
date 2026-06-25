@@ -1888,7 +1888,7 @@ p {
   color: #fff;
 }
 
-@media (max-width: 1390px) and (min-width: 981px) {
+@media (max-width: 1390px) {
   .footer-inner {
     grid-template-columns: 1fr;
     justify-items: center;
