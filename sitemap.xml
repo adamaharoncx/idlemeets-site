@@ -25,6 +25,9 @@
     <loc>https://idlemeets.com/support/help/</loc>
   </url>
   <url>
+    <loc>https://idlemeets.com/sitemap/</loc>
+  </url>
+  <url>
     <loc>https://idlemeets.com/support/help/what-is-idle/</loc>
   </url>
   <url>
@@ -128,20 +131,5 @@
   </url>
   <url>
     <loc>https://idlemeets.com/download/</loc>
-  </url>
-  <url>
-    <loc>https://idlemeets.com/group/</loc>
-  </url>
-  <url>
-    <loc>https://idlemeets.com/convoy/</loc>
-  </url>
-  <url>
-    <loc>https://idlemeets.com/meet/</loc>
-  </url>
-  <url>
-    <loc>https://idlemeets.com/profile/</loc>
-  </url>
-  <url>
-    <loc>https://idlemeets.com/invite/group/</loc>
   </url>
 </urlset>
