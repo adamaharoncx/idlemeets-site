@@ -25,29 +25,49 @@
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
-        "@type": "SoftwareApplication",
-        "name": "Idle",
-        "alternateName": "Idle Car Meets",
-        "description": "Idle is an iPhone car meet app for discovering nearby car meets, hosting meets, sharing flyers, building your garage, messaging connections, and staying connected to local car groups.",
+        "@type": "MobileApplication",
+        "@id": "https://idlemeets.com/#mobile-application",
+        "name": "Idle: Car Meets",
+        "alternateName": "Idle",
+        "description": "Idle is an iPhone car meet app for discovering nearby meets, hosting meets, sharing flyers, building your garage, messaging connections, and staying connected to local car groups.",
         "applicationCategory": "SocialNetworkingApplication",
         "operatingSystem": "iOS",
         "url": "https://idlemeets.com/car-meet-app/",
         "downloadUrl": "https://apps.apple.com/us/app/idle-car-meets/id6762639080",
         "image": "https://idlemeets.com/assets/idle-social-preview-20260513a.png",
+        "isAccessibleForFree": true,
         "publisher": {
           "@type": "Organization",
+          "@id": "https://idlemeets.com/#organization",
           "name": "Idle",
-          "url": "https://idlemeets.com/"
+          "url": "https://idlemeets.com/",
+          "logo": {
+            "@type": "ImageObject",
+            "url": "https://idlemeets.com/assets/idle-app-mark.png"
+          },
+          "sameAs": [
+            "https://instagram.com/idlemeets",
+            "https://tiktok.com/@idlemeets",
+            "https://www.youtube.com/@idlemeets",
+            "https://www.snapchat.com/@idlemeets",
+            "https://www.facebook.com/profile.php?id=61591122538370",
+            "https://www.reddit.com/r/idlemeets/",
+            "https://x.com/idlemeets"
+          ]
         },
-        "sameAs": [
-          "https://instagram.com/idlemeets",
-          "https://tiktok.com/@idlemeets",
-          "https://www.youtube.com/@idlemeets",
-          "https://www.snapchat.com/@idlemeets",
-          "https://www.facebook.com/profile.php?id=61591122538370",
-          "https://www.reddit.com/r/idlemeets/",
-          "https://x.com/idlemeets"
-        ]
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "USD",
+          "url": "https://apps.apple.com/us/app/idle-car-meets/id6762639080"
+        },
+        "aggregateRating": {
+          "@type": "AggregateRating",
+          "ratingValue": "5.0",
+          "ratingCount": 9,
+          "bestRating": "5",
+          "worstRating": "1"
+        }
       }
     </script>
     <script type="application/ld+json">
@@ -144,6 +164,7 @@
           <a class="button button-secondary" href="../car-meets/">Find meets</a>
           <a class="button button-secondary" href="../hosts/">For hosts</a>
         </div>
+        <p class="rating-note">Rated 5.0 on the App Store from 9 ratings.</p>
       </section>
 
       <section class="site-shell host-focus-panel" data-reveal>

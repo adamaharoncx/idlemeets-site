@@ -25,27 +25,65 @@
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
-        "@type": "SoftwareApplication",
-        "name": "Idle",
-        "description": "Idle is an iPhone app for discovering nearby car meets, hosting meets, building your garage, messaging connections, and staying connected to local car groups.",
-        "applicationCategory": "SocialNetworkingApplication",
-        "operatingSystem": "iOS",
-        "url": "https://idlemeets.com/",
-        "downloadUrl": "https://apps.apple.com/us/app/idle-car-meets/id6762639080",
-        "image": "https://idlemeets.com/assets/idle-social-preview-20260513a.png",
-        "publisher": {
-          "@type": "Organization",
-          "name": "Idle",
-          "url": "https://idlemeets.com/"
-        },
-        "sameAs": [
-          "https://instagram.com/idlemeets",
-          "https://tiktok.com/@idlemeets",
-          "https://www.youtube.com/@idlemeets",
-          "https://www.snapchat.com/@idlemeets",
-          "https://www.facebook.com/profile.php?id=61591122538370",
-          "https://www.reddit.com/r/idlemeets/",
-          "https://x.com/idlemeets"
+        "@graph": [
+          {
+            "@type": "Organization",
+            "@id": "https://idlemeets.com/#organization",
+            "name": "Idle",
+            "url": "https://idlemeets.com/",
+            "logo": {
+              "@type": "ImageObject",
+              "url": "https://idlemeets.com/assets/idle-app-mark.png"
+            },
+            "sameAs": [
+              "https://instagram.com/idlemeets",
+              "https://tiktok.com/@idlemeets",
+              "https://www.youtube.com/@idlemeets",
+              "https://www.snapchat.com/@idlemeets",
+              "https://www.facebook.com/profile.php?id=61591122538370",
+              "https://www.reddit.com/r/idlemeets/",
+              "https://x.com/idlemeets"
+            ]
+          },
+          {
+            "@type": "WebSite",
+            "@id": "https://idlemeets.com/#website",
+            "name": "Idle",
+            "url": "https://idlemeets.com/",
+            "inLanguage": "en-US",
+            "publisher": {
+              "@id": "https://idlemeets.com/#organization"
+            }
+          },
+          {
+            "@type": "MobileApplication",
+            "@id": "https://idlemeets.com/#mobile-application",
+            "name": "Idle: Car Meets",
+            "alternateName": "Idle",
+            "description": "Idle is an iPhone app for discovering nearby meets, hosting meets, building your garage, messaging connections, and staying connected to local car groups.",
+            "applicationCategory": "SocialNetworkingApplication",
+            "operatingSystem": "iOS",
+            "url": "https://idlemeets.com/",
+            "downloadUrl": "https://apps.apple.com/us/app/idle-car-meets/id6762639080",
+            "image": "https://idlemeets.com/assets/idle-social-preview-20260513a.png",
+            "isAccessibleForFree": true,
+            "publisher": {
+              "@id": "https://idlemeets.com/#organization"
+            },
+            "offers": {
+              "@type": "Offer",
+              "price": "0",
+              "priceCurrency": "USD",
+              "url": "https://apps.apple.com/us/app/idle-car-meets/id6762639080"
+            },
+            "aggregateRating": {
+              "@type": "AggregateRating",
+              "ratingValue": "5.0",
+              "ratingCount": 9,
+              "bestRating": "5",
+              "worstRating": "1"
+            }
+          }
         ]
       }
     </script>
@@ -84,7 +122,7 @@
             <a class="button button-primary app-store-cta" href="https://apps.apple.com/us/app/idle-car-meets/id6762639080" rel="noopener">Download on the App Store</a>
             <a class="button button-secondary" href="features/">Explore features</a>
           </div>
-          <p class="rating-note">Rated 5.0 on the App Store by early drivers.</p>
+          <p class="rating-note">Rated 5.0 on the App Store from 9 ratings.</p>
           <p class="hero-note">Built for iPhone. Designed for meets, garages, groups, messages, and real local connections. Looking to <a class="contact-link" href="car-meets/">find car meets</a> or compare a <a class="contact-link" href="car-meet-app/">car meet app</a>? See how Idle works.</p>
         </div>
 
