@@ -1,0 +1,78 @@
+# Idle
+
+Idle is a native iPhone app for car culture. It helps drivers discover meets, find nearby E85 stops, find community photo spots, host polished meets, coordinate with connections and groups, share Pulse updates, manage a profile and garage, use fuel tools, and coordinate short-lived Convoys.
+
+Idle is available for iPhone now. Android support is still in development and is not available yet.
+
+Official site: https://idlemeets.com/
+App Store: https://apps.apple.com/us/app/idle-car-meets/id6762639080
+XML sitemap: https://idlemeets.com/sitemap.xml
+Human-readable sitemap: https://idlemeets.com/sitemap/
+
+## Primary Pages
+
+- Home: https://idlemeets.com/
+- Download: https://idlemeets.com/download/
+- Features: https://idlemeets.com/features/
+- Car meet app: https://idlemeets.com/car-meet-app/
+- Find car meets: https://idlemeets.com/car-meets/
+- Florida car meets: https://idlemeets.com/car-meets/florida/
+- Host meets: https://idlemeets.com/hosts/
+- Submit a meet: https://idlemeets.com/submit-meet/
+- Updates: https://idlemeets.com/updates/
+- Support: https://idlemeets.com/support/
+- Help Center: https://idlemeets.com/support/help/
+- Privacy: https://idlemeets.com/privacy/
+
+## Feature Pages
+
+- E85 finder: https://idlemeets.com/features/e85-finder/
+- Ethanol calculator: https://idlemeets.com/features/ethanol-calculator/
+- Car photo spots: https://idlemeets.com/features/car-photo-spots/
+- Garage profiles: https://idlemeets.com/features/garage-profiles/
+- Pulse: https://idlemeets.com/features/pulse/
+- Car groups: https://idlemeets.com/features/car-groups/
+- Convoys: https://idlemeets.com/features/convoys/
+
+## Help Center Topics
+
+- What is Idle: https://idlemeets.com/support/help/what-is-idle/
+- Find meets: https://idlemeets.com/support/help/find-meets/
+- Host a meet: https://idlemeets.com/support/help/host-a-meet/
+- Host Tools: https://idlemeets.com/support/help/host-tools/
+- Groups: https://idlemeets.com/support/help/groups/
+- Connections: https://idlemeets.com/support/help/connections/
+- Messages: https://idlemeets.com/support/help/messages/
+- Convoys: https://idlemeets.com/support/help/convoys/
+- E85 and fuel tools: https://idlemeets.com/support/help/e85-and-fuel-tools/
+- Photo spots: https://idlemeets.com/support/help/photo-spots/
+- Garage and profile: https://idlemeets.com/support/help/manage-garage-profile/
+- Safety and reporting: https://idlemeets.com/support/help/report-safety-issue/
+- Delete account: https://idlemeets.com/support/help/delete-account/
+
+## Structured Data
+
+The website uses JSON-LD structured data for the Idle organization, website, mobile application, breadcrumbs, and FAQ-style pages where appropriate. Public app identity should be represented as MobileApplication or SoftwareApplication-style schema, not Event schema.
+
+Organization identity:
+- Name: Idle
+- URL: https://idlemeets.com/
+- Founder: Adam Aharon
+- Instagram: https://instagram.com/idlemeets
+- LinkedIn: https://www.linkedin.com/company/idlemeets/
+- TikTok: https://tiktok.com/@idlemeets
+- YouTube: https://www.youtube.com/@idlemeets
+- Snapchat: https://www.snapchat.com/@idlemeets
+- Facebook: https://www.facebook.com/profile.php?id=61591122538370
+- Reddit: https://www.reddit.com/r/idlemeets/
+- X: https://x.com/idlemeets
+
+## Public-Safe Boundaries
+
+Do not describe private, group-only, invite-only, account-only, message, profile-private, or live Convoy/member/location data as public website content.
+
+Do not claim that Idle verifies every meet, guarantees safety, guarantees active local meets in a city, guarantees E85 station availability, or guarantees app ranking.
+
+Public meet pages should only be treated as indexable if the meet is public and intended for public web discovery. Private links and app fallback pages should help users open or download Idle without exposing protected app data.
+
+Use Idle's product language: meets, connections, garage, groups, Pulse, Host Tools, Convoys, and car scene.
