@@ -1687,6 +1687,57 @@ p {
   margin-bottom: 0;
 }
 
+.badge-guide-list {
+  display: grid;
+  margin-top: -6px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.badge-guide-item {
+  display: grid;
+  gap: 9px;
+  padding: 20px 0 22px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.badge-guide-item h3 {
+  margin: 0;
+  font-size: clamp(1.05rem, 2vw, 1.22rem);
+  font-weight: 850;
+  line-height: 1.2;
+}
+
+.badge-guide-item p {
+  max-width: 690px;
+  color: var(--muted);
+}
+
+.badge-sample {
+  display: flex;
+  align-items: center;
+  min-height: 40px;
+  padding-top: 2px;
+  overflow: visible;
+}
+
+.badge-example-image {
+  display: block;
+  width: auto;
+  height: auto;
+  max-width: min(100%, 230px);
+  border-radius: 0;
+  object-fit: contain;
+  object-position: center;
+}
+
+.badge-example-icon {
+  max-width: 44px;
+}
+
+.badge-example-pill {
+  max-height: 58px;
+}
+
 .article-steps {
   display: grid;
   gap: 12px;
