@@ -1731,6 +1731,8 @@ p {
 }
 
 .badge-example-icon {
+  width: 44px;
+  height: 44px;
   max-width: 44px;
 }
 
