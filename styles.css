@@ -509,6 +509,7 @@ p {
   --cycle-scale: 1;
   --card-opacity: 1;
   --card-brightness: 1;
+  --card-shadow: drop-shadow(0 20px 30px rgba(0, 0, 0, 0.28));
   --focus-shadow: drop-shadow(0 0 0 rgba(255, 255, 255, 0));
   appearance: none;
   position: absolute;
@@ -522,7 +523,7 @@ p {
   transform: translate3d(calc(var(--move-x) + var(--cycle-x)), calc(var(--move-y) + var(--cycle-y)), var(--cycle-z)) rotateX(calc(var(--tilt-x) + var(--cycle-tilt-x))) rotateY(calc(var(--tilt-y) + var(--cycle-tilt-y))) rotateZ(calc(var(--base-rotate) + var(--cycle-rotate))) scale(var(--fragment-scale)) scale(var(--cycle-scale));
   transform-style: preserve-3d;
   transform-origin: center;
-  filter: drop-shadow(0 20px 30px rgba(0, 0, 0, 0.28)) var(--focus-shadow) brightness(var(--card-brightness));
+  filter: var(--card-shadow) var(--focus-shadow) brightness(var(--card-brightness));
   transition: transform 620ms cubic-bezier(0.16, 1, 0.3, 1), filter 420ms ease, opacity 420ms ease;
   will-change: transform, opacity;
   overflow: visible;
@@ -543,6 +544,7 @@ p {
 
 .product-fragment-map {
   --base-rotate: 2.5deg;
+  --card-shadow: drop-shadow(0 0 0 rgba(0, 0, 0, 0));
   top: -7%;
   right: 9%;
   z-index: 1;

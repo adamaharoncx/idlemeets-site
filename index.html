@@ -22,7 +22,7 @@
     <meta name="twitter:title" content="Idle | Car meets, finally organized.">
     <meta name="twitter:description" content="Discover meets. Host meets. Build your garage. Message connections. Stay connected to the local scene.">
     <meta name="twitter:image" content="https://idlemeets.com/assets/idle-social-preview-20260513a.png">
-    <script type="application/ld+json">
+    <script id="idle-app-schema" type="application/ld+json">
       {
         "@context": "https://schema.org",
         "@graph": [
@@ -84,7 +84,7 @@
             "aggregateRating": {
               "@type": "AggregateRating",
               "ratingValue": "5.0",
-              "ratingCount": 10,
+              "ratingCount": 12,
               "bestRating": "5",
               "worstRating": "1"
             }
@@ -132,20 +132,24 @@
         <div class="product-stage" data-product-stage data-active-card="meet" aria-label="Interactive previews of Idle's meet, map, and garage experience">
           <div class="product-stage-glow" aria-hidden="true"></div>
           <button class="product-fragment product-fragment-map" type="button" data-product-fragment data-product-card="map" data-card-label="Meet map" data-depth="0.52" aria-label="Show the Meet map preview" aria-pressed="false">
-            <img src="assets/product-showcase/idle-meet-map-demo.png?v=20260710c" alt="" width="1448" height="1086" decoding="async">
+            <img src="assets/product-showcase/idle-meet-map-demo.png?v=20260710e" alt="" width="1448" height="1086" decoding="async">
           </button>
           <button class="product-fragment product-fragment-meet" type="button" data-product-fragment data-product-card="meet" data-card-label="Night Meet" data-depth="1" aria-label="Show the Night Meet preview" aria-pressed="true">
             <img src="assets/product-showcase/idle-meet-card-demo.png?v=20260710c" alt="" width="1536" height="1024" fetchpriority="high" decoding="async">
           </button>
           <button class="product-fragment product-fragment-profile" type="button" data-product-fragment data-product-card="profile" data-card-label="Garage profile" data-depth="0.78" aria-label="Show the garage profile preview" aria-pressed="false">
-            <img src="assets/product-showcase/idle-profile-demo.png?v=20260710c" alt="" width="1748" height="900" decoding="async">
+            <img src="assets/product-showcase/idle-profile-demo-black-badge.png?v=20260710a" alt="" width="1748" height="900" decoding="async">
           </button>
           <p class="sr-only" data-product-status aria-live="polite">Night Meet preview selected.</p>
         </div>
       </section>
 
       <section class="site-shell home-proof-band" aria-label="Idle app details" data-reveal>
-        <p class="rating-note">Rated 5.0 on the App Store from 10 ratings.</p>
+        <p class="rating-note" data-rating-summary>
+          Rated <span data-rating-value>5.0</span> on the App Store from
+          <span data-rating-count>12</span> <span data-rating-noun>ratings</span>.
+          <span class="sr-only" aria-live="polite" data-rating-status></span>
+        </p>
         <p class="hero-note">Built for iPhone. Designed for meets, garages, groups, messages, and real local connections. Looking to <a class="contact-link" href="car-meets/">find car meets</a> or compare a <a class="contact-link" href="car-meet-app/">car meet app</a>? See how Idle works.</p>
       </section>
 
@@ -169,7 +173,7 @@
             <div class="discover-stage" data-discover-stage aria-label="Idle meet map and Night Meet previews">
               <div class="discover-stage-glow" aria-hidden="true"></div>
               <div class="discover-fragment discover-fragment-map" data-discover-fragment data-depth="0.55" aria-hidden="true">
-                <img src="assets/product-showcase/idle-meet-map-demo.png?v=20260710d" alt="" width="1448" height="1086" loading="lazy" decoding="async">
+                <img src="assets/product-showcase/idle-meet-map-demo.png?v=20260710e" alt="" width="1448" height="1086" loading="lazy" decoding="async">
               </div>
               <div class="discover-fragment discover-fragment-meet" data-discover-fragment data-depth="1" aria-hidden="true">
                 <img src="assets/product-showcase/idle-meet-card-demo.png?v=20260710d" alt="" width="1536" height="1024" loading="lazy" decoding="async">
@@ -266,6 +270,7 @@
         </nav>
       </div>
     </footer>
+    <script src="app-store-rating.js?v=20260710a" defer></script>
     <script src="script.js?v=20260710c" defer></script>
   </body>
 </html>
