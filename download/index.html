@@ -22,7 +22,7 @@
     <meta name="twitter:title" content="Download Idle for iPhone">
     <meta name="twitter:description" content="Download Idle on the App Store for iPhone to discover nearby meets, host cleanly, build your garage, and stay connected to the car scene.">
     <meta name="twitter:image" content="https://idlemeets.com/assets/idle-social-preview-20260513a.png">
-    <script type="application/ld+json">
+    <script id="idle-app-schema" type="application/ld+json">
       {
         "@context": "https://schema.org",
         "@type": "MobileApplication",
@@ -98,8 +98,9 @@
     <link rel="canonical" href="https://idlemeets.com/download/">
     <link rel="icon" href="../assets/idle-favicon.png" type="image/png" sizes="192x192">
     <link rel="stylesheet" href="../styles.css?v=20260624a">
+    <link rel="stylesheet" href="download.css?v=20260710a">
   </head>
-  <body>
+  <body class="download-page">
     <a class="skip-link" href="#main-content">Skip to main content</a>
     <header class="site-header">
       <div class="site-shell nav" aria-label="Main navigation">
@@ -129,31 +130,53 @@
             <a class="button button-primary app-store-cta" href="https://apps.apple.com/us/app/idle-car-meets/id6762639080" rel="noopener">Download on the App Store</a>
             <a class="button button-secondary" href="../support/">Contact support</a>
           </div>
-          <p class="rating-note">Rated 5.0 on the App Store from 10 ratings.</p>
+          <p class="rating-note" data-rating-summary>
+            Rated <span data-rating-value>5.0</span> on the App Store from
+            <span data-rating-count>10</span> <span data-rating-noun>ratings</span>.
+          </p>
         </div>
 
-        <div class="download-visual no-shot-visual" data-reveal>
-          <div class="download-mark">
-            <img src="../assets/idle-app-mark.png" alt="">
-          </div>
-          <div class="download-points">
-            <article>
-              <span>Nearby</span>
-              <strong>Meet discovery</strong>
-              <p>See active local pull-ups and host context before you go.</p>
-            </article>
-            <article>
-              <span>Host</span>
-              <strong>Structured plans</strong>
-              <p>Create meet details, flyers, parking plans, and group visibility.</p>
-            </article>
-            <article>
-              <span>Scene</span>
-              <strong>Real connections</strong>
-              <p>Use your garage, profile, groups, and messages to stay connected.</p>
-            </article>
-          </div>
-        </div>
+        <a
+          class="app-store-proof"
+          href="https://apps.apple.com/us/app/idle-car-meets/id6762639080"
+          rel="noopener"
+          aria-label="View Idle: Car Meets on the App Store. Rated 5.0 from 10 ratings."
+          data-app-store-proof
+          data-reveal
+        >
+          <span class="app-store-proof-glow" aria-hidden="true"></span>
+
+          <figure class="app-store-preview-card" data-proof-layer data-depth="0.62">
+            <img
+              src="../assets/product-showcase/idle-app-store-map-preview.webp"
+              alt="Official Idle App Store preview showing nearby meets on the meet map"
+              width="600"
+              height="1300"
+            >
+          </figure>
+
+          <article class="app-store-rating-card" data-proof-layer data-depth="1">
+            <div class="app-store-rating-header">
+              <span class="app-store-icon" aria-hidden="true">
+                <img src="../assets/idle-app-mark.png" alt="">
+              </span>
+              <div>
+                <h2>Idle: Car Meets</h2>
+                <p>Your Car Scene.<br>Organized.</p>
+              </div>
+            </div>
+            <div class="app-store-rating-rule" aria-hidden="true"></div>
+            <div class="app-store-rating-score">
+              <strong data-rating-value>5.0</strong>
+              <span class="app-store-stars" data-rating-stars aria-hidden="true">★★★★★</span>
+            </div>
+            <p class="app-store-rating-count">
+              <span data-rating-count>10</span> <span data-rating-noun>ratings</span>
+            </p>
+          </article>
+
+          <span class="sr-only" aria-live="polite" data-rating-status></span>
+        </a>
       </section>
 
       <section class="site-shell section download-gallery" data-reveal>
@@ -207,5 +230,6 @@
         </nav>
       </div>
     </footer>
+    <script src="download.js?v=20260710a" defer></script>
   </body>
 </html>
