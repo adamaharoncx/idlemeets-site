@@ -46,6 +46,58 @@
   }
 
   var productStage = document.querySelector("[data-product-stage]");
+  var discoverStage = document.querySelector("[data-discover-stage]");
+
+  function attachPointerParallax(stage, fragmentSelector, xDistance, yDistance) {
+    if (!stage || reduceMotion.matches || !window.matchMedia("(pointer: fine)").matches) return;
+
+    var stageFragments = Array.prototype.slice.call(stage.querySelectorAll(fragmentSelector));
+    var stageFrame = 0;
+    var targetStageX = 0;
+    var targetStageY = 0;
+    var currentStageX = 0;
+    var currentStageY = 0;
+
+    function paint() {
+      currentStageX += (targetStageX - currentStageX) * 0.12;
+      currentStageY += (targetStageY - currentStageY) * 0.12;
+      stageFragments.forEach(function (fragment) {
+        var depth = Number(fragment.getAttribute("data-depth")) || 1;
+        fragment.style.setProperty("--fragment-x", (currentStageX * xDistance * depth).toFixed(2) + "px");
+        fragment.style.setProperty("--fragment-y", (currentStageY * yDistance * depth).toFixed(2) + "px");
+      });
+
+      if (Math.abs(targetStageX - currentStageX) > 0.002 || Math.abs(targetStageY - currentStageY) > 0.002) {
+        stageFrame = window.requestAnimationFrame(paint);
+      } else {
+        stageFrame = 0;
+      }
+    }
+
+    function requestStagePaint() {
+      if (!stageFrame) stageFrame = window.requestAnimationFrame(paint);
+    }
+
+    stage.addEventListener("pointermove", function (event) {
+      var bounds = stage.getBoundingClientRect();
+      targetStageX = Math.max(-1, Math.min(1, ((event.clientX - bounds.left) / bounds.width - 0.5) * 2));
+      targetStageY = Math.max(-1, Math.min(1, ((event.clientY - bounds.top) / bounds.height - 0.5) * 2));
+      stage.classList.add("is-active");
+      requestStagePaint();
+    }, { passive: true });
+
+    stage.addEventListener("pointerleave", function () {
+      targetStageX = 0;
+      targetStageY = 0;
+      stage.classList.remove("is-active");
+      requestStagePaint();
+    }, { passive: true });
+
+    if (!stageFragments.length) stage.classList.remove("is-active");
+  }
+
+  attachPointerParallax(discoverStage, "[data-discover-fragment]", 12, 8);
+
   if (!productStage) return;
 
   var fragments = Array.prototype.slice.call(productStage.querySelectorAll("[data-product-fragment]"));
