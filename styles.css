@@ -96,6 +96,18 @@ a {
   transform: translateY(0);
 }
 
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
 img {
   display: block;
   max-width: 100%;
@@ -377,6 +389,304 @@ p {
 .hero-index-panel a:hover span,
 .hero-index-panel a:focus-visible span {
   color: rgba(247, 247, 244, 0.86);
+}
+
+.home-page {
+  background: #000;
+  overflow-x: clip;
+}
+
+.home-page::before {
+  background: radial-gradient(circle at 72% 26%, rgba(255, 255, 255, 0.038), transparent 29rem);
+  mask-image: linear-gradient(to bottom, #000, transparent 70%);
+}
+
+.home-page::after {
+  opacity: 0;
+}
+
+.home-page .site-header .site-shell {
+  width: min(100% - 40px, 1260px);
+}
+
+.home-page .nav {
+  min-height: 78px;
+}
+
+.home-hero {
+  width: min(100% - 40px, 1260px);
+  grid-template-columns: minmax(430px, 0.86fr) minmax(520px, 1.14fr);
+  min-height: calc(100svh - 78px);
+  gap: 0;
+  padding: clamp(66px, 8vh, 96px) 0 clamp(48px, 6vh, 72px);
+  overflow: visible;
+}
+
+.home-hero .hero-copy {
+  position: relative;
+  top: -28px;
+  z-index: 5;
+  max-width: 590px;
+}
+
+.home-hero .hero-logo {
+  width: 46px;
+  height: 46px;
+  margin-bottom: 30px;
+}
+
+.home-hero .story-label {
+  margin-bottom: 22px;
+  color: rgba(247, 247, 244, 0.56);
+  font-size: 0.82rem;
+  letter-spacing: 0.24em;
+}
+
+.home-hero .hero-title {
+  max-width: 590px;
+  margin-bottom: 39px;
+  font-size: clamp(4rem, 6vw, 5.75rem);
+  line-height: 0.94;
+  letter-spacing: -0.058em;
+}
+
+.home-hero .hero-body {
+  max-width: 570px;
+  margin-bottom: 39px;
+  color: rgba(247, 247, 244, 0.72);
+  font-size: clamp(1.03rem, 1.45vw, 1.18rem);
+  line-height: 1.68;
+}
+
+.home-hero .button {
+  min-height: 50px;
+  padding: 0 21px;
+}
+
+.product-stage {
+  --glow-x: 52%;
+  --glow-y: 44%;
+  position: relative;
+  z-index: 2;
+  min-height: clamp(600px, 67vh, 690px);
+  margin-right: clamp(-128px, -8vw, -72px);
+  perspective: 1500px;
+  isolation: isolate;
+  touch-action: pan-y;
+}
+
+.product-stage-glow {
+  position: absolute;
+  inset: 3% -4% 0 -10%;
+  z-index: 0;
+  content: "";
+  pointer-events: none;
+  background: radial-gradient(circle at var(--glow-x) var(--glow-y), rgba(255, 255, 255, 0.36) 0, rgba(255, 255, 255, 0.15) 18%, rgba(255, 255, 255, 0.05) 37%, transparent 66%);
+  filter: blur(26px);
+  opacity: 0.94;
+  transform: translate3d(0, 0, 0);
+  transition: opacity 420ms ease;
+}
+
+.product-fragment {
+  --move-x: 0px;
+  --move-y: 0px;
+  --tilt-x: 0deg;
+  --tilt-y: 0deg;
+  --base-rotate: 0deg;
+  --fragment-scale: 1;
+  --cycle-x: 0px;
+  --cycle-y: 0px;
+  --cycle-z: 0px;
+  --cycle-tilt-x: 0deg;
+  --cycle-tilt-y: 0deg;
+  --cycle-rotate: 0deg;
+  --cycle-scale: 1;
+  --card-opacity: 1;
+  --card-brightness: 1;
+  --focus-shadow: drop-shadow(0 0 0 rgba(255, 255, 255, 0));
+  appearance: none;
+  position: absolute;
+  margin: 0;
+  padding: 0;
+  color: inherit;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+  opacity: var(--card-opacity);
+  transform: translate3d(calc(var(--move-x) + var(--cycle-x)), calc(var(--move-y) + var(--cycle-y)), var(--cycle-z)) rotateX(calc(var(--tilt-x) + var(--cycle-tilt-x))) rotateY(calc(var(--tilt-y) + var(--cycle-tilt-y))) rotateZ(calc(var(--base-rotate) + var(--cycle-rotate))) scale(var(--fragment-scale)) scale(var(--cycle-scale));
+  transform-style: preserve-3d;
+  transform-origin: center;
+  filter: drop-shadow(0 20px 30px rgba(0, 0, 0, 0.28)) var(--focus-shadow) brightness(var(--card-brightness));
+  transition: transform 620ms cubic-bezier(0.16, 1, 0.3, 1), filter 420ms ease, opacity 420ms ease;
+  will-change: transform, opacity;
+  overflow: visible;
+}
+
+.product-fragment:focus-visible {
+  --focus-shadow: drop-shadow(0 0 7px rgba(255, 255, 255, 0.28));
+  outline: 0;
+}
+
+.product-fragment img {
+  position: absolute;
+  max-width: none;
+  height: auto;
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+.product-fragment-map {
+  --base-rotate: 2.5deg;
+  top: -7%;
+  right: 9%;
+  z-index: 1;
+  width: 42%;
+  aspect-ratio: 960 / 820;
+}
+
+.product-fragment-map img {
+  top: -15.2%;
+  left: -26.8%;
+  width: 150.8%;
+}
+
+.product-fragment-meet {
+  --base-rotate: -1.5deg;
+  top: 16%;
+  left: 7.5%;
+  z-index: 3;
+  width: 78%;
+  aspect-ratio: 1099 / 678;
+}
+
+.product-fragment-meet img {
+  top: -26.3%;
+  left: -20.9%;
+  width: 139.8%;
+}
+
+.product-fragment-profile {
+  --base-rotate: -2.2deg;
+  right: 5.7%;
+  bottom: -2%;
+  z-index: 4;
+  width: 72%;
+  aspect-ratio: 1355 / 510;
+}
+
+.product-fragment-profile img {
+  top: -35.3%;
+  left: -15.5%;
+  width: 129%;
+}
+
+.product-stage.is-active .product-stage-glow {
+  opacity: 1;
+}
+
+.product-stage.is-active:not(.is-cycling) .product-fragment {
+  transition-duration: 180ms;
+}
+
+.product-stage.is-cycling .product-fragment {
+  transition-duration: 620ms;
+}
+
+.product-stage.is-pressed .product-fragment {
+  --fragment-scale: 0.988;
+  transition-duration: 150ms;
+}
+
+.product-stage[data-active-card="meet"] .product-fragment-meet,
+.product-stage[data-active-card="profile"] .product-fragment-profile,
+.product-stage[data-active-card="map"] .product-fragment-map {
+  --card-brightness: 1.05;
+  z-index: 6;
+}
+
+.product-stage[data-active-card="meet"] .product-fragment-map {
+  z-index: 2;
+}
+
+.product-stage[data-active-card="meet"] .product-fragment-profile {
+  z-index: 4;
+}
+
+.product-stage[data-active-card="profile"] .product-fragment-profile {
+  --cycle-x: -70px;
+  --cycle-y: -178px;
+  --cycle-z: 72px;
+  --cycle-rotate: 3deg;
+  --cycle-scale: 1.06;
+}
+
+.product-stage[data-active-card="profile"] .product-fragment-meet {
+  --cycle-x: -28px;
+  --cycle-y: 38px;
+  --cycle-z: -38px;
+  --cycle-scale: 0.92;
+  --card-opacity: 0.62;
+  z-index: 3;
+}
+
+.product-stage[data-active-card="profile"] .product-fragment-map {
+  --cycle-x: 12px;
+  --cycle-y: -10px;
+  --cycle-z: -55px;
+  --cycle-scale: 0.94;
+  --card-opacity: 0.74;
+  z-index: 2;
+}
+
+.product-stage[data-active-card="map"] .product-fragment-map {
+  --cycle-x: -220px;
+  --cycle-y: 118px;
+  --cycle-z: 86px;
+  --cycle-rotate: -4deg;
+  --cycle-scale: 1.2;
+}
+
+.product-stage[data-active-card="map"] .product-fragment-meet {
+  --cycle-x: -22px;
+  --cycle-y: 68px;
+  --cycle-z: -50px;
+  --cycle-scale: 0.9;
+  --card-opacity: 0.58;
+  z-index: 3;
+}
+
+.product-stage[data-active-card="map"] .product-fragment-profile {
+  --cycle-x: 34px;
+  --cycle-y: 48px;
+  --cycle-z: -64px;
+  --cycle-scale: 0.9;
+  --card-opacity: 0.5;
+  z-index: 2;
+}
+
+.home-proof-band {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: clamp(32px, 8vw, 110px);
+  padding: 26px 0 34px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.home-proof-band .rating-note,
+.home-proof-band .hero-note {
+  margin: 0;
+}
+
+.home-proof-band .rating-note {
+  flex: 0 0 auto;
+}
+
+.home-proof-band .hero-note {
+  max-width: 690px;
+  text-align: right;
 }
 
 .hero-visual,
@@ -2726,5 +3036,192 @@ body.not-found-page::after {
 
   .not-found-actions {
     flex-direction: column;
+  }
+}
+
+@media (max-width: 1100px) {
+  .home-hero {
+    grid-template-columns: minmax(390px, 0.82fr) minmax(500px, 1.18fr);
+  }
+
+  .home-hero .hero-title {
+    font-size: clamp(3.7rem, 6.2vw, 4.8rem);
+  }
+
+  .product-stage {
+    margin-right: -70px;
+  }
+}
+
+@media (max-width: 980px) {
+  .home-hero {
+    grid-template-columns: 1fr;
+    min-height: auto;
+    gap: 8px;
+    padding: 74px 0 52px;
+    overflow: visible;
+  }
+
+  .home-hero .hero-copy,
+  .home-hero .hero-title {
+    max-width: 680px;
+  }
+
+  .product-stage {
+    width: min(100%, 760px);
+    min-height: 620px;
+    margin: 0 auto;
+  }
+
+  .product-fragment-map {
+    right: 8%;
+    width: 43%;
+  }
+
+  .product-fragment-meet {
+    left: 2%;
+    width: 80%;
+  }
+
+  .product-fragment-profile {
+    right: 6%;
+    width: 74%;
+  }
+
+  .home-proof-band {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .home-proof-band .hero-note {
+    text-align: left;
+  }
+}
+
+@media (max-width: 720px) {
+  .home-hero {
+    gap: 16px;
+    padding: 48px 0 38px;
+  }
+
+  .home-hero .hero-logo {
+    margin-bottom: 24px;
+  }
+
+  .home-hero .story-label {
+    margin-bottom: 16px;
+  }
+
+  .home-hero .hero-title {
+    margin-bottom: 22px;
+    font-size: clamp(3.1rem, 15vw, 4.25rem);
+    line-height: 0.95;
+  }
+
+  .home-hero .hero-body {
+    margin-bottom: 28px;
+    font-size: 1.02rem;
+    line-height: 1.62;
+  }
+
+  .product-stage {
+    width: calc(100% + 28px);
+    min-height: 438px;
+    margin-left: -14px;
+  }
+
+  .product-stage-glow {
+    inset: 0 -4% 2%;
+    opacity: 0.72;
+  }
+
+  .product-fragment-map {
+    top: -2%;
+    right: 2%;
+    width: 54%;
+  }
+
+  .product-fragment-meet {
+    top: 17%;
+    left: -4%;
+    width: 96%;
+  }
+
+  .product-fragment-profile {
+    right: -2%;
+    bottom: 0;
+    width: 90%;
+  }
+
+  .product-stage[data-active-card="profile"] .product-fragment-profile {
+    --cycle-x: -8px;
+    --cycle-y: -132px;
+    --cycle-z: 54px;
+    --cycle-rotate: 2deg;
+    --cycle-scale: 1.02;
+  }
+
+  .product-stage[data-active-card="profile"] .product-fragment-meet {
+    --cycle-x: -6px;
+    --cycle-y: 26px;
+    --cycle-z: -30px;
+    --cycle-scale: 0.92;
+  }
+
+  .product-stage[data-active-card="profile"] .product-fragment-map {
+    --cycle-x: 6px;
+    --cycle-y: -4px;
+  }
+
+  .product-stage[data-active-card="map"] .product-fragment-map {
+    --cycle-x: -86px;
+    --cycle-y: 96px;
+    --cycle-z: 64px;
+    --cycle-rotate: -3deg;
+    --cycle-scale: 1.14;
+  }
+
+  .product-stage[data-active-card="map"] .product-fragment-meet {
+    --cycle-x: -4px;
+    --cycle-y: 46px;
+    --cycle-z: -36px;
+    --cycle-scale: 0.9;
+  }
+
+  .product-stage[data-active-card="map"] .product-fragment-profile {
+    --cycle-x: 12px;
+    --cycle-y: 34px;
+    --cycle-z: -42px;
+    --cycle-scale: 0.9;
+  }
+
+  .home-proof-band {
+    padding: 24px 0 30px;
+  }
+}
+
+@media (max-width: 420px) {
+  .product-stage {
+    min-height: 398px;
+  }
+
+  .product-fragment-meet {
+    top: 19%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .product-fragment {
+    --move-x: 0px !important;
+    --move-y: 0px !important;
+    --tilt-x: 0deg !important;
+    --tilt-y: 0deg !important;
+    --fragment-scale: 1 !important;
+  }
+
+  .product-stage-glow {
+    --glow-x: 52%;
+    --glow-y: 44%;
   }
 }

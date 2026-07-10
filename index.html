@@ -94,9 +94,9 @@
     </script>
     <link rel="canonical" href="https://idlemeets.com/">
     <link rel="icon" href="assets/idle-favicon.png" type="image/png" sizes="192x192">
-    <link rel="stylesheet" href="styles.css?v=20260624a">
+    <link rel="stylesheet" href="styles.css?v=20260710c">
   </head>
-  <body class="landing-page">
+  <body class="landing-page home-page">
     <a class="skip-link" href="#main-content">Skip to main content</a>
     <header class="site-header">
       <div class="site-shell nav" aria-label="Main navigation">
@@ -127,32 +127,26 @@
             <a class="button button-primary app-store-cta" href="https://apps.apple.com/us/app/idle-car-meets/id6762639080" rel="noopener">Download on the App Store</a>
             <a class="button button-secondary" href="features/">Explore features</a>
           </div>
-          <p class="rating-note">Rated 5.0 on the App Store from 10 ratings.</p>
-          <p class="hero-note">Built for iPhone. Designed for meets, garages, groups, messages, and real local connections. Looking to <a class="contact-link" href="car-meets/">find car meets</a> or compare a <a class="contact-link" href="car-meet-app/">car meet app</a>? See how Idle works.</p>
         </div>
 
-        <div class="hero-index-panel" data-reveal aria-label="Idle product areas">
-          <a href="car-meets/">
-            <strong>Find Meets</strong>
-            <span>Browse how Idle helps with local car meet discovery.</span>
-          </a>
-          <a href="hosts/">
-            <strong>Host</strong>
-            <span>Create plans, flyers, parking notes, and visibility.</span>
-          </a>
-          <a href="#garage">
-            <strong>Garage</strong>
-            <span>Build a profile around what you drive.</span>
-          </a>
-          <a href="#connections">
-            <strong>Connections</strong>
-            <span>Message and stay connected after the meet.</span>
-          </a>
-          <a href="#groups">
-            <strong>Groups</strong>
-            <span>Keep local crews and private meets organized.</span>
-          </a>
+        <div class="product-stage" data-product-stage data-active-card="meet" aria-label="Interactive previews of Idle's meet, map, and garage experience">
+          <div class="product-stage-glow" aria-hidden="true"></div>
+          <button class="product-fragment product-fragment-map" type="button" data-product-fragment data-product-card="map" data-card-label="Meet map" data-depth="0.52" aria-label="Show the Meet map preview" aria-pressed="false">
+            <img src="assets/product-showcase/idle-meet-map-demo.png?v=20260710c" alt="" width="1448" height="1086" decoding="async">
+          </button>
+          <button class="product-fragment product-fragment-meet" type="button" data-product-fragment data-product-card="meet" data-card-label="Night Meet" data-depth="1" aria-label="Show the Night Meet preview" aria-pressed="true">
+            <img src="assets/product-showcase/idle-meet-card-demo.png?v=20260710c" alt="" width="1536" height="1024" fetchpriority="high" decoding="async">
+          </button>
+          <button class="product-fragment product-fragment-profile" type="button" data-product-fragment data-product-card="profile" data-card-label="Garage profile" data-depth="0.78" aria-label="Show the garage profile preview" aria-pressed="false">
+            <img src="assets/product-showcase/idle-profile-demo.png?v=20260710c" alt="" width="1748" height="900" decoding="async">
+          </button>
+          <p class="sr-only" data-product-status aria-live="polite">Night Meet preview selected.</p>
         </div>
+      </section>
+
+      <section class="site-shell home-proof-band" aria-label="Idle app details" data-reveal>
+        <p class="rating-note">Rated 5.0 on the App Store from 10 ratings.</p>
+        <p class="hero-note">Built for iPhone. Designed for meets, garages, groups, messages, and real local connections. Looking to <a class="contact-link" href="car-meets/">find car meets</a> or compare a <a class="contact-link" href="car-meet-app/">car meet app</a>? See how Idle works.</p>
       </section>
 
       <section class="site-shell section product-index" data-reveal>
@@ -261,6 +255,6 @@
         </nav>
       </div>
     </footer>
-    <script src="script.js" defer></script>
+    <script src="script.js?v=20260710b" defer></script>
   </body>
 </html>
