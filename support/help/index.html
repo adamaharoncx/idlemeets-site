@@ -50,6 +50,7 @@
     <link rel="canonical" href="https://idlemeets.com/support/help/">
     <link rel="icon" href="../../assets/idle-favicon.png" type="image/png" sizes="192x192">
     <link rel="stylesheet" href="../../styles.css?v=20260624a">
+    <link rel="stylesheet" href="../help-search.css?v=20260710a">
   </head>
   <body>
     <a class="skip-link" href="#main-content">Skip to main content</a>
@@ -71,11 +72,29 @@
       </div>
     </header>
 
-    <main id="main-content" class="site-shell">
+    <main id="main-content" class="site-shell" data-help-search-root>
       <section class="page-hero help-hero">
         <p class="breadcrumb"><a href="../">Support</a> / Help Center</p>
         <h1>Help Center</h1>
         <p>Quick answers for common Idle questions across meets, E85, photo spots, hosting, Host Tools, Pulse, groups, messages, Convoys, CarPlay, privacy, and safety.</p>
+      </section>
+
+      <section class="help-search-panel" aria-label="Search the Help Center">
+        <form class="help-search-form" role="search" data-help-search>
+          <label class="help-search-label" for="help-center-search">
+            <span class="mini-label">Find it faster</span>
+            <strong>Search the Help Center</strong>
+          </label>
+          <div class="help-search-control">
+            <input id="help-center-search" type="search" autocomplete="off" spellcheck="false" placeholder="Try “host tools,” “groups,” or “privacy”" aria-describedby="help-center-search-status" data-help-search-input>
+            <button class="help-search-clear" type="button" aria-label="Clear search" title="Clear search" data-help-search-clear hidden><span aria-hidden="true">&times;</span></button>
+          </div>
+          <p id="help-center-search-status" class="help-search-status" role="status" aria-live="polite" data-help-search-status>Type to filter help articles.</p>
+          <div class="help-search-empty" data-help-search-empty hidden>
+            <strong>No matching help articles</strong>
+            <p>Try a shorter phrase, or email <a href="mailto:support@idlemeets.com">support@idlemeets.com</a>.</p>
+          </div>
+        </form>
       </section>
 
       <section class="help-category-nav" aria-label="Help topics">
@@ -428,5 +447,6 @@
         </nav>
       </div>
     </footer>
+    <script src="../help-search.js?v=20260710a"></script>
   </body>
 </html>
