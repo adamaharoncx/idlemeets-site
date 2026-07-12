@@ -5,11 +5,6 @@
   border-bottom: 1px solid var(--line);
 }
 
-.content-main .help-search-panel {
-  margin-bottom: 0;
-  padding-top: 0;
-}
-
 .help-search-form {
   display: grid;
   grid-template-columns: minmax(180px, 0.34fr) minmax(280px, 1fr);
@@ -174,6 +169,10 @@
 }
 
 [data-help-search-root] .article-card[hidden] {
+  display: none;
+}
+
+[data-help-search-root] .help-search-catalog[hidden] {
   display: none;
 }
 

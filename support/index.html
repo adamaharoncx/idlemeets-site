@@ -44,7 +44,7 @@
     <link rel="canonical" href="https://idlemeets.com/support/">
     <link rel="icon" href="../assets/idle-favicon.png" type="image/png" sizes="192x192">
     <link rel="stylesheet" href="../styles.css?v=20260624a">
-    <link rel="stylesheet" href="help-search.css?v=20260710a">
+    <link rel="stylesheet" href="help-search.css?v=20260712a">
   </head>
   <body>
     <a class="skip-link" href="#main-content">Skip to main content</a>
@@ -66,11 +66,29 @@
       </div>
     </header>
 
-    <main id="main-content" class="site-shell" data-help-search-root>
+    <main id="main-content" class="site-shell" data-help-search-root data-help-search-catalog="help/">
       <section class="page-hero">
         <p class="story-label">Support</p>
         <h1>Support</h1>
         <p>Get help with account access, meets, E85, photo spots, hosting, Host Tools, garage, connections, groups, Pulse, Convoys, CarPlay, privacy, and safety.</p>
+      </section>
+
+      <section class="help-search-panel" aria-label="Search support">
+        <form class="help-search-form" role="search" data-help-search>
+          <label class="help-search-label" for="support-search">
+            <span class="mini-label">Find it faster</span>
+            <strong>Search support</strong>
+          </label>
+          <div class="help-search-control">
+            <input id="support-search" type="search" autocomplete="off" spellcheck="false" placeholder="Try “password,” “Convoys,” or “profile”" aria-describedby="support-search-status" data-help-search-input>
+            <button class="help-search-clear" type="button" aria-label="Clear search" title="Clear search" data-help-search-clear hidden><span aria-hidden="true">&times;</span></button>
+          </div>
+          <p id="support-search-status" class="help-search-status" role="status" aria-live="polite" data-help-search-status>Loading all help topics.</p>
+          <div class="help-search-empty" data-help-search-empty hidden>
+            <strong>No matching help articles</strong>
+            <p>Try a shorter phrase, or email <a href="mailto:support@idlemeets.com">support@idlemeets.com</a>.</p>
+          </div>
+        </form>
       </section>
 
       <div class="content-grid">
@@ -83,24 +101,6 @@
               <a class="button button-primary" href="https://chatgpt.com/g/g-6a0106f4d7088191acf6c784c9cc0070-idle" rel="noopener">Open Idle Support Assistant</a>
             </div>
             <p class="support-note">Do not share passwords, payment info, or sensitive personal details in chat. For account-specific, deletion, safety, or private issues, email support.</p>
-          </section>
-
-          <section class="help-search-panel" aria-label="Search support">
-            <form class="help-search-form" role="search" data-help-search>
-              <label class="help-search-label" for="support-search">
-                <span class="mini-label">Find it faster</span>
-                <strong>Search support</strong>
-              </label>
-              <div class="help-search-control">
-                <input id="support-search" type="search" autocomplete="off" spellcheck="false" placeholder="Try “password,” “Convoys,” or “profile”" aria-describedby="support-search-status" data-help-search-input>
-                <button class="help-search-clear" type="button" aria-label="Clear search" title="Clear search" data-help-search-clear hidden><span aria-hidden="true">&times;</span></button>
-              </div>
-              <p id="support-search-status" class="help-search-status" role="status" aria-live="polite" data-help-search-status>Type to filter help topics.</p>
-              <div class="help-search-empty" data-help-search-empty hidden>
-                <strong>No matching help articles</strong>
-                <p>Try a shorter phrase, or email <a href="mailto:support@idlemeets.com">support@idlemeets.com</a>.</p>
-              </div>
-            </form>
           </section>
 
           <section>
@@ -319,6 +319,6 @@
         </nav>
       </div>
     </footer>
-    <script src="help-search.js?v=20260710a"></script>
+    <script src="help-search.js?v=20260712a"></script>
   </body>
 </html>
