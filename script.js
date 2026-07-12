@@ -67,6 +67,9 @@
         fragment.style.setProperty("--fragment-y", (currentStageY * yDistance * depth).toFixed(2) + "px");
       });
 
+      stage.style.setProperty("--feature-glow-x", (52 + currentStageX * 17).toFixed(1) + "%");
+      stage.style.setProperty("--feature-glow-y", (48 + currentStageY * 14).toFixed(1) + "%");
+
       if (Math.abs(targetStageX - currentStageX) > 0.002 || Math.abs(targetStageY - currentStageY) > 0.002) {
         stageFrame = window.requestAnimationFrame(paint);
       } else {
@@ -97,6 +100,62 @@
   }
 
   attachPointerParallax(discoverStage, "[data-discover-fragment]", 12, 8);
+
+  var featureStages = Array.prototype.slice.call(document.querySelectorAll("[data-feature-stage]"));
+
+  featureStages.forEach(function (stage) {
+    var stageFragments = Array.prototype.slice.call(stage.querySelectorAll("[data-feature-fragment]"));
+    var stageStatus = stage.querySelector("[data-feature-status]");
+    var activeFeatureCard = stage.getAttribute("data-active-card") || (stageFragments[0] && stageFragments[0].getAttribute("data-feature-card"));
+    var stagePressTimer = 0;
+
+    function showFeatureCard(cardName, shouldAnnounce) {
+      var card = stageFragments.find(function (fragment) {
+        return fragment.getAttribute("data-feature-card") === cardName;
+      });
+      if (!card) return;
+
+      activeFeatureCard = cardName;
+      stage.setAttribute("data-active-card", cardName);
+
+      stageFragments.forEach(function (fragment) {
+        var isSelected = fragment === card;
+        fragment.classList.toggle("is-selected", isSelected);
+        fragment.setAttribute("aria-pressed", String(isSelected));
+      });
+
+      if (stageStatus && shouldAnnounce) {
+        stageStatus.textContent = (card.getAttribute("data-card-label") || "Feature") + " preview selected.";
+      }
+    }
+
+    stageFragments.forEach(function (fragment, index) {
+      fragment.addEventListener("click", function () {
+        var cardName = fragment.getAttribute("data-feature-card");
+
+        if (cardName === activeFeatureCard && stageFragments.length > 1) {
+          cardName = stageFragments[(index + 1) % stageFragments.length].getAttribute("data-feature-card");
+        }
+
+        showFeatureCard(cardName, true);
+      });
+    });
+
+    stage.addEventListener("pointerdown", function () {
+      window.clearTimeout(stagePressTimer);
+      stage.classList.add("is-pressed");
+      stagePressTimer = window.setTimeout(function () {
+        stage.classList.remove("is-pressed");
+      }, 180);
+    }, { passive: true });
+
+    stage.addEventListener("pointercancel", function () {
+      stage.classList.remove("is-pressed");
+    }, { passive: true });
+
+    attachPointerParallax(stage, "[data-feature-fragment]", 11, 8);
+    showFeatureCard(activeFeatureCard, false);
+  });
 
   if (!productStage) return;
 

@@ -94,7 +94,7 @@
     </script>
     <link rel="canonical" href="https://idlemeets.com/">
     <link rel="icon" href="assets/idle-favicon.png" type="image/png" sizes="192x192">
-    <link rel="stylesheet" href="styles.css?v=20260710d">
+    <link rel="stylesheet" href="styles.css?v=20260711a">
   </head>
   <body class="landing-page home-page">
     <a class="skip-link" href="#main-content">Skip to main content</a>
@@ -181,40 +181,88 @@
             </div>
           </article>
 
-          <article id="host" class="editorial-row" data-reveal>
-            <span class="editorial-number">02</span>
-            <div>
+          <article id="host" class="product-chapter feature-chapter feature-chapter-reverse feature-chapter-host" data-reveal>
+            <div class="product-chapter-copy">
+              <span class="editorial-number">02</span>
               <p class="story-label">Host</p>
               <h3>Create the meet, make the flyer, share fast.</h3>
+              <p>Structure the plan from the start with date, time, location, visibility, parking notes, ride-outs, and clean sharing.</p>
+              <a class="chapter-link" href="hosts/">See Hosts</a>
             </div>
-            <p>Structure the plan from the start with date, time, location, visibility, parking notes, ride-outs, and clean sharing. <a class="contact-link" href="hosts/">See Hosts</a>.</p>
+
+            <div class="feature-stage feature-stage-host" data-feature-stage data-active-card="command" aria-label="Interactive previews of Idle Host Tools and flyer creation">
+              <div class="feature-stage-glow" aria-hidden="true"></div>
+              <button class="feature-fragment feature-fragment-host-command is-selected" type="button" data-feature-fragment data-feature-card="command" data-card-label="Host Tools" data-depth="1" aria-label="Show the Host Tools preview" aria-pressed="true">
+                <span class="feature-shot"><img src="assets/product-showcase/idle-host-tools-command.webp?v=20260710a" alt="" width="1320" height="2868" loading="lazy" decoding="async"></span>
+              </button>
+              <button class="feature-fragment feature-fragment-host-flyer" type="button" data-feature-fragment data-feature-card="flyer" data-card-label="Flyer editor" data-depth="0.6" aria-label="Show the flyer editor preview" aria-pressed="false">
+                <span class="feature-shot"><img src="assets/product-showcase/idle-host-flyer-editor.jpeg?v=20260710a" alt="" width="360" height="782" loading="lazy" decoding="async"></span>
+              </button>
+              <p class="sr-only" data-feature-status aria-live="polite">Host Tools preview selected.</p>
+            </div>
           </article>
 
-          <article id="garage" class="editorial-row" data-reveal>
-            <span class="editorial-number">03</span>
-            <div>
+          <article id="garage" class="product-chapter feature-chapter feature-chapter-garage" data-reveal>
+            <div class="product-chapter-copy">
+              <span class="editorial-number">03</span>
               <p class="story-label">Garage</p>
               <h3>Your cars have a place.</h3>
+              <p>Build a garage around what you drive, choose your primary car, keep its details close, and calculate the ethanol blend your setup needs.</p>
+              <a class="chapter-link" href="features/garage-profiles/">Explore Garage</a>
             </div>
-            <p>Build a garage and profile identity that helps the right connections understand what you drive and what you show up in.</p>
+
+            <div class="feature-stage feature-stage-garage" data-feature-stage data-active-card="garage" aria-label="Interactive previews of My Garage and the Ethanol Calculator">
+              <div class="feature-stage-glow" aria-hidden="true"></div>
+              <button class="feature-fragment feature-fragment-garage-main is-selected" type="button" data-feature-fragment data-feature-card="garage" data-card-label="My Garage" data-depth="1" aria-label="Show the My Garage preview" aria-pressed="true">
+                <span class="feature-shot"><img src="assets/product-showcase/idle-garage-main.webp?v=20260710a" alt="" width="1320" height="2868" loading="lazy" decoding="async"></span>
+              </button>
+              <button class="feature-fragment feature-fragment-garage-ethanol" type="button" data-feature-fragment data-feature-card="ethanol" data-card-label="Ethanol Calculator" data-depth="0.64" aria-label="Show the Ethanol Calculator preview" aria-pressed="false">
+                <span class="feature-shot"><img src="assets/product-showcase/idle-ethanol-calculator.webp?v=20260710a" alt="" width="1320" height="2868" loading="lazy" decoding="async"></span>
+              </button>
+              <p class="sr-only" data-feature-status aria-live="polite">My Garage preview selected.</p>
+            </div>
           </article>
 
-          <article id="connections" class="editorial-row" data-reveal>
-            <span class="editorial-number">04</span>
-            <div>
+          <article id="connections" class="product-chapter feature-chapter feature-chapter-reverse feature-chapter-connections" data-reveal>
+            <div class="product-chapter-copy">
+              <span class="editorial-number">04</span>
               <p class="story-label">Connections</p>
               <h3>Keep the conversation close to the scene.</h3>
+              <p>Find drivers through the cars and places you share, connect after the meet, and keep real-world relationships from getting lost.</p>
+              <a class="chapter-link" href="support/help/connections/">See Connections</a>
             </div>
-            <p>Message connections, follow up after meets, and keep the people you actually meet from getting lost in scattered threads.</p>
+
+            <div class="feature-stage feature-stage-connections" data-feature-stage data-active-card="profile" aria-label="Interactive previews of Connections and a public driver profile">
+              <div class="feature-stage-glow" aria-hidden="true"></div>
+              <button class="feature-fragment feature-fragment-connections-list" type="button" data-feature-fragment data-feature-card="people" data-card-label="Connections" data-depth="0.58" aria-label="Show the Connections preview" aria-pressed="false">
+                <span class="feature-shot"><img src="assets/product-showcase/idle-connections-list.webp?v=20260710a" alt="" width="1320" height="2868" loading="lazy" decoding="async"></span>
+              </button>
+              <button class="feature-fragment feature-fragment-connections-profile is-selected" type="button" data-feature-fragment data-feature-card="profile" data-card-label="Public profile" data-depth="1" aria-label="Show the public profile preview" aria-pressed="true">
+                <span class="feature-shot"><img src="assets/product-showcase/idle-public-profile.webp?v=20260710a" alt="" width="1320" height="2868" loading="lazy" decoding="async"></span>
+              </button>
+              <p class="sr-only" data-feature-status aria-live="polite">Public profile preview selected.</p>
+            </div>
           </article>
 
-          <article id="groups" class="editorial-row" data-reveal>
-            <span class="editorial-number">05</span>
-            <div>
+          <article id="groups" class="product-chapter feature-chapter feature-chapter-groups" data-reveal>
+            <div class="product-chapter-copy">
+              <span class="editorial-number">05</span>
               <p class="story-label">Groups</p>
               <h3>Stay connected to local crews.</h3>
+              <p>Start or discover a group, manage private access, and give your crew one place for members, discussion, chat, and group meets.</p>
+              <a class="chapter-link" href="features/car-groups/">Explore Groups</a>
             </div>
-            <p>Join groups, follow private meet activity, and keep local crews organized without making the app feel noisy. <a class="contact-link" href="features/car-groups/">Explore groups</a>.</p>
+
+            <div class="feature-stage feature-stage-groups" data-feature-stage data-active-card="detail" aria-label="Interactive previews of group discovery and a group detail page">
+              <div class="feature-stage-glow" aria-hidden="true"></div>
+              <button class="feature-fragment feature-fragment-groups-list" type="button" data-feature-fragment data-feature-card="discover" data-card-label="Group discovery" data-depth="0.58" aria-label="Show group discovery" aria-pressed="false">
+                <span class="feature-shot"><img src="assets/product-showcase/idle-groups-discover.webp?v=20260710a" alt="" width="1320" height="2868" loading="lazy" decoding="async"></span>
+              </button>
+              <button class="feature-fragment feature-fragment-groups-detail is-selected" type="button" data-feature-fragment data-feature-card="detail" data-card-label="Group detail" data-depth="1" aria-label="Show the group detail preview" aria-pressed="true">
+                <span class="feature-shot"><img src="assets/product-showcase/idle-group-detail.webp?v=20260710a" alt="" width="1320" height="2868" loading="lazy" decoding="async"></span>
+              </button>
+              <p class="sr-only" data-feature-status aria-live="polite">Group detail preview selected.</p>
+            </div>
           </article>
         </div>
       </section>
@@ -271,6 +319,6 @@
       </div>
     </footer>
     <script src="app-store-rating.js?v=20260710a" defer></script>
-    <script src="script.js?v=20260710c" defer></script>
+    <script src="script.js?v=20260711a" defer></script>
   </body>
 </html>
