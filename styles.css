@@ -394,11 +394,10 @@ p {
 
 .home-page {
   background: #000;
-  overflow-x: hidden;
 }
 
 .home-page main {
-  overflow-x: hidden;
+  overflow-x: clip;
 }
 
 .home-page::before {
