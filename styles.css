@@ -3344,15 +3344,15 @@ body.not-found-page::after {
   }
 
   .discover-stage {
-    width: calc(100% + 28px);
+    width: 100%;
     min-height: 430px;
-    margin-left: -14px;
+    margin-left: 0;
   }
 
   .feature-stage {
-    width: calc(100% + 28px);
+    width: 100%;
     min-height: 500px;
-    margin-left: -14px;
+    margin-left: 0;
   }
 
   .feature-stage-glow {
@@ -3366,51 +3366,51 @@ body.not-found-page::after {
 
   .feature-fragment-host-command {
     top: 4%;
-    left: -2%;
-    width: 78%;
-    height: 90%;
+    left: 7%;
+    width: 75%;
+    height: 88%;
   }
 
   .feature-fragment-host-flyer {
-    right: -2%;
-    width: 45%;
-    height: 74%;
+    right: 7%;
+    width: 42%;
+    height: 72%;
   }
 
   .feature-fragment-garage-main {
-    left: -2%;
-    width: 88%;
-    height: 82%;
+    left: 7%;
+    width: 84%;
+    height: 80%;
   }
 
   .feature-fragment-garage-ethanol {
-    right: -2%;
-    width: 54%;
-    height: 75%;
+    right: 7%;
+    width: 50%;
+    height: 73%;
   }
 
   .feature-fragment-connections-list {
-    left: -2%;
-    width: 78%;
-    height: 90%;
+    left: 7%;
+    width: 75%;
+    height: 88%;
   }
 
   .feature-fragment-connections-profile {
-    right: -2%;
-    width: 74%;
-    height: 67%;
+    right: 7%;
+    width: 70%;
+    height: 65%;
   }
 
   .feature-fragment-groups-list {
-    left: -2%;
-    width: 74%;
-    height: 89%;
+    left: 7%;
+    width: 70%;
+    height: 87%;
   }
 
   .feature-fragment-groups-detail {
-    right: -2%;
-    width: 74%;
-    height: 72%;
+    right: 7%;
+    width: 70%;
+    height: 70%;
   }
 
   .discover-stage-glow {
@@ -3420,14 +3420,14 @@ body.not-found-page::after {
 
   .discover-fragment-map {
     top: 4%;
-    right: -4%;
-    width: 72%;
+    right: 2%;
+    width: 68%;
   }
 
   .discover-fragment-meet {
-    right: -3%;
+    right: 3%;
     bottom: 3%;
-    width: 106%;
+    width: 94%;
   }
 
   .feature-row h2 {
