@@ -361,6 +361,27 @@ p {
   font-weight: 700;
 }
 
+.platform-note {
+  display: inline-flex;
+  max-width: 590px;
+  align-items: center;
+  gap: 9px;
+  margin: 18px 0 0;
+  color: rgba(247, 247, 244, 0.64);
+  font-size: 0.92rem;
+  font-weight: 700;
+}
+
+.platform-note::before {
+  width: 7px;
+  height: 7px;
+  flex: 0 0 auto;
+  border-radius: 999px;
+  background: rgba(247, 247, 244, 0.92);
+  box-shadow: 0 0 14px rgba(255, 255, 255, 0.24);
+  content: "";
+}
+
 .hero-index-panel {
   display: grid;
   align-self: center;
@@ -1653,6 +1674,15 @@ p {
   max-width: 590px;
   margin: 18px 0 0;
   font-size: 0.95rem;
+}
+
+.page-hero .platform-note {
+  margin: 18px 0 0;
+  font-size: 0.92rem;
+}
+
+.download-hero .page-hero .platform-note {
+  margin-bottom: 0;
 }
 
 .download-visual {
