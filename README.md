@@ -17,6 +17,7 @@ This site is intentionally simple:
 - `/car-meet-app/`
 - `/hosts/`
 - `/submit-meet/`
+- `/terms/`
 - `/privacy/`
 - `/support/`
 - `/support/help/`

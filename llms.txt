@@ -22,6 +22,7 @@ Human-readable sitemap: https://idlemeets.com/sitemap/
 - Updates: https://idlemeets.com/updates/
 - Support: https://idlemeets.com/support/
 - Help Center: https://idlemeets.com/support/help/
+- Terms: https://idlemeets.com/terms/
 - Privacy: https://idlemeets.com/privacy/
 
 ## Feature Pages
