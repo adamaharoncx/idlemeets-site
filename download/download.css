@@ -32,8 +32,6 @@
 }
 
 .app-store-proof {
-  --glow-x: 56%;
-  --glow-y: 48%;
   position: relative;
   display: block;
   min-width: 0;
@@ -44,36 +42,9 @@
 }
 
 .app-store-proof:focus-visible {
-  outline: none;
-}
-
-.app-store-proof:focus-visible .app-store-rating-card,
-.app-store-proof:focus-visible .app-store-preview-card {
-  filter:
-    drop-shadow(0 0 0.75rem rgba(255, 255, 255, 0.2))
-    drop-shadow(0 34px 64px rgba(0, 0, 0, 0.48));
-}
-
-.app-store-proof-glow {
-  position: absolute;
-  inset: 4% -10% -2% -12%;
-  z-index: -1;
-  pointer-events: none;
-  background: radial-gradient(
-    circle at var(--glow-x) var(--glow-y),
-    rgba(255, 255, 255, 0.19),
-    rgba(255, 255, 255, 0.07) 31%,
-    transparent 66%
-  );
-  filter: blur(36px);
-  opacity: 0.78;
-  transition: opacity 360ms ease;
-}
-
-.app-store-proof:hover .app-store-proof-glow,
-.app-store-proof:focus-visible .app-store-proof-glow,
-.app-store-proof.is-active .app-store-proof-glow {
-  opacity: 1;
+  outline: 2px solid rgba(255, 255, 255, 0.9);
+  outline-offset: 8px;
+  border-radius: 32px;
 }
 
 .app-store-preview-card,
@@ -98,7 +69,6 @@
   background: #a8abb2;
   box-shadow:
     0 44px 92px rgba(0, 0, 0, 0.54),
-    0 0 46px rgba(255, 255, 255, 0.06),
     inset 0 0 0 1px rgba(255, 255, 255, 0.2);
   transform:
     translate3d(var(--proof-x, 0px), var(--proof-y, 0px), -24px)
@@ -123,12 +93,9 @@
   overflow: hidden;
   border: 1px solid rgba(255, 255, 255, 0.24);
   border-radius: clamp(26px, 2.5vw, 36px);
-  background:
-    radial-gradient(circle at 88% 0%, rgba(255, 255, 255, 0.11), transparent 34%),
-    linear-gradient(145deg, rgba(31, 32, 36, 0.97), rgba(8, 9, 11, 0.96));
+  background: linear-gradient(145deg, rgba(31, 32, 36, 0.97), rgba(8, 9, 11, 0.96));
   box-shadow:
     0 42px 88px rgba(0, 0, 0, 0.56),
-    0 0 44px rgba(255, 255, 255, 0.055),
     inset 0 1px 0 rgba(255, 255, 255, 0.1);
   backdrop-filter: blur(24px);
   transform:
@@ -349,8 +316,7 @@
 
 @media (prefers-reduced-motion: reduce) {
   .app-store-preview-card,
-  .app-store-rating-card,
-  .app-store-proof-glow {
+  .app-store-rating-card {
     transition: none;
   }
 }

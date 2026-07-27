@@ -4,7 +4,7 @@
   const CACHE_MAX_AGE = 6 * 60 * 60 * 1000;
   const CALLBACK_NAME = "__idleAppStoreLookup";
   const FALLBACK_RATING = 5;
-  const FALLBACK_COUNT = 12;
+  const FALLBACK_COUNT = 15;
 
   const readCache = () => {
     try {

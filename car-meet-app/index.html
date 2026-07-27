@@ -22,7 +22,7 @@
     <meta name="twitter:title" content="Car Meet App for iPhone | Idle">
     <meta name="twitter:description" content="A car meet app for discovering nearby meets, hosting cleanly, building your garage, and staying connected to real local car culture.">
     <meta name="twitter:image" content="https://idlemeets.com/assets/idle-social-preview-20260513a.png">
-    <script type="application/ld+json">
+    <script id="idle-app-schema" type="application/ld+json">
       {
         "@context": "https://schema.org",
         "@type": "MobileApplication",
@@ -69,7 +69,7 @@
         "aggregateRating": {
           "@type": "AggregateRating",
           "ratingValue": "5.0",
-          "ratingCount": 10,
+          "ratingCount": 15,
           "bestRating": "5",
           "worstRating": "1"
         }
@@ -137,7 +137,7 @@
     </script>
     <link rel="canonical" href="https://idlemeets.com/car-meet-app/">
     <link rel="icon" href="../assets/idle-favicon.png" type="image/png" sizes="192x192">
-    <link rel="stylesheet" href="../styles.css?v=20260624a">
+    <link rel="stylesheet" href="../styles.css?v=20260727c">
   </head>
   <body class="landing-page seo-page">
     <a class="skip-link" href="#main-content">Skip to main content</a>
@@ -169,7 +169,11 @@
           <a class="button button-secondary" href="../car-meets/">Find meets</a>
           <a class="button button-secondary" href="../hosts/">For hosts</a>
         </div>
-        <p class="rating-note">Rated 5.0 on the App Store from 10 ratings.</p>
+        <p class="rating-note" data-rating-summary>
+          Rated <span data-rating-value>5.0</span> on the App Store from
+          <span data-rating-count>15</span> <span data-rating-noun>ratings</span>.
+          <span class="sr-only" aria-live="polite" data-rating-status></span>
+        </p>
       </section>
 
       <section class="site-shell host-focus-panel" data-reveal>
@@ -325,6 +329,8 @@
         </nav>
       </div>
     </footer>
+    <script src="../app-store-rating.js?v=20260727a" defer></script>
     <script src="../script.js" defer></script>
+    <script src="/navigation.js?v=20260727c" defer></script>
   </body>
 </html>

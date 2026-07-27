@@ -84,7 +84,7 @@
             "aggregateRating": {
               "@type": "AggregateRating",
               "ratingValue": "5.0",
-              "ratingCount": 12,
+              "ratingCount": 15,
               "bestRating": "5",
               "worstRating": "1"
             }
@@ -94,14 +94,14 @@
     </script>
     <link rel="canonical" href="https://idlemeets.com/">
     <link rel="icon" href="assets/idle-favicon.png" type="image/png" sizes="192x192">
-    <link rel="stylesheet" href="styles.css?v=20260717a">
+    <link rel="stylesheet" href="styles.css?v=20260727c">
   </head>
   <body class="landing-page home-page">
     <a class="skip-link" href="#main-content">Skip to main content</a>
     <header class="site-header">
       <div class="site-shell nav" aria-label="Main navigation">
         <a class="brand" href="./" aria-label="Idle home">
-          <span class="brand-mark"><img src="assets/idle-app-mark.png" alt=""></span>
+          <span class="brand-mark"><img src="assets/idle-app-mark-256.avif?v=20260727a" alt=""></span>
           <span>Idle</span>
         </a>
         <nav class="nav-links" aria-label="Site links">
@@ -119,7 +119,7 @@
     <main id="main-content">
       <section class="site-shell hero home-hero">
         <div class="hero-copy" data-reveal>
-          <span class="hero-logo" aria-hidden="true"><img src="assets/idle-app-mark.png" alt=""></span>
+          <span class="hero-logo" aria-hidden="true"><img src="assets/idle-app-mark-256.avif?v=20260727a" alt=""></span>
           <p class="story-label">Idle for iPhone</p>
           <h1 class="hero-title">Car meets, finally organized.</h1>
           <p class="hero-body">Discover what is happening nearby, host with confidence, build your garage, message connections, and stay connected to the scene around you.</p>
@@ -131,15 +131,31 @@
         </div>
 
         <div class="product-stage" data-product-stage data-active-card="meet" aria-label="Interactive previews of Idle's meet, map, and garage experience">
-          <div class="product-stage-glow" aria-hidden="true"></div>
           <button class="product-fragment product-fragment-map" type="button" data-product-fragment data-product-card="map" data-card-label="Meet map" data-depth="0.52" aria-label="Show the Meet map preview" aria-pressed="false">
-            <img src="assets/product-showcase/idle-meet-map-demo.png?v=20260710e" alt="" width="1448" height="1086" decoding="async">
+            <picture>
+              <source srcset="assets/product-showcase/idle-meet-map-demo.avif?v=20260727a" type="image/avif">
+              <img src="assets/product-showcase/idle-meet-map-demo.png?v=20260727a" alt="" width="1448" height="1086" decoding="async">
+            </picture>
           </button>
           <button class="product-fragment product-fragment-meet" type="button" data-product-fragment data-product-card="meet" data-card-label="Night Meet" data-depth="1" aria-label="Show the Night Meet preview" aria-pressed="true">
-            <img src="assets/product-showcase/idle-meet-card-demo.png?v=20260710c" alt="" width="1536" height="1024" fetchpriority="high" decoding="async">
+            <picture>
+              <source
+                srcset="
+                  assets/product-showcase/idle-meet-card-demo-768.avif?v=20260727a 768w,
+                  assets/product-showcase/idle-meet-card-demo-960.avif?v=20260727a 960w,
+                  assets/product-showcase/idle-meet-card-demo.avif?v=20260727a 1536w
+                "
+                sizes="(max-width: 980px) 100vw, 55vw"
+                type="image/avif"
+              >
+              <img src="assets/product-showcase/idle-meet-card-demo.png?v=20260727a" alt="" width="1536" height="1024" fetchpriority="high" decoding="async">
+            </picture>
           </button>
           <button class="product-fragment product-fragment-profile" type="button" data-product-fragment data-product-card="profile" data-card-label="Garage profile" data-depth="0.78" aria-label="Show the garage profile preview" aria-pressed="false">
-            <img src="assets/product-showcase/idle-profile-demo-black-badge.png?v=20260710a" alt="" width="1748" height="900" decoding="async">
+            <picture>
+              <source srcset="assets/product-showcase/idle-profile-demo-black-badge.avif?v=20260727a" type="image/avif">
+              <img src="assets/product-showcase/idle-profile-demo-black-badge.png?v=20260727a" alt="" width="1748" height="900" decoding="async">
+            </picture>
           </button>
           <p class="sr-only" data-product-status aria-live="polite">Night Meet preview selected.</p>
         </div>
@@ -148,7 +164,7 @@
       <section class="site-shell home-proof-band" aria-label="Idle app details" data-reveal>
         <p class="rating-note" data-rating-summary>
           Rated <span data-rating-value>5.0</span> on the App Store from
-          <span data-rating-count>12</span> <span data-rating-noun>ratings</span>.
+          <span data-rating-count>15</span> <span data-rating-noun>ratings</span>.
           <span class="sr-only" aria-live="polite" data-rating-status></span>
         </p>
         <p class="hero-note">Built for iPhone. Designed for meets, garages, groups, messages, and real local connections. Looking to <a class="contact-link" href="car-meets/">find car meets</a> or compare a <a class="contact-link" href="car-meet-app/">car meet app</a>? See how Idle works.</p>
@@ -164,27 +180,38 @@
         <div class="editorial-stack">
           <article id="discover" class="product-chapter product-chapter-discover" data-reveal>
             <div class="product-chapter-copy">
-              <span class="editorial-number">01</span>
               <p class="story-label">Discover</p>
               <h3>Know what is happening before you roll out.</h3>
               <p>See nearby meets with location, host context, rules, and the practical details that help you decide quickly.</p>
               <a class="chapter-link" href="car-meets/">Explore nearby meets</a>
             </div>
 
-            <div class="discover-stage" data-discover-stage aria-label="Idle meet map and Night Meet previews">
-              <div class="discover-stage-glow" aria-hidden="true"></div>
+            <div class="discover-stage" data-discover-stage role="img" aria-label="Idle meet map and Night Meet previews">
               <div class="discover-fragment discover-fragment-map" data-discover-fragment data-depth="0.55" aria-hidden="true">
-                <img src="assets/product-showcase/idle-meet-map-demo.png?v=20260710e" alt="" width="1448" height="1086" loading="lazy" decoding="async">
+                <picture>
+                  <source srcset="assets/product-showcase/idle-meet-map-demo.avif?v=20260727a" type="image/avif">
+                  <img src="assets/product-showcase/idle-meet-map-demo.png?v=20260727a" alt="" width="1448" height="1086" loading="lazy" decoding="async">
+                </picture>
               </div>
               <div class="discover-fragment discover-fragment-meet" data-discover-fragment data-depth="1" aria-hidden="true">
-                <img src="assets/product-showcase/idle-meet-card-demo.png?v=20260710d" alt="" width="1536" height="1024" loading="lazy" decoding="async">
+                <picture>
+                  <source
+                    srcset="
+                      assets/product-showcase/idle-meet-card-demo-768.avif?v=20260727a 768w,
+                      assets/product-showcase/idle-meet-card-demo-960.avif?v=20260727a 960w,
+                      assets/product-showcase/idle-meet-card-demo.avif?v=20260727a 1536w
+                    "
+                    sizes="(max-width: 980px) 100vw, 55vw"
+                    type="image/avif"
+                  >
+                  <img src="assets/product-showcase/idle-meet-card-demo.png?v=20260727a" alt="" width="1536" height="1024" loading="lazy" decoding="async">
+                </picture>
               </div>
             </div>
           </article>
 
           <article id="host" class="product-chapter feature-chapter feature-chapter-reverse feature-chapter-host" data-reveal>
             <div class="product-chapter-copy">
-              <span class="editorial-number">02</span>
               <p class="story-label">Host</p>
               <h3>Create the meet, make the flyer, share fast.</h3>
               <p>Structure the plan from the start with date, time, location, visibility, parking notes, ride-outs, and clean sharing.</p>
@@ -192,7 +219,6 @@
             </div>
 
             <div class="feature-stage feature-stage-host" data-feature-stage data-active-card="command" aria-label="Interactive previews of Idle Host Tools and flyer creation">
-              <div class="feature-stage-glow" aria-hidden="true"></div>
               <button class="feature-fragment feature-fragment-host-command is-selected" type="button" data-feature-fragment data-feature-card="command" data-card-label="Host Tools" data-depth="1" aria-label="Show the Host Tools preview" aria-pressed="true">
                 <span class="feature-shot"><img src="assets/product-showcase/idle-host-tools-command.webp?v=20260710a" alt="" width="1320" height="2868" loading="lazy" decoding="async"></span>
               </button>
@@ -205,7 +231,6 @@
 
           <article id="garage" class="product-chapter feature-chapter feature-chapter-garage" data-reveal>
             <div class="product-chapter-copy">
-              <span class="editorial-number">03</span>
               <p class="story-label">Garage</p>
               <h3>Your cars have a place.</h3>
               <p>Build a garage around what you drive, choose your primary car, keep its details close, and calculate the ethanol blend your setup needs.</p>
@@ -213,7 +238,6 @@
             </div>
 
             <div class="feature-stage feature-stage-garage" data-feature-stage data-active-card="garage" aria-label="Interactive previews of My Garage and the Ethanol Calculator">
-              <div class="feature-stage-glow" aria-hidden="true"></div>
               <button class="feature-fragment feature-fragment-garage-main is-selected" type="button" data-feature-fragment data-feature-card="garage" data-card-label="My Garage" data-depth="1" aria-label="Show the My Garage preview" aria-pressed="true">
                 <span class="feature-shot"><img src="assets/product-showcase/idle-garage-main.webp?v=20260710a" alt="" width="1320" height="2868" loading="lazy" decoding="async"></span>
               </button>
@@ -226,7 +250,6 @@
 
           <article id="connections" class="product-chapter feature-chapter feature-chapter-reverse feature-chapter-connections" data-reveal>
             <div class="product-chapter-copy">
-              <span class="editorial-number">04</span>
               <p class="story-label">Connections</p>
               <h3>Keep the conversation close to the scene.</h3>
               <p>Find drivers through the cars and places you share, connect after the meet, and keep real-world relationships from getting lost.</p>
@@ -234,7 +257,6 @@
             </div>
 
             <div class="feature-stage feature-stage-connections" data-feature-stage data-active-card="profile" aria-label="Interactive previews of Connections and a public driver profile">
-              <div class="feature-stage-glow" aria-hidden="true"></div>
               <button class="feature-fragment feature-fragment-connections-list" type="button" data-feature-fragment data-feature-card="people" data-card-label="Connections" data-depth="0.58" aria-label="Show the Connections preview" aria-pressed="false">
                 <span class="feature-shot"><img src="assets/product-showcase/idle-connections-list.webp?v=20260710a" alt="" width="1320" height="2868" loading="lazy" decoding="async"></span>
               </button>
@@ -247,7 +269,6 @@
 
           <article id="groups" class="product-chapter feature-chapter feature-chapter-groups" data-reveal>
             <div class="product-chapter-copy">
-              <span class="editorial-number">05</span>
               <p class="story-label">Groups</p>
               <h3>Stay connected to local crews.</h3>
               <p>Start or discover a group, manage private access, and give your crew one place for members, discussion, chat, and group meets.</p>
@@ -255,7 +276,6 @@
             </div>
 
             <div class="feature-stage feature-stage-groups" data-feature-stage data-active-card="detail" aria-label="Interactive previews of group discovery and a group detail page">
-              <div class="feature-stage-glow" aria-hidden="true"></div>
               <button class="feature-fragment feature-fragment-groups-list" type="button" data-feature-fragment data-feature-card="discover" data-card-label="Group discovery" data-depth="0.58" aria-label="Show group discovery" aria-pressed="false">
                 <span class="feature-shot"><img src="assets/product-showcase/idle-groups-discover.webp?v=20260710a" alt="" width="1320" height="2868" loading="lazy" decoding="async"></span>
               </button>
@@ -320,7 +340,8 @@
         </nav>
       </div>
     </footer>
-    <script src="app-store-rating.js?v=20260710a" defer></script>
+    <script src="app-store-rating.js?v=20260727a" defer></script>
     <script src="script.js?v=20260712b" defer></script>
+    <script src="/navigation.js?v=20260727c" defer></script>
   </body>
 </html>

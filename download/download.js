@@ -31,9 +31,6 @@
       const bounds = proof.getBoundingClientRect();
       state.targetX = Math.max(-1, Math.min(1, ((event.clientX - bounds.left) / bounds.width - 0.5) * 2));
       state.targetY = Math.max(-1, Math.min(1, ((event.clientY - bounds.top) / bounds.height - 0.5) * 2));
-      proof.style.setProperty("--glow-x", `${50 + state.targetX * 20}%`);
-      proof.style.setProperty("--glow-y", `${48 + state.targetY * 18}%`);
-      proof.classList.add("is-active");
 
       if (!state.frame) state.frame = requestAnimationFrame(render);
     };
@@ -41,9 +38,7 @@
     const reset = () => {
       state.targetX = 0;
       state.targetY = 0;
-      proof.style.setProperty("--glow-x", "56%");
-      proof.style.setProperty("--glow-y", "48%");
-      proof.classList.remove("is-active", "is-pressed");
+      proof.classList.remove("is-pressed");
       if (!state.frame) state.frame = requestAnimationFrame(render);
     };
 

@@ -67,9 +67,6 @@
         fragment.style.setProperty("--fragment-y", (currentStageY * yDistance * depth).toFixed(2) + "px");
       });
 
-      stage.style.setProperty("--feature-glow-x", (52 + currentStageX * 17).toFixed(1) + "%");
-      stage.style.setProperty("--feature-glow-y", (48 + currentStageY * 14).toFixed(1) + "%");
-
       if (Math.abs(targetStageX - currentStageX) > 0.002 || Math.abs(targetStageY - currentStageY) > 0.002) {
         stageFrame = window.requestAnimationFrame(paint);
       } else {
@@ -227,9 +224,6 @@
       fragment.style.setProperty("--tilt-x", (-currentY * 1.15 * depth).toFixed(2) + "deg");
       fragment.style.setProperty("--tilt-y", (currentX * 1.55 * depth).toFixed(2) + "deg");
     });
-
-    productStage.style.setProperty("--glow-x", (52 + currentX * 18).toFixed(1) + "%");
-    productStage.style.setProperty("--glow-y", (44 + currentY * 15).toFixed(1) + "%");
 
     if (Math.abs(targetX - currentX) > 0.002 || Math.abs(targetY - currentY) > 0.002) {
       frame = window.requestAnimationFrame(paintStage);
