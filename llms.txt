@@ -1,6 +1,6 @@
 # Idle
 
-Idle is a native iPhone app for car culture. It helps drivers discover meets, find nearby E85 stops, find community photo spots, host polished meets, coordinate with connections and groups, share Pulse updates, manage a profile and garage, use fuel tools, and coordinate short-lived Convoys.
+Idle is a native iPhone app for finding and hosting car meets. Meet details, host updates, garage profiles, groups, messages, Pulse, E85 tools, photo spots, and short-lived Convoys live in the same app.
 
 Idle is available for iPhone now. Android support is still in development and is not available yet.
 
@@ -12,6 +12,7 @@ Human-readable sitemap: https://idlemeets.com/sitemap/
 ## Primary Pages
 
 - Home: https://idlemeets.com/
+- About: https://idlemeets.com/about/
 - Download: https://idlemeets.com/download/
 - Features: https://idlemeets.com/features/
 - Car meet app: https://idlemeets.com/car-meet-app/
