@@ -5398,11 +5398,18 @@ body.not-found-page::after {
   }
 
   .guide-mini-formula {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr) auto minmax(0, 1fr);
+    gap: 6px;
+    padding: 18px 0;
+  }
+
+  .guide-mini-formula span {
+    font-size: 0.78rem;
+    line-height: 1.35;
   }
 
   .guide-mini-formula strong {
-    transform: rotate(90deg);
+    transform: none;
   }
 
   .guide-editorial-note {
