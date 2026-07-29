@@ -18,6 +18,7 @@ Human-readable sitemap: https://idlemeets.com/sitemap/
 - Car meet app: https://idlemeets.com/car-meet-app/
 - Find car meets: https://idlemeets.com/car-meets/
 - Florida car meets: https://idlemeets.com/car-meets/florida/
+- Guides: https://idlemeets.com/guides/
 - Host meets: https://idlemeets.com/hosts/
 - Submit a meet: https://idlemeets.com/submit-meet/
 - Updates: https://idlemeets.com/updates/
@@ -35,6 +36,20 @@ Human-readable sitemap: https://idlemeets.com/sitemap/
 - Pulse: https://idlemeets.com/features/pulse/
 - Car groups: https://idlemeets.com/features/car-groups/
 - Convoys: https://idlemeets.com/features/convoys/
+
+## Editorial Guides
+
+- How to host a car meet: https://idlemeets.com/guides/how-to-host-a-car-meet/
+- How to calculate an E85 blend: https://idlemeets.com/guides/how-to-calculate-e85-blend/
+- Car meet etiquette: https://idlemeets.com/guides/car-meet-etiquette/
+- How to leave a car meet safely: https://idlemeets.com/guides/leave-a-car-meet-safely/
+- How to decline a street-race invitation: https://idlemeets.com/guides/how-to-decline-a-street-race/
+- What to do when a car meet gets shut down: https://idlemeets.com/guides/when-a-car-meet-gets-shut-down/
+- How to buy a used modified car: https://idlemeets.com/guides/buying-a-used-modified-car/
+- First track day checklist: https://idlemeets.com/guides/first-track-day-checklist/
+- How to take better car photos with your phone: https://idlemeets.com/guides/take-better-car-photos-with-your-phone/
+
+These editorial guides answer broad, practical enthusiast questions. They stand on their own and introduce Idle only where a product feature genuinely helps. The Help Center below explains how to use Idle itself.
 
 ## Help Center Topics
 

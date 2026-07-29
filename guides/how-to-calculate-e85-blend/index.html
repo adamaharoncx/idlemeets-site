@@ -1,0 +1,376 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#000000">
+    <title>How to Calculate an E85 Blend with Examples | Idle</title>
+    <meta name="description" content="Learn E85 blend math with a worked E50 example, a reusable formula, pump-ethanol variation, tank-capacity checks, and common calculation mistakes.">
+    <meta name="apple-itunes-app" content="app-id=6762639080">
+    <meta property="og:site_name" content="Idle">
+    <meta property="og:title" content="How to Calculate an E85 Blend with Examples | Idle">
+    <meta property="og:description" content="Work from the fuel in the tank, the ethanol you are adding, and your supported target—not the name on the pump.">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://idlemeets.com/guides/how-to-calculate-e85-blend/">
+    <meta property="og:image" content="https://idlemeets.com/assets/idle-social-preview-20260513a.png">
+    <meta property="og:image:secure_url" content="https://idlemeets.com/assets/idle-social-preview-20260513a.png">
+    <meta property="og:image:type" content="image/png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="Idle car meet app">
+    <meta property="article:published_time" content="2026-07-28">
+    <meta property="article:modified_time" content="2026-07-28">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="How to Calculate an E85 Blend with Examples | Idle">
+    <meta name="twitter:description" content="Work from the fuel in the tank, the ethanol you are adding, and your supported target—not the name on the pump.">
+    <meta name="twitter:image" content="https://idlemeets.com/assets/idle-social-preview-20260513a.png">
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "TechArticle",
+            "@id": "https://idlemeets.com/guides/how-to-calculate-e85-blend/#article",
+            "mainEntityOfPage": "https://idlemeets.com/guides/how-to-calculate-e85-blend/",
+            "headline": "Calculate your ethanol blend without guessing",
+            "description": "E85 blend math with a worked E50 example, a reusable formula, pump-ethanol variation, tank-capacity checks, and common calculation mistakes.",
+            "proficiencyLevel": "Beginner",
+            "image": "https://idlemeets.com/assets/idle-social-preview-20260513a.png",
+            "datePublished": "2026-07-28",
+            "dateModified": "2026-07-28",
+            "author": {
+              "@type": "Organization",
+              "name": "Idle",
+              "url": "https://idlemeets.com/"
+            },
+            "publisher": {
+              "@type": "Organization",
+              "name": "Idle",
+              "url": "https://idlemeets.com/",
+              "logo": {
+                "@type": "ImageObject",
+                "url": "https://idlemeets.com/assets/idle-app-mark.png"
+              }
+            },
+            "about": [
+              "E85",
+              "Ethanol fuel",
+              "Ethanol blend calculator",
+              "Flex fuel vehicles"
+            ]
+          },
+          {
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+              {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Idle",
+                "item": "https://idlemeets.com/"
+              },
+              {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Guides",
+                "item": "https://idlemeets.com/guides/"
+              },
+              {
+                "@type": "ListItem",
+                "position": 3,
+                "name": "Calculate your ethanol blend",
+                "item": "https://idlemeets.com/guides/how-to-calculate-e85-blend/"
+              }
+            ]
+          }
+        ]
+      }
+    </script>
+    <link rel="canonical" href="https://idlemeets.com/guides/how-to-calculate-e85-blend/">
+    <link rel="icon" href="../../assets/idle-favicon.png" type="image/png" sizes="192x192">
+    <link rel="stylesheet" href="../../styles.css?v=20260728a">
+  </head>
+  <body class="landing-page guide-page guide-e85">
+    <a class="skip-link" href="#main-content">Skip to main content</a>
+    <header class="site-header">
+      <div class="site-shell nav" aria-label="Main navigation">
+        <a class="brand" href="../../" aria-label="Idle home">
+          <span class="brand-mark"><img src="../../assets/idle-app-mark.png" alt=""></span>
+          <span>Idle</span>
+        </a>
+        <nav class="nav-links" aria-label="Site links">
+          <a href="../../download/">Download</a>
+          <a href="../../features/">Features</a>
+          <a aria-current="page" href="../../guides/">Guides</a>
+          <a class="hide-small" href="../../hosts/">Hosts</a>
+          <a href="../../updates/">Updates</a>
+          <a href="../../support/">Support</a>
+          <a class="hide-small" href="../../support/help/">Help Center</a>
+          <a class="hide-small" href="../../privacy/">Privacy</a>
+        </nav>
+      </div>
+    </header>
+
+    <main id="main-content">
+      <article>
+        <header class="site-shell guide-article-header guide-technical-header">
+          <p class="breadcrumb"><a href="../../">Idle</a> / <a href="../">Guides</a> / Ethanol blend math</p>
+          <p class="story-label">Fuel math</p>
+          <h1>Calculate your ethanol blend without guessing</h1>
+          <p class="guide-deck">The pump name is not the number your calculation needs. Start with the ethanol already in the tank, the tested or supported estimate for the fuel you are adding, and a target your vehicle is built and calibrated to use.</p>
+          <div class="guide-byline" aria-label="Article details">
+            <span>10 min read</span>
+            <span>Published July 28, 2026</span>
+            <span>By Idle</span>
+          </div>
+        </header>
+
+        <div class="site-shell guide-technical-layout">
+          <aside class="guide-safety-card">
+            <p class="story-label">Before the math</p>
+            <h2>Compatibility comes first.</h2>
+            <p>EPA says E85 is for flexible-fuel vehicles. A modified vehicle should only use a blend explicitly supported by its fuel system, calibration, tuner, and component manufacturers.</p>
+            <p>A calculator can estimate proportions. It cannot inspect your hardware, validate your tune, measure the fuel, or tell you what is safe.</p>
+          </aside>
+
+          <div class="guide-prose guide-technical-prose">
+            <section id="what-e85-means" class="guide-section">
+              <p class="guide-section-number">01</p>
+              <h2>“E85” does not always mean 85%</h2>
+              <p>The U.S. Department of Energy’s Alternative Fuels Data Center describes E85, also called flex fuel, as a gasoline-ethanol blend containing <strong>51% to 83% ethanol</strong>, depending on geography and season. EPA describes it as containing up to 85% ethanol.</p>
+              <p>That range matters. If you enter 85% because the pump says E85 but the fuel is actually E70, your result will not land on the target you calculated.</p>
+              <div class="blend-terms">
+                <article>
+                  <span>E10</span>
+                  <p>Nominally 10% ethanol and 90% gasoline. Most U.S. gasoline contains ethanol, commonly as E10.</p>
+                </article>
+                <article>
+                  <span>E50</span>
+                  <p>A 50% ethanol target. This is a calculated blend, not a promise that a vehicle can use it.</p>
+                </article>
+                <article>
+                  <span>E85</span>
+                  <p>The market name for flex fuel. Actual ethanol content can vary rather than remaining fixed at 85%.</p>
+                </article>
+              </div>
+              <aside class="guide-callout">
+                <strong>Use a real source value when precision matters.</strong>
+                <p>An ethanol-content sensor or a test method made for automotive fuel can provide a better input than the pump name alone. Follow the equipment manufacturer’s instructions and handle fuel safely. If you cannot measure it, treat the result as an estimate with additional uncertainty.</p>
+              </aside>
+            </section>
+
+            <section id="formula" class="guide-section">
+              <p class="guide-section-number">02</p>
+              <h2>The blend formula</h2>
+              <p>Ethanol blending is a volume-weighted average. Convert every percentage to a decimal before doing the math: 10% becomes 0.10, 50% becomes 0.50, and 75% becomes 0.75.</p>
+              <div class="guide-formula-panel">
+                <p>final ethanol fraction</p>
+                <div class="formula-fraction">
+                  <span>(current gallons × current fraction) + (added gallons × added fraction)</span>
+                  <span>current gallons + added gallons</span>
+                </div>
+              </div>
+              <p>When you know the current fuel and want to solve for how many gallons of the new fuel to add:</p>
+              <div class="guide-formula-panel guide-formula-secondary">
+                <p>gallons to add</p>
+                <div class="formula-fraction">
+                  <span>current gallons × (target fraction − current fraction)</span>
+                  <span>added-fuel fraction − target fraction</span>
+                </div>
+              </div>
+              <p>The second formula only works when the target falls between the current blend and the fuel being added. You cannot reach E60 by adding E50 to E10, and adding more fuel cannot lower a blend when the added fuel has a higher ethanol content than the tank.</p>
+            </section>
+
+            <section id="worked-example" class="guide-section worked-example">
+              <p class="guide-section-number">03</p>
+              <h2>Worked example: 4 gallons of E10 to an E50 target</h2>
+              <p>Assume the car currently has 4.0 gallons of E10. The source fuel has been measured or reasonably estimated at E75. The supported target is E50.</p>
+
+              <div class="example-inputs" aria-label="Worked example inputs">
+                <div><span>Current amount</span><strong>4.0 gal</strong></div>
+                <div><span>Current blend</span><strong>E10</strong></div>
+                <div><span>Added fuel</span><strong>E75</strong></div>
+                <div><span>Target</span><strong>E50</strong></div>
+              </div>
+
+              <ol class="calculation-steps">
+                <li>
+                  <span>1</span>
+                  <div>
+                    <h3>Convert the percentages</h3>
+                    <p>E10 = 0.10, E75 = 0.75, and E50 = 0.50.</p>
+                  </div>
+                </li>
+                <li>
+                  <span>2</span>
+                  <div>
+                    <h3>Put the values into the solve-for-add formula</h3>
+                    <p>4.0 × (0.50 − 0.10) ÷ (0.75 − 0.50)</p>
+                  </div>
+                </li>
+                <li>
+                  <span>3</span>
+                  <div>
+                    <h3>Calculate the addition</h3>
+                    <p>4.0 × 0.40 ÷ 0.25 = <strong>6.4 gallons of E75</strong>.</p>
+                  </div>
+                </li>
+                <li>
+                  <span>4</span>
+                  <div>
+                    <h3>Check the result</h3>
+                    <p>The original fuel contains 0.4 gallon of ethanol. The added fuel contains 4.8 gallons. That is 5.2 gallons of ethanol in 10.4 total gallons: 5.2 ÷ 10.4 = 0.50, or E50.</p>
+                  </div>
+                </li>
+              </ol>
+
+              <aside class="guide-result-card">
+                <span>Estimated fill</span>
+                <strong>6.4 gallons of E75</strong>
+                <p>Estimated final volume: 10.4 gallons at E50, before accounting for input and measurement error.</p>
+              </aside>
+            </section>
+
+            <section id="wrong-assumption" class="guide-section">
+              <p class="guide-section-number">04</p>
+              <h2>What changes if you assume the pump is E85?</h2>
+              <p>Using the same 4 gallons of E10 and E50 target, but entering 0.85 for the source fuel, the calculator asks for about 4.57 gallons. If the fuel is actually E75, that addition produces roughly E44.7—not E50.</p>
+              <div class="assumption-comparison">
+                <article>
+                  <span>Entered as E85</span>
+                  <strong>4.57 gal added</strong>
+                  <p>The math is correct for an 85% source.</p>
+                </article>
+                <article>
+                  <span>Actually E75</span>
+                  <strong>About E44.7 final</strong>
+                  <p>The input was wrong, so the accurate calculation answered the wrong question.</p>
+                </article>
+              </div>
+              <p>This is why a blend calculator should show the assumptions and why the person filling the car should review them before pumping.</p>
+            </section>
+
+            <section id="capacity" class="guide-section">
+              <p class="guide-section-number">05</p>
+              <h2>Check whether the answer fits in the tank</h2>
+              <p>The worked example ends with 10.4 gallons total. Before using it, compare that with the vehicle’s usable capacity and the uncertainty in the current amount.</p>
+              <ul class="guide-bullet-list">
+                <li>A dashboard fuel gauge is not a laboratory volume measurement.</li>
+                <li>Tank capacity in a manual is not permission to fill every last theoretical fraction.</li>
+                <li>A sloped parking surface, fuel temperature, pump shutoff, and the shape of the tank can all affect how much actually goes in.</li>
+                <li>If the calculated addition does not fit with a sensible margin, use a different starting fuel amount or target plan supported by the vehicle setup.</li>
+              </ul>
+              <p>Do not keep forcing fuel in after the pump shuts off automatically. EPA advises against topping off because it can cause spills and interfere with vapor-recovery equipment.</p>
+            </section>
+
+            <section id="before-pump" class="guide-section">
+              <p class="guide-section-number">06</p>
+              <h2>The pre-pump check</h2>
+              <div class="fuel-check-grid">
+                <article>
+                  <span>Vehicle</span>
+                  <h3>What is it allowed to run?</h3>
+                  <p>Check the owner’s manual for a factory vehicle. For a modified vehicle, use the explicit limit from the tuner and the supported fuel-system hardware—not a forum answer for a similar build.</p>
+                </article>
+                <article>
+                  <span>Tank</span>
+                  <h3>What is in it now?</h3>
+                  <p>Record the current amount and current ethanol content. If either is an estimate, understand that the final blend is also an estimate.</p>
+                </article>
+                <article>
+                  <span>Pump</span>
+                  <h3>What are you adding?</h3>
+                  <p>Use measured content when the setup needs precision. Otherwise enter a defensible estimate and leave room for variation.</p>
+                </article>
+                <article>
+                  <span>Result</span>
+                  <h3>Does it pass a reality check?</h3>
+                  <p>Verify the units, addition amount, final amount, tank margin, and target one more time before pumping.</p>
+                </article>
+              </div>
+            </section>
+
+            <section id="mistakes" class="guide-section">
+              <p class="guide-section-number">07</p>
+              <h2>Six mistakes that make a clean calculation useless</h2>
+              <ol class="mistake-list">
+                <li><strong>Entering E85 as 85% without checking the assumption.</strong><span>The market name can cover a range of actual ethanol content.</span></li>
+                <li><strong>Using the fuel gauge as an exact gallon measurement.</strong><span>The formula can only be as precise as the current-volume input.</span></li>
+                <li><strong>Averaging the percentages directly.</strong><span>One gallon of E10 and nine gallons of E70 do not average to E40. Volume has to weight the percentages.</span></li>
+                <li><strong>Confusing target blend with source fuel.</strong><span>E50 may be the desired result; it does not describe what is coming out of the pump.</span></li>
+                <li><strong>Rounding at every step.</strong><span>Keep additional decimal places through the calculation, then round the final practical fill amount.</span></li>
+                <li><strong>Treating the result as approval.</strong><span>A mathematically possible blend can still be incompatible with the vehicle, tune, fuel system, or operating conditions.</span></li>
+              </ol>
+            </section>
+
+            <section id="idle-calculator" class="guide-section guide-idle-calculator">
+              <div class="guide-calculator-copy">
+                <p class="guide-section-number">08</p>
+                <h2>Use the same inputs in Idle</h2>
+                <p>Idle’s ethanol calculator works from the current fuel amount and ethanol content, your target, and the amount you plan to add. Save recurring fuel details to your own Garage vehicle or enter values for a one-off plan.</p>
+                <p>Review the inputs every time. Saved numbers can become stale when the tune, tank estimate, pump source, or fuel plan changes.</p>
+                <a class="guide-text-link" href="../../features/ethanol-calculator/">See how Idle’s calculator works <span aria-hidden="true">→</span></a>
+              </div>
+              <figure>
+                <img src="../../assets/product-showcase/idle-ethanol-calculator.webp" width="1320" height="2868" alt="Idle ethanol calculator showing current fuel, target ethanol, and blend inputs" loading="lazy">
+                <figcaption>The calculator estimates from the values you enter. It does not choose a safe target for the vehicle.</figcaption>
+              </figure>
+            </section>
+
+            <section class="guide-sources" aria-labelledby="e85-sources-title">
+              <p class="story-label">Sources and limits</p>
+              <h2 id="e85-sources-title">What this guide is based on</h2>
+              <p>This guide explains blend arithmetic and public fuel guidance. It is not tuning, mechanical, or fuel-system advice for a specific vehicle.</p>
+              <ul>
+                <li><a href="https://afdc.energy.gov/vehicles/flexible-fuel" rel="noopener">U.S. Department of Energy Alternative Fuels Data Center: flexible-fuel vehicles</a> — E85 composition range, FFV capability, and fuel-economy context.</li>
+                <li><a href="https://afdc.energy.gov/fuels/ethanol-fuel-basics" rel="noopener">U.S. Department of Energy Alternative Fuels Data Center: ethanol fuel basics</a> — common ethanol blends and vehicle compatibility.</li>
+                <li><a href="https://www.epa.gov/renewable-fuel-standard/e85-fuel" rel="noopener">U.S. EPA: E85 fuel</a> — E85 labeling and use in flexible-fuel vehicles.</li>
+                <li><a href="https://www.epa.gov/greenvehicles/learn-about-green-vehicles-ethanol" rel="noopener">U.S. EPA: ethanol vehicles</a> — checking the fuel door or owner’s manual to identify an FFV.</li>
+                <li><a href="https://www.epa.gov/archive/epapages/newsroom_archive/newsreleases/714cf2672631269e852570d60070fe91.html" rel="noopener">U.S. EPA: do not top off a fuel tank</a> — why automatic pump shutoff should end the fill.</li>
+              </ul>
+              <p class="guide-reviewed">Reviewed July 28, 2026. Confirm current agency guidance and the instructions for your exact vehicle before using any blend.</p>
+            </section>
+
+            <nav class="guide-next" aria-label="Continue reading">
+              <p>Continue reading</p>
+              <a href="../buying-a-used-modified-car/">
+                <span>Buying, building &amp; maintaining</span>
+                <strong>How to buy a used modified car without inheriting someone else’s problem</strong>
+              </a>
+            </nav>
+          </div>
+        </div>
+      </article>
+    </main>
+
+    <footer class="site-footer">
+      <div class="site-shell footer-inner">
+        <div class="footer-social" aria-label="Idle social links">
+          <a href="https://apps.apple.com/us/app/idle-car-meets/id6762639080" rel="noopener" aria-label="Download Idle on the App Store">App Store</a>
+          <a href="https://instagram.com/idlemeets" rel="noopener" aria-label="Instagram">Instagram</a>
+          <a href="https://tiktok.com/@idlemeets" rel="noopener" aria-label="TikTok">TikTok</a>
+          <a href="https://www.youtube.com/@idlemeets" rel="noopener" aria-label="YouTube">YouTube</a>
+          <a href="https://www.snapchat.com/@idlemeets" rel="noopener" aria-label="Snapchat">Snapchat</a>
+          <a href="https://www.facebook.com/profile.php?id=61591122538370" rel="noopener" aria-label="Facebook">Facebook</a>
+          <a href="https://www.reddit.com/r/idlemeets/" rel="noopener" aria-label="Reddit">Reddit</a>
+          <a href="https://x.com/idlemeets" rel="noopener" aria-label="X">X</a>
+        </div>
+        <span class="footer-copy">&copy; 2026 Idle. All rights reserved.</span>
+        <nav class="footer-page-links" aria-label="Footer links">
+          <a href="../../download/">Download</a>
+          <a href="../../features/">Features</a>
+          <a href="../../guides/">Guides</a>
+          <a href="../../hosts/">Hosts</a>
+          <a href="../../submit-meet/">Submit a Meet</a>
+          <a href="../../updates/">Updates</a>
+          <a href="../../support/">Support</a>
+          <a href="../../support/help/">Help Center</a>
+          <a href="../../sitemap/">Sitemap</a>
+          <a href="https://buymeacoffee.com/idlemeets" rel="noopener">Support Idle</a>
+          <a href="../../terms/">Terms</a>
+          <a href="../../privacy/">Privacy</a>
+        </nav>
+      </div>
+    </footer>
+    <script src="/navigation.js?v=20260727c" defer></script>
+  </body>
+</html>
