@@ -39,6 +39,7 @@ Human-readable sitemap: https://idlemeets.com/sitemap/
 
 ## Editorial Guides
 
+- Your first car meet: https://idlemeets.com/guides/first-car-meet/
 - How to host a car meet: https://idlemeets.com/guides/how-to-host-a-car-meet/
 - How to plan parking for a car meet: https://idlemeets.com/guides/car-meet-parking-plan/
 - How to calculate an E85 blend: https://idlemeets.com/guides/how-to-calculate-e85-blend/
@@ -47,8 +48,11 @@ Human-readable sitemap: https://idlemeets.com/sitemap/
 - How to decline a street-race invitation: https://idlemeets.com/guides/how-to-decline-a-street-race/
 - What to do when a car meet gets shut down: https://idlemeets.com/guides/when-a-car-meet-gets-shut-down/
 - How to buy a used modified car: https://idlemeets.com/guides/buying-a-used-modified-car/
+- Tire sidewall numbers explained: https://idlemeets.com/guides/tire-sidewall-numbers-explained/
 - Wheel fitment explained: https://idlemeets.com/guides/wheel-fitment-explained/
+- Lowering springs vs. coilovers: https://idlemeets.com/guides/lowering-springs-vs-coilovers/
 - Pre-meet project car checklist: https://idlemeets.com/guides/pre-meet-car-checklist/
+- E85, flex fuel, and ethanol tunes: https://idlemeets.com/guides/e85-vs-flex-fuel/
 - How to check if a car modification is street legal: https://idlemeets.com/guides/check-if-a-car-mod-is-street-legal/
 - How to plan a group car cruise: https://idlemeets.com/guides/how-to-plan-a-car-cruise/
 - What to do when a car breaks down on the way to a meet: https://idlemeets.com/guides/car-breakdown-on-the-way-to-a-meet/
