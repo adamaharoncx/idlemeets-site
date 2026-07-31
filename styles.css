@@ -2820,7 +2820,7 @@ p {
   flex-wrap: wrap;
   gap: 6px;
   align-items: center;
-  justify-content: flex-start;
+  justify-content: center;
   padding-bottom: 26px;
 }
 
@@ -3744,12 +3744,15 @@ body.not-found-page::after {
   }
 
   .footer-social {
-    gap: 4px;
+    display: grid;
+    grid-template-columns: repeat(4, 44px);
+    gap: 4px 8px;
+    justify-content: center;
     padding-bottom: 24px;
   }
 
   .footer-social a {
-    width: 42px;
+    width: 44px;
     min-height: 44px;
   }
 

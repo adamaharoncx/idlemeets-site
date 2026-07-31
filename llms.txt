@@ -13,6 +13,8 @@ Human-readable sitemap: https://idlemeets.com/sitemap/
 
 - Home: https://idlemeets.com/
 - About: https://idlemeets.com/about/
+- Community standards: https://idlemeets.com/community-standards/
+- Trust and safety: https://idlemeets.com/trust-safety/
 - Download: https://idlemeets.com/download/
 - Features: https://idlemeets.com/features/
 - Car meet app: https://idlemeets.com/car-meet-app/
