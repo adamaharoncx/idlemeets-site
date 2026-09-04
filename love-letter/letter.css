@@ -1,0 +1,94 @@
+.love-letter-page .letter {
+  padding: 0 28px 140px;
+}
+
+.letter-opening {
+  max-width: 1060px;
+  margin: 0 auto;
+  padding: clamp(88px, 12vw, 164px) 0 clamp(100px, 13vw, 176px);
+}
+
+.letter-eyebrow {
+  margin: 0 0 32px;
+  color: var(--muted);
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+}
+
+.letter-opening h1 {
+  max-width: 1000px;
+  margin: 0;
+  font-size: clamp(48px, 7.4vw, 100px);
+  font-weight: 650;
+  line-height: 1.04;
+  letter-spacing: -0.055em;
+  text-wrap: balance;
+}
+
+.letter-body {
+  max-width: 680px;
+  margin: 0 auto;
+}
+
+.letter-section + .letter-section {
+  margin-top: clamp(80px, 10vw, 128px);
+}
+
+.letter-section h2 {
+  margin: 0 0 36px;
+  font-size: clamp(30px, 3.4vw, 44px);
+  font-weight: 600;
+  line-height: 1.18;
+  letter-spacing: -0.035em;
+  text-wrap: balance;
+}
+
+.letter-section p {
+  margin: 0 0 26px;
+  color: #c6c6c3;
+  font-size: 20px;
+  line-height: 1.8;
+  letter-spacing: -0.012em;
+}
+
+.letter-section .letter-emphasis {
+  margin: 42px 0;
+  color: var(--text);
+  font-size: clamp(24px, 2.5vw, 30px);
+  line-height: 1.45;
+  font-weight: 500;
+  letter-spacing: -0.025em;
+}
+
+.letter-section .letter-question {
+  color: var(--text);
+  font-size: 36px;
+  line-height: 1.3;
+  letter-spacing: -0.025em;
+}
+
+.letter-personal {
+  padding: 52px 0 28px;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+
+.letter-section .letter-signature {
+  margin-top: 36px;
+  color: var(--text);
+  font-size: 16px;
+}
+
+.letter-section:last-child .letter-emphasis:last-child {
+  margin-bottom: 0;
+}
+
+@media (max-width: 600px) {
+  .love-letter-page .letter { padding: 0 24px 88px; }
+  .letter-opening { padding-top: 72px; padding-bottom: 88px; }
+  .letter-eyebrow { margin-bottom: 26px; }
+  .letter-section p { font-size: 18px; line-height: 1.75; margin-bottom: 24px; }
+  .letter-section h2 { margin-bottom: 28px; }
+  .letter-personal { padding-top: 36px; }
+}
