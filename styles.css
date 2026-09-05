@@ -310,16 +310,18 @@ p {
   max-width: 800px;
   margin-bottom: 20px;
   font-size: clamp(3.5rem, 6.7vw, 5.85rem);
-  font-weight: 850;
-  line-height: 0.92;
+  font-weight: 650;
+  line-height: 1.04;
+  letter-spacing: -0.055em;
 }
 
 .hero-subtitle {
   max-width: 760px;
   margin-bottom: 20px;
   font-size: clamp(2.3rem, 6.4vw, 5.2rem);
-  font-weight: 850;
-  line-height: 0.95;
+  font-weight: 600;
+  line-height: 1.18;
+  letter-spacing: -0.035em;
 }
 
 .hero-body {
@@ -327,6 +329,7 @@ p {
   margin-bottom: 28px;
   color: rgba(247, 247, 244, 0.72);
   font-size: clamp(1.06rem, 1.8vw, 1.24rem);
+  line-height: 1.75;
 }
 
 .hero-actions,
@@ -452,8 +455,9 @@ p {
   max-width: 590px;
   margin-bottom: 39px;
   font-size: clamp(4rem, 6vw, 5.75rem);
-  line-height: 0.94;
-  letter-spacing: -0.058em;
+  line-height: 1.04;
+  letter-spacing: -0.055em;
+  font-weight: 650;
 }
 
 .home-hero .hero-body {
@@ -461,7 +465,7 @@ p {
   margin-bottom: 39px;
   color: rgba(247, 247, 244, 0.72);
   font-size: clamp(1.03rem, 1.45vw, 1.18rem);
-  line-height: 1.68;
+  line-height: 1.75;
 }
 
 .home-hero .button {
@@ -838,13 +842,15 @@ p {
 .section-title {
   margin-bottom: 14px;
   font-size: clamp(2.15rem, 5vw, 4.5rem);
-  font-weight: 850;
-  line-height: 0.98;
+  font-weight: 600;
+  line-height: 1.18;
+  letter-spacing: -0.035em;
 }
 
 .section-lede {
   max-width: 700px;
   font-size: clamp(1.02rem, 2vw, 1.24rem);
+  line-height: 1.75;
 }
 
 .editorial-header {
@@ -890,9 +896,9 @@ p {
   margin-bottom: 24px;
   color: #fff;
   font-size: clamp(2.55rem, 4.8vw, 4.9rem);
-  font-weight: 840;
-  letter-spacing: -0.05em;
-  line-height: 0.96;
+  font-weight: 600;
+  letter-spacing: -0.035em;
+  line-height: 1.18;
 }
 
 .product-chapter-copy > p:not(.story-label) {
@@ -1223,8 +1229,9 @@ p {
   margin-bottom: 0;
   color: #fff;
   font-size: clamp(1.9rem, 4vw, 4rem);
-  font-weight: 840;
-  line-height: 1;
+  font-weight: 600;
+  line-height: 1.18;
+  letter-spacing: -0.035em;
 }
 
 .editorial-row > p {
@@ -1316,8 +1323,9 @@ p {
   max-width: 640px;
   margin: 10px 0 14px;
   font-size: clamp(2rem, 4.2vw, 4rem);
-  font-weight: 850;
-  line-height: 0.98;
+  font-weight: 600;
+  line-height: 1.18;
+  letter-spacing: -0.035em;
 }
 
 .story-copy p:last-child {
@@ -1526,7 +1534,9 @@ p {
 .cta-panel h2 {
   margin-bottom: 10px;
   font-size: clamp(2rem, 4.5vw, 3.8rem);
-  line-height: 1;
+  line-height: 1.18;
+  font-weight: 600;
+  letter-spacing: -0.035em;
 }
 
 .cta-panel p {
@@ -1606,13 +1616,15 @@ p {
 .page-hero h1 {
   margin-bottom: 18px;
   font-size: clamp(3.1rem, 8vw, 6.5rem);
-  font-weight: 850;
-  line-height: 0.95;
+  font-weight: 650;
+  line-height: 1.04;
+  letter-spacing: -0.055em;
 }
 
 .page-hero p {
   max-width: 720px;
   font-size: clamp(1.05rem, 2.2vw, 1.28rem);
+  line-height: 1.75;
 }
 
 .page-hero .rating-note {
@@ -1822,7 +1834,9 @@ p {
   max-width: 720px;
   margin-bottom: 0;
   font-size: clamp(2rem, 4.7vw, 4.2rem);
-  line-height: 1;
+  line-height: 1.18;
+  font-weight: 600;
+  letter-spacing: -0.035em;
 }
 
 .host-focus-panel p:last-child {
@@ -1862,8 +1876,9 @@ p {
   margin: 0;
   color: #fff;
   font-size: clamp(1.9rem, 4vw, 4rem);
-  font-weight: 840;
-  line-height: 1;
+  font-weight: 600;
+  line-height: 1.18;
+  letter-spacing: -0.035em;
 }
 
 .feature-row ul {
@@ -1927,10 +1942,15 @@ p {
 .content-main h2 {
   margin-bottom: 10px;
   font-size: clamp(1.45rem, 3vw, 2rem);
+  font-weight: 600;
+  line-height: 1.25;
+  letter-spacing: -0.025em;
 }
 
 .content-main p {
   margin-bottom: 14px;
+  font-size: 1.125rem;
+  line-height: 1.8;
 }
 
 .content-main p:last-child {
@@ -2021,8 +2041,9 @@ p {
   max-width: 720px;
   margin-bottom: 14px;
   font-size: clamp(2.6rem, 6vw, 5.3rem);
-  font-weight: 850;
-  line-height: 0.95;
+  font-weight: 600;
+  line-height: 1.18;
+  letter-spacing: -0.035em;
 }
 
 .update-summary {
@@ -2387,8 +2408,9 @@ p {
 .article-header h1 {
   margin-bottom: 16px;
   font-size: clamp(2.8rem, 7vw, 5.6rem);
-  font-weight: 850;
-  line-height: 0.98;
+  font-weight: 650;
+  line-height: 1.04;
+  letter-spacing: -0.055em;
 }
 
 .article-header p:last-child {
@@ -2405,10 +2427,15 @@ p {
 .article-body h2 {
   margin-bottom: 0;
   font-size: clamp(1.35rem, 2.6vw, 1.85rem);
+  font-weight: 600;
+  line-height: 1.25;
+  letter-spacing: -0.025em;
 }
 
 .article-body p {
   margin-bottom: 0;
+  font-size: 1.125rem;
+  line-height: 1.8;
 }
 
 .badge-guide-list {
@@ -2998,8 +3025,9 @@ body.not-found-page::after {
   margin-bottom: 10px;
   color: #fff;
   font-size: clamp(4.2rem, 12vw, 7.8rem);
-  font-weight: 850;
-  line-height: 0.88;
+  font-weight: 650;
+  line-height: 1.04;
+  letter-spacing: -0.055em;
 }
 
 .not-found-copy p {
@@ -3462,10 +3490,16 @@ body.not-found-page::after {
 
   .hero-title {
     font-size: clamp(3rem, 16vw, 4.45rem);
+    font-weight: 650;
+    line-height: 1.04;
+    letter-spacing: -0.055em;
   }
 
   .hero-subtitle {
     font-size: clamp(2.1rem, 13vw, 3.6rem);
+    font-weight: 600;
+    line-height: 1.18;
+    letter-spacing: -0.035em;
   }
 
   .button {
@@ -3503,6 +3537,9 @@ body.not-found-page::after {
 
   .page-hero h1 {
     font-size: clamp(2.85rem, 15vw, 4.5rem);
+    font-weight: 650;
+    line-height: 1.04;
+    letter-spacing: -0.055em;
   }
 
   .location-page .page-hero h1 {
@@ -3542,6 +3579,9 @@ body.not-found-page::after {
 
   .editorial-row h3 {
     font-size: clamp(2rem, 11vw, 3.2rem);
+    font-weight: 600;
+    line-height: 1.18;
+    letter-spacing: -0.035em;
   }
 
   .product-chapter {
@@ -3559,6 +3599,9 @@ body.not-found-page::after {
   .product-chapter-copy h3 {
     max-width: 360px;
     font-size: clamp(2.65rem, 13vw, 3.75rem);
+    font-weight: 600;
+    line-height: 1.18;
+    letter-spacing: -0.035em;
   }
 
   .chapter-link {
@@ -3644,6 +3687,9 @@ body.not-found-page::after {
 
   .feature-row h2 {
     font-size: clamp(2rem, 11vw, 3.2rem);
+    font-weight: 600;
+    line-height: 1.18;
+    letter-spacing: -0.035em;
   }
 
   .feature-row ul {
@@ -3773,6 +3819,9 @@ body.not-found-page::after {
 
   .home-hero .hero-title {
     font-size: clamp(3.7rem, 6.2vw, 4.8rem);
+    font-weight: 650;
+    line-height: 1.04;
+    letter-spacing: -0.055em;
   }
 
   .product-stage {
@@ -3843,13 +3892,15 @@ body.not-found-page::after {
   .home-hero .hero-title {
     margin-bottom: 22px;
     font-size: clamp(3.1rem, 15vw, 4.25rem);
-    line-height: 0.95;
+    line-height: 1.04;
+    font-weight: 650;
+    letter-spacing: -0.055em;
   }
 
   .home-hero .hero-body {
     margin-bottom: 28px;
     font-size: 1.02rem;
-    line-height: 1.62;
+    line-height: 1.75;
   }
 
   .product-stage {
@@ -3989,9 +4040,9 @@ body.not-found-page::after {
   max-width: 920px;
   margin-bottom: 24px;
   font-size: clamp(3.4rem, 9vw, 7.6rem);
-  font-weight: 850;
+  font-weight: 650;
   letter-spacing: -0.055em;
-  line-height: 0.9;
+  line-height: 1.04;
 }
 
 .guide-index-hero > p:last-child {
@@ -4035,9 +4086,9 @@ body.not-found-page::after {
   max-width: 720px;
   margin-bottom: 24px;
   font-size: clamp(2.5rem, 5.5vw, 5.3rem);
-  font-weight: 840;
-  letter-spacing: -0.045em;
-  line-height: 0.96;
+  font-weight: 600;
+  letter-spacing: -0.035em;
+  line-height: 1.18;
 }
 
 .guide-lead-copy > p:not(.guide-kicker) {
@@ -4184,7 +4235,9 @@ body.not-found-page::after {
   max-width: 600px;
   margin-bottom: 0;
   font-size: clamp(2.2rem, 4.8vw, 4.5rem);
-  line-height: 0.98;
+  font-weight: 600;
+  letter-spacing: -0.035em;
+  line-height: 1.18;
 }
 
 .guide-standard-list {
@@ -4216,9 +4269,9 @@ body.not-found-page::after {
   max-width: 1060px;
   margin-bottom: 28px;
   font-size: clamp(3.15rem, 8.4vw, 7.2rem);
-  font-weight: 850;
+  font-weight: 650;
   letter-spacing: -0.055em;
-  line-height: 0.91;
+  line-height: 1.04;
 }
 
 .guide-deck {
@@ -4299,14 +4352,15 @@ body.not-found-page::after {
 }
 
 .guide-prose {
-  width: min(100%, 820px);
+  width: min(100%, 680px);
   min-width: 0;
 }
 
 .guide-prose p,
 .guide-prose li {
-  font-size: 1.03rem;
-  line-height: 1.72;
+  font-size: clamp(1.125rem, 1.5vw, 1.25rem);
+  line-height: 1.8;
+  letter-spacing: -0.012em;
 }
 
 .guide-prose strong {
@@ -4340,17 +4394,19 @@ body.not-found-page::after {
   max-width: 780px;
   margin-bottom: 24px;
   color: #fff;
-  font-size: clamp(2.25rem, 5.2vw, 4.7rem);
-  font-weight: 840;
-  letter-spacing: -0.045em;
-  line-height: 0.98;
+  font-size: clamp(1.875rem, 3.4vw, 2.75rem);
+  font-weight: 600;
+  letter-spacing: -0.035em;
+  line-height: 1.18;
 }
 
 .guide-section > h3 {
   margin: 42px 0 12px;
   color: #fff;
   font-size: clamp(1.35rem, 2.5vw, 1.75rem);
-  line-height: 1.15;
+  line-height: 1.25;
+  font-weight: 600;
+  letter-spacing: -0.025em;
 }
 
 .guide-section > p {
@@ -4358,7 +4414,7 @@ body.not-found-page::after {
 }
 
 .guide-section > p + p {
-  margin-top: 18px;
+  margin-top: 26px;
 }
 
 .guide-checklist {
@@ -5207,7 +5263,8 @@ body.not-found-page::after {
   color: #fff;
   font-size: clamp(1.65rem, 3vw, 2.5rem);
   letter-spacing: -0.035em;
-  line-height: 1.02;
+  font-weight: 600;
+  line-height: 1.18;
 }
 
 .guide-topic-heading > p:last-child {
@@ -5235,9 +5292,9 @@ body.not-found-page::after {
   margin-bottom: 20px;
   color: #fff;
   font-size: clamp(2.15rem, 5vw, 4.65rem);
-  font-weight: 840;
-  letter-spacing: -0.045em;
-  line-height: 0.98;
+  font-weight: 600;
+  letter-spacing: -0.035em;
+  line-height: 1.18;
 }
 
 .guide-topic-feature > p {
@@ -5400,6 +5457,9 @@ body.not-found-page::after {
 
   .guide-index-hero h1 {
     font-size: clamp(3.2rem, 16vw, 4.6rem);
+    font-weight: 650;
+    line-height: 1.04;
+    letter-spacing: -0.055em;
   }
 
   .guide-lead-story,
@@ -5477,6 +5537,9 @@ body.not-found-page::after {
 
   .guide-article-header h1 {
     font-size: clamp(3rem, 14.5vw, 4.4rem);
+    font-weight: 650;
+    line-height: 1.04;
+    letter-spacing: -0.055em;
   }
 
   .guide-byline {
@@ -5505,7 +5568,10 @@ body.not-found-page::after {
   }
 
   .guide-section > h2 {
-    font-size: clamp(2.15rem, 11vw, 3.15rem);
+    font-size: clamp(1.875rem, 3.4vw, 2.75rem);
+    font-weight: 600;
+    line-height: 1.18;
+    letter-spacing: -0.035em;
   }
 
   .guide-role-list,
