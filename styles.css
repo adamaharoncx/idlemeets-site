@@ -5799,8 +5799,8 @@ body.not-found-page::after {
   }
 }
 
-/* Each phone handover has only 260px of native scroll, then releases completely.
-   The next chapter's copy follows immediately; there is no full-page pin. */
+/* Each mobile chapter keeps its own heading and one real interactive scene.
+   Scroll unfolds the complete cards on arrival, without a pinned runway. */
 @media (max-width: 980px) and (min-height: 600px) and (prefers-reduced-motion: no-preference) {
   .motion-sequence.is-motion-mobile > .product-chapter {
     display: block;
@@ -5811,15 +5811,16 @@ body.not-found-page::after {
     border-bottom: 1px solid rgba(255,255,255,.13);
   }
   .motion-sequence.is-motion-mobile .motion-rail-mobile {
-    --mobile-scene-height: min(480px, 60svh);
+    --mobile-scene-height: min(460px, 57svh);
     display: block;
     position: relative;
-    height: calc(var(--mobile-scene-height) + 260px);
+    height: var(--mobile-scene-height);
     width: min(100%, 640px);
-    margin: 16px auto 0;
+    margin: 8px auto 22px;
   }
   .is-motion-mobile .motion-canvas {
-    top: 82px;
+    position: relative;
+    top: 0;
     height: var(--mobile-scene-height);
   }
   .is-motion-mobile .motion-canvas .discover-fragment-map {
@@ -5898,3 +5899,31 @@ body.not-found-page::after {
 .hero-scene .product-stage { width: min(100%, calc((100svh - 150px) / 1.1)); height: auto; aspect-ratio: 1 / 1.1; justify-self: center; }
 @media (max-width: 980px) { .hero-scene .product-stage { width: min(100%, 620px); height: auto; } }
 @media (max-width: 600px) { .hero-scene .product-stage { aspect-ratio: 1 / 1.16; } }
+
+/* Phone-first opening: the product scene belongs with its headline and primary
+   action. All original copy and controls remain in the document. */
+@media (max-width: 600px) {
+  .home-hero.hero-scene {
+    min-height: 0;
+    padding: 22px 0 34px;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 0;
+  }
+  .hero-scene .hero-copy,
+  .hero-scene .hero-actions { display: contents; }
+  .hero-scene .hero-logo { grid-area: 1 / 1; float: none; margin: 0; width: 25px; height: 25px; }
+  .hero-scene .hero-copy > .story-label { grid-area: 1 / 1; padding-left: 36px; margin: 0 0 12px; line-height: 25px; }
+  .hero-scene .hero-title { grid-area: 2 / 1; width: 100%; max-width: 100%; margin: 0 0 16px; font-size: clamp(2.35rem, 10.4vw, 2.85rem); line-height: 1.04; }
+  .hero-scene .product-stage { grid-area: 3 / 1; width: min(100%, calc(min(400px, 45svh) / 1.16)); margin: 0 auto 16px; aspect-ratio: 1 / 1.16; }
+  .hero-scene .hero-actions .button-primary { grid-area: 4 / 1; justify-self: start; margin: 0 0 18px; }
+  .hero-scene .hero-body { grid-area: 5 / 1; margin: 0 0 14px; line-height: 1.55; }
+  .hero-scene .hero-actions .button-secondary { grid-area: 6 / 1; justify-self: start; }
+  .hero-scene .platform-note { grid-area: 7 / 1; margin: 14px 0 0; }
+  .home-proof-band { padding: 24px 0; }
+  .home-proof-band .hero-note { margin-top: 14px; }
+  .product-index { padding-top: 38px; }
+  .product-index > .editorial-header { margin-bottom: 28px; }
+  .product-index .product-chapter-copy { padding: 32px 0 12px; }
+  .product-index .product-chapter-copy h3 { font-size: clamp(2.2rem, 10.5vw, 2.75rem); margin-bottom: 18px; }
+  .product-index .product-chapter-copy > p:not(.story-label) { margin-bottom: 18px; }
+}

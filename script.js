@@ -314,27 +314,10 @@
   });
   var desktopRail = rail('desktop');
   sequence.appendChild(desktopRail.element);
-  var mobileRails = stages.slice(1).map(function (incoming, index) {
+  var mobileRails = stages.map(function (stage, index) {
     var item = rail('mobile');
-    item.from = index === 0 ? stages[0] : stages[index].cloneNode(true);
-    item.to = incoming;
-    if (index > 0) {
-      item.from.classList.add('is-decoration');
-      item.from.setAttribute('aria-hidden', 'true');
-      item.from.inert = true;
-      Array.prototype.forEach.call(item.from.querySelectorAll('[aria-live]'), function (el) { el.removeAttribute('aria-live'); });
-      Array.prototype.forEach.call(item.from.querySelectorAll('button'), function (el) { el.tabIndex = -1; });
-      // Keep the next handover consistent with any preview the visitor selected.
-      stages[index].addEventListener('click', function () {
-        item.from.setAttribute('data-active-card', stages[index].getAttribute('data-active-card'));
-        var originals = stages[index].querySelectorAll('[data-feature-fragment]');
-        Array.prototype.forEach.call(item.from.querySelectorAll('[data-feature-fragment]'), function (copy, i) {
-          copy.classList.toggle('is-selected', originals[i].classList.contains('is-selected'));
-          copy.setAttribute('aria-pressed', originals[i].getAttribute('aria-pressed'));
-        });
-      });
-    }
-    sequence.insertBefore(item.element, chapters[index + 1]);
+    item.to = stage;
+    chapters[index].appendChild(item.element);
     return item;
   });
   function accessible(stage, enabled) {
@@ -400,8 +383,10 @@
     } else if (mode === 'mobile') {
       mobileRails.forEach(function (item) {
         var rect = item.element.getBoundingClientRect();
-        item.start = rect.top + y - 82;
-        item.end = item.start + rect.height - item.canvas.getBoundingClientRect().height;
+        // Begin while the incoming heading and visual share the viewport.
+        // The incoming scene is settled by the time its canvas reaches the top.
+        item.start = rect.top + y - geometry.view * .68;
+        item.end = item.start + Math.min(320, geometry.view * .36);
         item.progress = -1;
       });
     }
@@ -425,9 +410,11 @@
         stages.forEach(function (stage) { desktopRail.canvas.appendChild(stage); accessible(stage, false); });
         sequence.classList.add('is-motion-ready');
       } else if (mode === 'mobile') {
-        mobileRails.forEach(function (item) {
-          item.canvas.appendChild(item.from); item.canvas.appendChild(item.to);
-          accessible(item.to, false);
+        mobileRails.forEach(function (item, index) {
+          chapters[index].appendChild(item.element);
+          item.canvas.appendChild(item.to);
+          visible(item.to, true, true);
+          accessible(item.to, true);
         });
         sequence.classList.add('is-motion-mobile');
       }
@@ -453,7 +440,20 @@
         item.canvas.classList.toggle('is-in-view', y + geometry.view >= item.start && y <= item.end + geometry.view);
         if (Math.abs(progress - item.progress) < .0001) return;
         item.progress = progress;
-        pair(item.from, item.to, progress);
+        var open = smooth(0, 1, progress), stage = item.to;
+        // One real, interactive scene per heading. The main panel arrives as a
+        // complete object; its supporting panel opens out from behind it.
+        visible(stage, true, true);
+        property(stage, 'primary-x', '0px');
+        property(stage, 'primary-y', (72 * (1 - open)).toFixed(2) + 'px');
+        property(stage, 'primary-scale', (.84 + .16 * open).toFixed(4));
+        property(stage, 'primary-opacity', '1');
+        property(stage, 'primary-crop', '0%');
+        property(stage, 'secondary-x', (-58 * (1 - open)).toFixed(2) + 'px');
+        property(stage, 'secondary-y', (36 * (1 - open)).toFixed(2) + 'px');
+        property(stage, 'secondary-scale', (.9 + .1 * open).toFixed(4));
+        property(stage, 'secondary-opacity', (.4 + .6 * open).toFixed(4));
+        accessible(stage, true);
       });
     }
   }
