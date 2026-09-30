@@ -5957,3 +5957,26 @@ body.not-found-page::after {
 .hero-scene .product-stage.is-mobile-controlled .hero-plane,
 .hero-scene .product-stage.is-mobile-controlled picture,
 .hero-scene .product-stage.is-mobile-controlled img { pointer-events: none; }
+
+/* The concise mobile opening flows directly into Discover. Supporting material
+   remains available after the feature story and is restored on wide screens. */
+.hero-stage-placeholder { display: none; }
+.mobile-afterword { padding-top: 42px; padding-bottom: 42px; }
+.mobile-afterword .editorial-header { margin-bottom: 28px; }
+.mobile-afterword .hero-body { font-size: 1rem; line-height: 1.55; margin-bottom: 18px; }
+.mobile-afterword .platform-note { margin: 14px 0 28px; }
+.mobile-afterword .home-proof-band { width: 100%; margin: 0; }
+@media (max-width: 980px) {
+  .has-mobile-handoff .hero-stage-placeholder { display: block; width: min(100%,620px); aspect-ratio: 1 / 1.1; margin: 0 auto; }
+  .has-mobile-handoff .hero-scene .product-stage { position: fixed; left: var(--carry-left); top: 0; width: var(--carry-width); height: var(--carry-height); margin: 0; z-index: 3; pointer-events: none; }
+  .has-mobile-handoff .hero-scene .product-fragment { pointer-events: auto; }
+  .is-mobile-hero-bridge .motion-mobile-story { position: fixed; top: 76px; left: var(--mobile-story-left); width: var(--mobile-story-width); z-index: 2; pointer-events: none; }
+  .is-mobile-hero-bridge .motion-mobile-copy { opacity: var(--bridge-copy-opacity,0); visibility: var(--bridge-copy-visibility,hidden); pointer-events: auto; }
+  .is-mobile-hero-bridge .motion-canvas { pointer-events: none; }
+  .has-mobile-summary .product-index { padding-top: 18px; }
+}
+@media (max-width: 600px) {
+  .has-mobile-summary .hero-scene .hero-actions .button-primary { grid-area: 3 / 1; margin-bottom: 16px; }
+  .has-mobile-summary .hero-scene .product-stage { grid-area: 4 / 1; }
+  .has-mobile-handoff .hero-stage-placeholder { grid-area: 4 / 1; width: min(100%,calc(min(400px,45svh) / 1.16)); aspect-ratio: 1 / 1.16; margin: 0 auto 16px; }
+}
