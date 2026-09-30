@@ -5836,92 +5836,65 @@ body.not-found-page::after {
   }
 }
 
-/* Real UI, lifted into a compact opening composition. Text and actions never wait. */
-.hero-artifacts .product-stage { min-height: 590px; margin-right: -18px; }
-.hero-artifacts .product-fragment { will-change: auto; }
-.hero-artifacts .product-fragment-map { top: 0; right: 0; width: 53%; --base-rotate: 5deg; }
-.hero-artifacts .product-fragment-meet { top: 20%; left: 0; width: 92%; --base-rotate: -2deg; }
-.hero-artifacts .product-fragment-profile { right: 0; bottom: -9%; width: 78%; z-index: 7; overflow: visible; --base-rotate: 1.5deg; }
-.hero-artifacts .hero-face { position: absolute; inset: 0; display: block; transform-origin: center; }
-.hero-artifacts .hero-meet-face { clip-path: inset(23% 0 0 round 26px); }
-.hero-artifacts .hero-profile-face { clip-path: inset(17% 0 10% 31% round 20px); }
-.hero-artifacts .hero-detail { position: absolute; display: block; overflow: hidden; pointer-events: none; background: #000; }
-.hero-artifacts .hero-detail img { top: var(--crop-top); left: var(--crop-left); width: var(--crop-width); height: auto; max-width: none; transform: none; }
-.hero-artifacts .hero-date { width: 28%; aspect-ratio: 300 / 84; right: 2%; top: 0; border-radius: 999px; transform: rotate(-2deg); box-shadow: 0 12px 26px #0008; }
-.hero-artifacts .hero-location { width: 30%; aspect-ratio: 264 / 64; left: 3%; top: 9%; border-radius: 999px; transform: rotate(1deg); }
-.hero-artifacts .hero-avatar { width: 27%; aspect-ratio: 356 / 366; left: 0; top: 10%; border-radius: 46% 46% 14% 46%; transform: translate(-6%, -13%); box-shadow: 0 14px 28px #0009; }
-.hero-artifacts .product-stage[data-active-card="profile"] .product-fragment-profile { --cycle-x: -12px; --cycle-y: -100px; --cycle-scale: 1.04; }
-.hero-artifacts .product-stage[data-active-card="map"] .product-fragment-map { --cycle-x: -130px; --cycle-y: 115px; --cycle-scale: 1.12; }
-.hero-artifacts .product-stage[data-active-card="map"] .product-fragment-profile { --cycle-x: 0px; }
-.hero-artifacts .product-fragment:focus-visible { outline-offset: 4px; }
-.hero-bridge { position: fixed; inset: 0; z-index: 3; pointer-events: none; visibility: hidden; overflow: hidden; }
-.hero-bridge img { position: absolute; max-width: none; height: auto; transform-origin: 0 0; }
-.hero-bridge.is-visible { visibility: visible; }
-.hero-bridge .hero-bridge-profile { z-index: 3; }
-.hero-bridge .hero-bridge-meet { z-index: 2; }
-.hero-bridge .hero-bridge-map { z-index: 1; }
+/* One readable product scene. Intact supplied artwork, never extracted UI scraps. */
+.home-hero.hero-scene { grid-template-columns: minmax(0, .88fr) minmax(0, 1.12fr); gap: clamp(24px, 3vw, 48px); width: min(100% - 48px, 1260px); }
+.hero-scene .hero-copy { top: 0; }
+.hero-scene .product-stage { width: 100%; min-height: 0; height: clamp(470px, 47vw, 620px); margin: 0; perspective: none; }
+.hero-scene .product-fragment { --focus-x: 0px; --focus-y: 0px; --focus-scale: 1; --scene-x: 0px; --scene-y: 0px; --scene-scale: 1; --scene-opacity: 1; opacity: var(--scene-opacity); transform: translate3d(calc(var(--scene-x) + var(--focus-x) + var(--move-x)), calc(var(--scene-y) + var(--focus-y) + var(--move-y)), 0) scale(var(--scene-scale)) scale(var(--focus-scale)); will-change: auto; }
+.hero-scene .product-fragment-map { top: 1%; right: 4%; width: 47%; z-index: 1; }
+.hero-scene .product-fragment-meet { top: 23%; left: 2%; width: 94%; z-index: 4; }
+.hero-scene .product-fragment-profile { right: 7%; bottom: 0; width: 64%; z-index: 2; }
+.hero-scene .hero-plane { position: absolute; inset: 0; display: block; }
+.hero-scene .product-stage[data-active-card="meet"] .product-fragment-map { z-index: 1; }
+.hero-scene .product-stage[data-active-card="meet"] .product-fragment-profile { z-index: 2; }
+.hero-scene .product-stage[data-active-card="map"] .product-fragment-map { --focus-x: -90px; --focus-y: 100px; --focus-scale: 1.17; z-index: 6; }
+.hero-scene .product-stage[data-active-card="map"] .product-fragment-meet { --focus-x: -12px; --focus-y: 70px; --focus-scale: .82; z-index: 3; }
+.hero-scene .product-stage[data-active-card="profile"] .product-fragment-profile { --focus-x: -34px; --focus-y: -160px; --focus-scale: 1.26; z-index: 6; }
+.hero-scene .product-stage[data-active-card="profile"] .product-fragment-meet { --focus-y: -30px; --focus-scale: .86; z-index: 3; }
+.hero-transfer { position: fixed; inset: 0; z-index: 3; visibility: hidden; pointer-events: none; overflow: hidden; }
+.hero-transfer.is-visible { visibility: visible; }
+.hero-transfer img { position: absolute; top: 0; left: 0; max-width: none; height: auto; transform-origin: 0 0; }
+.hero-transfer.is-visible img { will-change: transform, opacity; }
 @media (min-width: 981px) and (min-height: 700px) {
-  .has-hero-bridge .home-proof-band { display: block; }
-  .has-hero-bridge .home-proof-band > * { width: 43%; text-align: left; }
-  .has-hero-bridge .home-proof-band .hero-note { margin-top: 22px; }
-  .has-hero-bridge .product-index > .editorial-header { width: 43%; margin-bottom: 64px; }
-  .has-hero-bridge .product-index > .editorial-header .section-title { font-size: clamp(2.15rem, 4vw, 3.9rem); }
+  .has-hero-transfer .home-proof-band { display: block; }
+  .has-hero-transfer .home-proof-band > * { width: 42%; text-align: left; }
+  .has-hero-transfer .home-proof-band .hero-note { margin-top: 22px; }
+  .has-hero-transfer .product-index > .editorial-header { width: 42%; margin-bottom: 64px; }
+  .has-hero-transfer .product-index > .editorial-header .section-title { font-size: clamp(2.15rem, 3.6vw, 3.7rem); }
 }
 @media (max-width: 980px) {
-  .hero-artifacts .product-stage { width: min(100%, 640px); min-height: 520px; margin: 10px auto 0; }
-  .hero-artifacts .product-fragment-meet { top: 16%; width: 100%; }
+  .home-hero.hero-scene { grid-template-columns: 1fr; gap: 28px; }
+  .hero-scene .product-stage { width: min(100%, 620px); height: clamp(400px, 76vw, 610px); margin: 0 auto; }
+  .hero-scene .product-fragment { transition: filter 220ms ease; }
 }
 @media (max-width: 600px) {
-  .home-hero.hero-artifacts { padding-top: 28px; gap: 24px; }
-  .hero-artifacts .hero-copy { top: 0; }
-  .hero-artifacts .hero-logo { float: left; width: 28px; height: 28px; margin: 0 12px 0 0; }
-  .hero-artifacts .hero-copy > .story-label { line-height: 28px; margin-bottom: 18px; font-size: .7rem; }
-  .hero-artifacts .hero-title { clear: both; font-size: clamp(2.5rem, 11.8vw, 3.4rem); margin-bottom: 18px; }
-  .hero-artifacts .hero-body { font-size: 1rem; line-height: 1.55; margin-bottom: 22px; }
-  .hero-artifacts .hero-actions { gap: 10px; }
-  .hero-artifacts .hero-actions .button { min-height: 46px; }
-  .hero-artifacts .platform-note { margin-top: 14px; font-size: .8rem; }
-  .hero-artifacts .product-stage { min-height: clamp(310px, 90vw, 420px); margin-top: 0; }
-  .hero-artifacts .product-fragment-map { top: -1%; right: 1%; width: 51%; }
-  .hero-artifacts .product-fragment-meet { top: 15%; }
-  .hero-artifacts .product-fragment-profile { bottom: 0; width: 84%; }
-  .hero-artifacts .hero-meet-face { clip-path: inset(23% 0 0 round 18px); }
-  .hero-artifacts .hero-profile-face { clip-path: inset(17% 0 10% 31% round 14px); }
-  .hero-artifacts .product-stage[data-active-card="map"] .product-fragment-map { --cycle-x: -70px; --cycle-y: 64px; }
-  .hero-artifacts .product-stage[data-active-card="profile"] .product-fragment-profile { --cycle-y: -78px; }
+  .home-hero.hero-scene { width: calc(100% - 36px); padding-top: 30px; gap: 22px; }
+  .hero-scene .hero-logo { float: left; width: 28px; height: 28px; margin: 0 12px 0 0; }
+  .hero-scene .hero-copy > .story-label { line-height: 28px; margin-bottom: 18px; font-size: .7rem; }
+  .hero-scene .hero-title { clear: both; font-size: clamp(2.5rem, 11.8vw, 3.4rem); margin-bottom: 18px; }
+  .hero-scene .hero-body { font-size: 1rem; line-height: 1.55; margin-bottom: 22px; }
+  .hero-scene .hero-actions { gap: 10px; }
+  .hero-scene .hero-actions .button { min-height: 46px; }
+  .hero-scene .platform-note { margin-top: 14px; font-size: .8rem; }
+  .hero-scene .product-stage { height: clamp(370px, 104vw, 460px); }
+  .hero-scene .product-fragment-map { width: 46%; top: 1%; right: 5%; }
+  .hero-scene .product-fragment-meet { width: 96%; left: 1%; top: 24%; }
+  .hero-scene .product-fragment-profile { width: 72%; bottom: 1%; right: 5%; }
+  .hero-scene .product-stage[data-active-card="map"] .product-fragment-map { --focus-x: -45px; --focus-y: 66px; --focus-scale: 1.16; }
+  .hero-scene .product-stage[data-active-card="profile"] .product-fragment-profile { --focus-x: -8px; --focus-y: -116px; --focus-scale: 1.13; }
 }
 @media (prefers-reduced-motion: no-preference) {
-  .hero-arriving .hero-map-face { animation: hero-plane-arrive 1050ms cubic-bezier(.16,1,.3,1) both; --arrival-x: 22px; --arrival-y: 32px; --arrival-angle: -4deg; }
-  .hero-arriving .hero-meet-face { animation: hero-plane-arrive 1100ms 90ms cubic-bezier(.16,1,.3,1) both; --arrival-x: 0px; --arrival-y: 58px; --arrival-angle: 2deg; }
-  .hero-arriving .hero-profile-face { animation: hero-plane-arrive 1100ms 180ms cubic-bezier(.16,1,.3,1) both; --arrival-x: -28px; --arrival-y: 24px; --arrival-angle: -3deg; }
-  .hero-arriving .hero-detail { animation: hero-detail-arrive 1050ms 180ms cubic-bezier(.16,1,.3,1) backwards; }
-  .hero-arriving .hero-avatar { animation-delay: 280ms; }
-  .hero-arriving .hero-logo { animation: hero-mark-settle 1000ms cubic-bezier(.16,1,.3,1) both; }
-  @keyframes hero-plane-arrive { from { opacity: .25; transform: translate3d(var(--arrival-x), var(--arrival-y), 0) rotate(var(--arrival-angle)) scale(.91); } to { opacity: 1; transform: none; } }
-  @keyframes hero-detail-arrive { from { opacity: 0; translate: 0 26px; scale: .9; } to { opacity: 1; translate: 0 0; scale: 1; } }
-  @keyframes hero-mark-settle { from { transform: rotate(-14deg) scale(.9); } to { transform: none; } }
+  .is-hero-entering .hero-plane { animation: hero-assemble 850ms cubic-bezier(.16,1,.3,1) both; }
+  .is-hero-entering .product-fragment-map .hero-plane { --entry-x: -34px; --entry-y: 55px; }
+  .is-hero-entering .product-fragment-meet .hero-plane { --entry-x: 0px; --entry-y: 48px; animation-delay: 70ms; }
+  .is-hero-entering .product-fragment-profile .hero-plane { --entry-x: 24px; --entry-y: -36px; animation-delay: 120ms; }
+  @keyframes hero-assemble { from { opacity: .7; transform: translate3d(var(--entry-x),var(--entry-y),0) scale(.92); } to { opacity: 1; transform: none; } }
 }
 @media (prefers-reduced-motion: reduce) {
-  .hero-bridge { display: none; }
-  .hero-artifacts .product-fragment { transition: none; }
+  .hero-transfer { display: none; }
+  .hero-scene .product-fragment { transition: none; }
 }
-
-@media (max-width: 980px) and (prefers-reduced-motion: no-preference) {
-  .hero-artifacts.is-hero-mobile .hero-meet-face { clip-path: inset(var(--hero-crop, 23%) 0 0 round 22px); translate: 0 var(--hero-lift, 0px); }
-  .hero-artifacts.is-hero-mobile .hero-date,
-  .hero-artifacts.is-hero-mobile .hero-location { opacity: var(--hero-detail-opacity, 1); }
-}
-@media (max-width: 600px) {
-  .hero-artifacts .hero-date { width: 39%; right: 1%; top: -1%; }
-  .hero-artifacts .hero-location { width: 36%; left: 1%; top: 10%; }
-}
-/* The artwork already contains its own perspective. Keep the outer plane affine
-   so it can transfer to the identical Discover pixels without a rotation snap. */
-.hero-artifacts .product-stage { perspective: none; }
-.hero-artifacts .product-fragment { --base-rotate: 0deg !important; --cycle-rotate: 0deg !important; --cycle-z: 0px !important; --tilt-x: 0deg !important; --tilt-y: 0deg !important; }
-.hero-artifacts .product-stage .product-fragment-profile { z-index: 7; }
-.hero-artifacts .hero-date, .hero-artifacts .hero-location { transform: none; }
-
-.hero-bridge.is-visible > picture > img { will-change: transform, opacity; }
-
-@media (max-width: 980px) { .hero-artifacts .product-fragment-profile { bottom: -3%; } }
+/* A common aspect-ratio keeps complete card bounds separated at every width. */
+.hero-scene .product-stage { width: min(100%, calc((100svh - 150px) / 1.1)); height: auto; aspect-ratio: 1 / 1.1; justify-self: center; }
+@media (max-width: 980px) { .hero-scene .product-stage { width: min(100%, 620px); height: auto; } }
+@media (max-width: 600px) { .hero-scene .product-stage { aspect-ratio: 1 / 1.16; } }
