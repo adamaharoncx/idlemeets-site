@@ -5669,9 +5669,99 @@ body.not-found-page::after {
   }
 }
 
-/* First motion study: Discover becomes Host in one continuous visual space.
-   The original chapter layout is the no-JS and reduced-motion fallback. */
+
+/* A connected product story. The unenhanced document remains the fallback. */
 .motion-rail { display: none; }
+
+@media (prefers-reduced-motion: no-preference) {
+  .motion-sequence.is-motion-ready > .product-chapter,
+  .motion-sequence.is-motion-mobile > .product-chapter {
+    opacity: 1;
+    filter: none;
+    transform: none;
+    overflow: visible;
+  }
+  .is-motion-ready .motion-canvas,
+  .is-motion-mobile .motion-canvas {
+    position: sticky;
+    width: 100%;
+    isolation: isolate;
+  }
+  .is-motion-ready .motion-canvas .motion-visual,
+  .is-motion-mobile .motion-canvas .motion-visual {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    min-height: 0;
+    margin: 0;
+    perspective: none;
+    overflow: visible;
+    visibility: hidden;
+    pointer-events: none;
+  }
+  .motion-canvas .motion-visual.is-visible {
+    visibility: visible;
+    pointer-events: auto;
+  }
+  .motion-canvas .motion-visual.is-incoming { z-index: 3; }
+  .motion-canvas .motion-visual.is-outgoing { z-index: 2; }
+  .motion-canvas .motion-visual.is-decoration { pointer-events: none; }
+  .is-motion-ready .motion-canvas .motion-primary,
+  .is-motion-mobile .motion-canvas .motion-primary {
+    transform: translate3d(var(--primary-x, 0px), var(--primary-y, 0px), 0) scale(var(--primary-scale, 1));
+    opacity: var(--primary-opacity, 1);
+    clip-path: inset(0 0 var(--primary-crop, 0%) round 28px);
+    transform-origin: center;
+    transition: filter 220ms ease;
+    will-change: auto;
+  }
+  .is-motion-ready .motion-canvas .motion-secondary,
+  .is-motion-mobile .motion-canvas .motion-secondary {
+    transform: translate3d(var(--secondary-x, 0px), var(--secondary-y, 0px), 0) scale(var(--secondary-scale, 1));
+    opacity: var(--secondary-opacity, 1);
+    transition: filter 220ms ease;
+    will-change: auto;
+  }
+  .is-motion-ready .motion-canvas .discover-fragment,
+  .is-motion-mobile .motion-canvas .discover-fragment { filter: none; }
+  .is-motion-ready .motion-canvas .feature-fragment.motion-primary,
+  .is-motion-mobile .motion-canvas .feature-fragment.motion-primary {
+    left: 7%;
+    right: auto;
+    top: 2%;
+    bottom: auto;
+    width: 70%;
+    height: 94%;
+    border-radius: 28px;
+  }
+  .is-motion-ready .motion-canvas .feature-fragment.motion-secondary,
+  .is-motion-mobile .motion-canvas .feature-fragment.motion-secondary {
+    left: auto;
+    top: auto;
+    right: 0;
+    bottom: 5%;
+    width: 37%;
+    height: 67%;
+    border-radius: 24px;
+  }
+  .motion-canvas .feature-fragment .feature-shot {
+    background: #000;
+    box-shadow: none;
+  }
+  .motion-canvas .feature-fragment.is-selected { z-index: 4; filter: brightness(1); }
+  .motion-canvas .feature-fragment:not(.is-selected) { filter: brightness(.78); }
+  .motion-canvas .feature-fragment:hover { filter: brightness(1); }
+  .motion-canvas .feature-fragment:focus-visible { outline: 2px solid #fff; outline-offset: -4px; }
+  .motion-canvas.is-in-view .motion-primary,
+  .motion-canvas.is-in-view .motion-secondary { will-change: transform, opacity; }
+  .is-motion-ready .motion-canvas .discover-fragment-map {
+    width: 86%; right: -4%; top: -1%;
+  }
+  .is-motion-ready .motion-canvas .discover-fragment-meet {
+    width: 116%; right: -6%; bottom: 5%;
+  }
+}
 
 @media (min-width: 981px) and (min-height: 700px) and (prefers-reduced-motion: no-preference) {
   .motion-sequence.is-motion-ready {
@@ -5685,124 +5775,63 @@ body.not-found-page::after {
     display: flex;
     grid-column: 1;
     min-height: max(700px, 92svh);
-    overflow: visible;
     border: 0;
-    opacity: 1;
-    filter: none;
-    transform: none;
   }
   .motion-sequence.is-motion-ready > #discover { grid-row: 1; }
   .motion-sequence.is-motion-ready > #host { grid-row: 2; }
+  .motion-sequence.is-motion-ready > #garage { grid-row: 3; }
+  .motion-sequence.is-motion-ready > #connections { grid-row: 4; }
+  .motion-sequence.is-motion-ready > #groups { grid-row: 5; }
   .motion-sequence.is-motion-ready .product-chapter-copy {
     padding: 68px 0;
     max-width: 500px;
   }
-  .motion-sequence.is-motion-ready .product-chapter-copy h3 {
-    font-size: clamp(2.55rem, 4.8vw, 4.9rem);
-  }
-  .motion-sequence.is-motion-ready .motion-rail {
+  .motion-sequence.is-motion-ready .motion-rail-desktop {
     display: block;
     grid-column: 2;
-    grid-row: 1 / 3;
+    grid-row: 1 / 6;
     position: relative;
     min-width: 0;
   }
-  .motion-canvas {
-    position: sticky;
+  .is-motion-ready .motion-canvas {
     top: max(96px, calc((100svh - 640px) / 2));
     height: min(640px, calc(100svh - 140px));
-    width: 100%;
-    isolation: isolate;
   }
-  .motion-canvas .discover-stage,
-  .motion-canvas .feature-stage-host {
-    position: absolute;
-    inset: 0;
-    width: 100%;
-    height: 100%;
-    min-height: 0;
-    margin: 0;
-    perspective: none;
-    overflow: visible;
-  }
-  .motion-canvas .discover-stage { z-index: 2; pointer-events: none; }
-  .motion-canvas .feature-stage-host { z-index: 3; }
-  .motion-canvas .discover-fragment {
-    transition: none;
-    filter: none;
-    will-change: auto;
-  }
-  .motion-canvas .discover-fragment-map {
-    width: 86%;
-    right: -4%;
-    top: -1%;
-    transform: translate3d(var(--map-x, 0px), var(--map-y, 0px), 0) scale(var(--map-scale, 1));
-    opacity: var(--map-opacity, 1);
-  }
-  .motion-canvas .discover-fragment-meet {
-    width: 116%;
-    right: -6%;
-    bottom: 5%;
-    transform: translate3d(var(--meet-x, 0px), var(--meet-y, 0px), 0) scale(var(--meet-scale, 1));
-    opacity: var(--meet-opacity, 1);
-    transform-origin: 50% 50%;
-  }
-  .motion-canvas .feature-fragment-host-command {
-    left: 7%;
-    top: 2%;
-    width: 70%;
-    height: 94%;
-    border-radius: 30px;
-    transform: translate3d(var(--host-x, 0px), var(--host-y, 0px), 0) scale(var(--host-scale, 1));
-    clip-path: inset(0 0 var(--host-crop, 100%) round 30px);
-    opacity: var(--host-opacity, 0);
-  }
-  .motion-canvas .feature-fragment-host-command .feature-shot {
-    background: #000;
-    box-shadow: none;
-  }
-  .motion-canvas .feature-fragment-host-command img { --crop-y: -1.5%; }
-  .motion-canvas .feature-fragment-host-flyer {
-    right: 0;
-    bottom: 5%;
-    width: 37%;
-    height: 67%;
-    border-radius: 25px;
-    transform: translate3d(var(--flyer-x, 0px), var(--flyer-y, 0px), 0) scale(var(--flyer-scale, 1));
-    opacity: var(--flyer-opacity, 0);
-  }
-  .motion-canvas .feature-fragment {
-    --card-z: 0px;
-    --card-rotate: 0deg;
-    filter: none;
-    transition: filter 220ms ease;
-    will-change: auto;
-  }
-  .motion-canvas .feature-fragment.is-selected { z-index: 4; filter: brightness(1); }
-  .motion-canvas .feature-fragment:not(.is-selected) { filter: brightness(.78); }
-  .motion-canvas .feature-fragment:hover { filter: brightness(1); }
-  .motion-canvas.is-in-view .discover-fragment,
-  .motion-canvas.is-in-view .feature-fragment { will-change: transform, opacity; }
 }
 
-/* Phones keep the original content order and normal page flow. There is no pin,
-   extra scroll distance, scroll interception, or mandatory animation to finish. */
-@media (max-width: 980px) and (prefers-reduced-motion: no-preference),
-       (max-height: 699px) and (prefers-reduced-motion: no-preference) {
-  .motion-sequence.is-motion-inline > .product-chapter {
-    opacity: 1;
-    filter: none;
-    transform: none;
+/* Each phone handover has only 260px of native scroll, then releases completely.
+   The next chapter's copy follows immediately; there is no full-page pin. */
+@media (max-width: 980px) and (min-height: 600px) and (prefers-reduced-motion: no-preference) {
+  .motion-sequence.is-motion-mobile > .product-chapter {
+    display: block;
+    min-height: 0;
+    border-bottom: 0;
   }
-  .motion-sequence.is-motion-inline .discover-fragment-map {
-    transform: translate3d(0, var(--inline-map-y, 0px), 0) scale(var(--inline-map-scale, 1));
-    transition: none;
+  .motion-sequence.is-motion-mobile > #groups {
+    border-bottom: 1px solid rgba(255,255,255,.13);
   }
-  .motion-sequence.is-motion-inline .discover-fragment-meet {
-    transform: translate3d(0, var(--inline-meet-y, 0px), 0) scale(var(--inline-meet-scale, 1));
-    transition: none;
+  .motion-sequence.is-motion-mobile .motion-rail-mobile {
+    --mobile-scene-height: min(480px, 60svh);
+    display: block;
+    position: relative;
+    height: calc(var(--mobile-scene-height) + 260px);
+    width: min(100%, 640px);
+    margin: 16px auto 0;
   }
-  .motion-sequence.is-motion-inline .feature-stage-host {
-    transform: translate3d(0, var(--inline-host-y, 0px), 0);
+  .is-motion-mobile .motion-canvas {
+    top: 82px;
+    height: var(--mobile-scene-height);
+  }
+  .is-motion-mobile .motion-canvas .discover-fragment-map {
+    width: 105%; right: -12%; top: 0;
+  }
+  .is-motion-mobile .motion-canvas .discover-fragment-meet {
+    width: 126%; right: -13%; bottom: 10%;
+  }
+  .is-motion-mobile .motion-canvas .feature-fragment.motion-primary {
+    left: 0; width: 80%;
+  }
+  .is-motion-mobile .motion-canvas .feature-fragment.motion-secondary {
+    right: -2%; bottom: 6%; width: 43%; height: 66%; border-radius: 22px;
   }
 }

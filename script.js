@@ -274,83 +274,162 @@
   });
 })();
 
-/* A progressive, reversible Discover → Host study. All copy and controls exist
-   in ordinary document flow before enhancement. No wheel/touch interception. */
+/* Progressive shared geometry across Discover, Host, Garage, Connections, Groups.
+   Geometry is cached on resize. Scroll never intercepts wheel/touch or reads layout. */
 (function () {
   var sequence = document.querySelector('[data-motion-sequence]');
   if (!sequence || !window.requestAnimationFrame || !window.matchMedia) return;
-  var discover = sequence.querySelector('#discover');
-  var host = sequence.querySelector('#host');
-  var discoverStage = sequence.querySelector('[data-discover-stage]');
-  var hostStage = sequence.querySelector('.feature-stage-host');
-  if (!discover || !host || !discoverStage || !hostStage) return;
+  var ids = ['discover', 'host', 'garage', 'connections', 'groups'];
+  var chapters = ids.map(function (id) { return sequence.querySelector('#' + id); });
+  if (chapters.some(function (chapter) { return !chapter; })) return;
+  var stages = chapters.map(function (chapter) {
+    return chapter.querySelector('[data-discover-stage], [data-feature-stage]');
+  });
+  if (stages.some(function (stage) { return !stage; })) return;
   var reduced = window.matchMedia('(prefers-reduced-motion: reduce)');
   var desktop = window.matchMedia('(min-width: 981px) and (min-height: 700px)');
-  var rail = document.createElement('div');
-  rail.className = 'motion-rail';
-  var canvas = document.createElement('div');
-  canvas.className = 'motion-canvas';
-  rail.appendChild(canvas);
-  sequence.appendChild(rail);
-  var frame = 0;
-  var mode = '';
-  var geometry = null;
-  var oldProgress = -1;
-  var flyer = hostStage.querySelector('[data-feature-card="flyer"]');
-  var hostAvailable = true;
+  var mobile = window.matchMedia('(max-width: 980px) and (min-height: 600px)');
+  var mode = '', frame = 0, resizeFrame = 0, geometry, keyboardMode = false;
   var clamp = function (n) { return Math.max(0, Math.min(1, n)); };
   var smooth = function (start, end, n) {
     var t = clamp((n - start) / (end - start));
     return t * t * (3 - 2 * t);
   };
-  function set(name, value) { canvas.style.setProperty(name, value); }
-  function exposeHost(available) {
-    if (available === hostAvailable) return;
-    hostAvailable = available;
-    hostStage.inert = !available;
-    if (available) hostStage.removeAttribute('aria-hidden');
-    else hostStage.setAttribute('aria-hidden', 'true');
+  function rail(type) {
+    var element = document.createElement('div');
+    element.className = 'motion-rail motion-rail-' + type;
+    var canvas = document.createElement('div');
+    canvas.className = 'motion-canvas';
+    element.appendChild(canvas);
+    return {element: element, canvas: canvas, progress: -1, index: -1};
+  }
+  stages.forEach(function (stage, index) {
+    stage.classList.add('motion-visual');
+    var primary = index === 0 ? stage.querySelector('.discover-fragment-meet') : stage.querySelector('.is-selected');
+    if (!primary) primary = stage.querySelector('[data-feature-fragment]');
+    var fragments = stage.querySelectorAll('[data-discover-fragment], [data-feature-fragment]');
+    Array.prototype.forEach.call(fragments, function (fragment) {
+      fragment.classList.add(fragment === primary ? 'motion-primary' : 'motion-secondary');
+    });
+  });
+  var desktopRail = rail('desktop');
+  sequence.appendChild(desktopRail.element);
+  var mobileRails = stages.slice(1).map(function (incoming, index) {
+    var item = rail('mobile');
+    item.from = index === 0 ? stages[0] : stages[index].cloneNode(true);
+    item.to = incoming;
+    if (index > 0) {
+      item.from.classList.add('is-decoration');
+      item.from.setAttribute('aria-hidden', 'true');
+      item.from.inert = true;
+      Array.prototype.forEach.call(item.from.querySelectorAll('[aria-live]'), function (el) { el.removeAttribute('aria-live'); });
+      Array.prototype.forEach.call(item.from.querySelectorAll('button'), function (el) { el.tabIndex = -1; });
+      // Keep the next handover consistent with any preview the visitor selected.
+      stages[index].addEventListener('click', function () {
+        item.from.setAttribute('data-active-card', stages[index].getAttribute('data-active-card'));
+        var originals = stages[index].querySelectorAll('[data-feature-fragment]');
+        Array.prototype.forEach.call(item.from.querySelectorAll('[data-feature-fragment]'), function (copy, i) {
+          copy.classList.toggle('is-selected', originals[i].classList.contains('is-selected'));
+          copy.setAttribute('aria-pressed', originals[i].getAttribute('aria-pressed'));
+        });
+      });
+    }
+    sequence.insertBefore(item.element, chapters[index + 1]);
+    return item;
+  });
+  function accessible(stage, enabled) {
+    if (stage.classList.contains('is-decoration')) return;
+    stage.inert = !enabled;
+    if (enabled) stage.removeAttribute('aria-hidden');
+    else stage.setAttribute('aria-hidden', 'true');
+  }
+  function visible(stage, show, incoming) {
+    stage.classList.toggle('is-visible', show);
+    stage.classList.toggle('is-incoming', show && incoming);
+    stage.classList.toggle('is-outgoing', show && !incoming);
+  }
+  function property(stage, name, value) { stage.style.setProperty('--' + name, value); }
+  function pair(outgoing, incoming, progress) {
+    var gather = smooth(.05, .55, progress);
+    var morph = smooth(.28, .78, progress);
+    var transfer = smooth(.4, .62, progress);
+    var unfold = smooth(.32, .78, progress);
+    var support = smooth(.64, .95, progress);
+    visible(outgoing, progress < 1, false);
+    visible(incoming, progress > 0, true);
+    property(outgoing, 'primary-x', (-20 * morph).toFixed(2) + 'px');
+    property(outgoing, 'primary-y', (-100 * morph).toFixed(2) + 'px');
+    property(outgoing, 'primary-scale', (1 - morph * .22).toFixed(4));
+    property(outgoing, 'primary-opacity', (1 - transfer).toFixed(4));
+    property(outgoing, 'primary-crop', '0%');
+    property(outgoing, 'secondary-x', (-42 * gather).toFixed(2) + 'px');
+    property(outgoing, 'secondary-y', (45 * gather).toFixed(2) + 'px');
+    property(outgoing, 'secondary-scale', (1 - gather * .16).toFixed(4));
+    property(outgoing, 'secondary-opacity', (1 - smooth(.1, .48, progress)).toFixed(4));
+    property(incoming, 'primary-x', (24 * (1 - morph)).toFixed(2) + 'px');
+    property(incoming, 'primary-y', (138 * (1 - unfold)).toFixed(2) + 'px');
+    property(incoming, 'primary-scale', (1.11 - morph * .11).toFixed(4));
+    property(incoming, 'primary-crop', (100 * (1 - unfold)).toFixed(3) + '%');
+    property(incoming, 'primary-opacity', '1');
+    property(incoming, 'secondary-x', (-32 * (1 - support)).toFixed(2) + 'px');
+    property(incoming, 'secondary-y', (24 * (1 - support)).toFixed(2) + 'px');
+    property(incoming, 'secondary-scale', (.93 + support * .07).toFixed(4));
+    property(incoming, 'secondary-opacity', support.toFixed(4));
+    accessible(outgoing, progress < .4);
+    accessible(incoming, progress >= .58);
+    var secondary = incoming.querySelector('.motion-secondary');
+    if (secondary && secondary.tagName === 'BUTTON') {
+      secondary.inert = support < .15;
+      secondary.tabIndex = support > .8 ? 0 : -1;
+    }
+    var outgoingSecondary = outgoing.querySelector('.motion-secondary');
+    if (outgoingSecondary && outgoingSecondary.tagName === 'BUTTON') {
+      outgoingSecondary.inert = progress >= .35;
+      outgoingSecondary.tabIndex = progress < .35 ? 0 : -1;
+    }
   }
   function measure() {
-    // Layout reads happen on setup/resize, never once per moving fragment.
-    var scroll = window.scrollY;
-    var bounds = sequence.getBoundingClientRect();
-    var d = discoverStage.getBoundingClientRect();
-    var h = hostStage.getBoundingClientRect();
-    var copyA = discover.querySelector('.product-chapter-copy').getBoundingClientRect();
-    var copyB = host.querySelector('.product-chapter-copy').getBoundingClientRect();
-    geometry = {
-      top: bounds.top + scroll,
-      end: bounds.bottom + scroll,
-      start: copyA.top + scroll + copyA.height * .5 - window.innerHeight * .5,
-      finish: copyB.top + scroll + copyB.height * .5 - window.innerHeight * .5,
-      discoverTop: d.top + scroll,
-      discoverHeight: d.height,
-      hostTop: h.top + scroll,
-      hostHeight: h.height,
-      view: window.innerHeight
-    };
-    oldProgress = -1;
+    var y = window.scrollY, bounds = sequence.getBoundingClientRect();
+    geometry = {top: bounds.top + y, bottom: bounds.bottom + y, view: window.innerHeight};
+    if (mode === 'desktop') {
+      geometry.centers = chapters.map(function (chapter) {
+        var rect = chapter.querySelector('.product-chapter-copy').getBoundingClientRect();
+        return rect.top + y + rect.height / 2 - geometry.view / 2;
+      });
+      desktopRail.progress = -1;
+    } else if (mode === 'mobile') {
+      mobileRails.forEach(function (item) {
+        var rect = item.element.getBoundingClientRect();
+        item.start = rect.top + y - 82;
+        item.end = item.start + rect.height - item.canvas.getBoundingClientRect().height;
+        item.progress = -1;
+      });
+    }
     requestPaint();
   }
   function setup() {
-    var next = reduced.matches ? 'static' : desktop.matches ? 'desktop' : 'inline';
+    var next = reduced.matches || keyboardMode ? 'static' : desktop.matches ? 'desktop' : mobile.matches ? 'mobile' : 'static';
     if (next !== mode) {
       mode = next;
-      sequence.classList.remove('is-motion-ready', 'is-motion-inline');
-      discover.appendChild(discoverStage);
-      host.appendChild(hostStage);
-      canvas.removeAttribute('style');
-      sequence.removeAttribute('style');
-      exposeHost(true);
-      if (flyer) { flyer.removeAttribute('tabindex'); flyer.inert = false; }
+      sequence.classList.remove('is-motion-ready', 'is-motion-mobile');
+      stages.forEach(function (stage, index) {
+        chapters[index].appendChild(stage);
+        stage.removeAttribute('style');
+        visible(stage, false, false);
+        accessible(stage, true);
+        Array.prototype.forEach.call(stage.querySelectorAll('button'), function (button) {
+          button.inert = false; button.removeAttribute('tabindex');
+        });
+      });
       if (mode === 'desktop') {
-        canvas.appendChild(discoverStage);
-        canvas.appendChild(hostStage);
+        stages.forEach(function (stage) { desktopRail.canvas.appendChild(stage); accessible(stage, false); });
         sequence.classList.add('is-motion-ready');
-        exposeHost(false);
-      } else if (mode === 'inline') {
-        sequence.classList.add('is-motion-inline');
+      } else if (mode === 'mobile') {
+        mobileRails.forEach(function (item) {
+          item.canvas.appendChild(item.from); item.canvas.appendChild(item.to);
+          accessible(item.to, false);
+        });
+        sequence.classList.add('is-motion-mobile');
       }
     }
     measure();
@@ -359,73 +438,45 @@
     frame = 0;
     if (!geometry || mode === 'static' || document.hidden) return;
     var y = window.scrollY;
-    if (y + geometry.view < geometry.top - 150 || y > geometry.end + 150) {
-      canvas.classList.remove('is-in-view');
-      if (mode === 'desktop' && y + geometry.view < geometry.top) {
-        exposeHost(false);
-        if (flyer) flyer.tabIndex = -1;
-      }
-      return;
-    }
-    if (mode === 'inline') {
-      var d = clamp((y + geometry.view - geometry.discoverTop) / (geometry.view + geometry.discoverHeight));
-      var h = clamp((y + geometry.view - geometry.hostTop) / (geometry.view + geometry.hostHeight));
-      sequence.style.setProperty('--inline-map-y', ((.5 - d) * 32).toFixed(2) + 'px');
-      sequence.style.setProperty('--inline-map-scale', (.96 + d * .04).toFixed(4));
-      sequence.style.setProperty('--inline-meet-y', ((.5 - d) * -24).toFixed(2) + 'px');
-      sequence.style.setProperty('--inline-meet-scale', (.97 + d * .05).toFixed(4));
-      sequence.style.setProperty('--inline-host-y', ((.5 - h) * 22).toFixed(2) + 'px');
-      return;
-    }
-    canvas.classList.add('is-in-view');
-    var progress = clamp((y - geometry.start) / Math.max(1, geometry.finish - geometry.start));
-    if (Math.abs(progress - oldProgress) < .0001) return;
-    oldProgress = progress;
-    var gather = smooth(.05, .55, progress);
-    var morph = smooth(.28, .78, progress);
-    var transfer = smooth(.4, .62, progress);
-    var unfold = smooth(.32, .78, progress);
-    var support = smooth(.64, .95, progress);
-    set('--map-x', (gather * -42).toFixed(2) + 'px');
-    set('--map-y', (gather * 45).toFixed(2) + 'px');
-    set('--map-scale', (1 - gather * .16).toFixed(4));
-    set('--map-opacity', (1 - smooth(.1, .48, progress)).toFixed(4));
-    set('--meet-x', (morph * -20).toFixed(2) + 'px');
-    set('--meet-y', (morph * -100).toFixed(2) + 'px');
-    set('--meet-scale', (1 - morph * .22).toFixed(4));
-    set('--meet-opacity', (1 - transfer).toFixed(4));
-    set('--host-x', ((1 - morph) * 24).toFixed(2) + 'px');
-    set('--host-y', ((1 - unfold) * 138).toFixed(2) + 'px');
-    set('--host-scale', (1.11 - morph * .11).toFixed(4));
-    set('--host-crop', ((1 - unfold) * 100).toFixed(3) + '%');
-    // An opaque expanding mask avoids superimposing two sets of UI text.
-    set('--host-opacity', '1');
-    set('--flyer-x', ((1 - support) * -32).toFixed(2) + 'px');
-    set('--flyer-y', ((1 - support) * 24).toFixed(2) + 'px');
-    set('--flyer-scale', (.93 + support * .07).toFixed(4));
-    set('--flyer-opacity', support.toFixed(4));
-    // Hidden previews never enter the keyboard sequence or accessibility tree.
-    exposeHost(progress >= .58);
-    if (flyer) {
-      flyer.tabIndex = support > .8 ? 0 : -1;
-      flyer.inert = support < .15;
+    if (mode === 'desktop') {
+      var centers = geometry.centers, index = 0;
+      while (index < centers.length - 2 && y >= centers[index + 1]) index++;
+      var progress = clamp((y - centers[index]) / Math.max(1, centers[index + 1] - centers[index]));
+      desktopRail.canvas.classList.toggle('is-in-view', y + geometry.view >= geometry.top && y <= geometry.bottom);
+      if (index === desktopRail.index && Math.abs(progress - desktopRail.progress) < .0001) return;
+      desktopRail.index = index; desktopRail.progress = progress;
+      stages.forEach(function (stage, i) { if (i !== index && i !== index + 1) { visible(stage, false, false); accessible(stage, false); } });
+      pair(stages[index], stages[index + 1], progress);
+    } else {
+      mobileRails.forEach(function (item) {
+        var progress = clamp((y - item.start) / Math.max(1, item.end - item.start));
+        item.canvas.classList.toggle('is-in-view', y + geometry.view >= item.start && y <= item.end + geometry.view);
+        if (Math.abs(progress - item.progress) < .0001) return;
+        item.progress = progress;
+        pair(item.from, item.to, progress);
+      });
     }
   }
-  function requestPaint() {
-    if (!frame) frame = window.requestAnimationFrame(paint);
-  }
+  function requestPaint() { if (!frame) frame = window.requestAnimationFrame(paint); }
   window.addEventListener('scroll', requestPaint, {passive: true});
-  var resizeFrame = 0;
   window.addEventListener('resize', function () {
     if (resizeFrame) window.cancelAnimationFrame(resizeFrame);
     resizeFrame = window.requestAnimationFrame(function () { resizeFrame = 0; setup(); });
   }, {passive: true});
-  var listen = function (query) {
+  [reduced, desktop, mobile].forEach(function (query) {
     if (query.addEventListener) query.addEventListener('change', setup);
     else if (query.addListener) query.addListener(setup);
-  };
-  listen(reduced);
-  listen(desktop);
+  });
+  // Restore original DOM/control order before the browser performs Tab navigation.
+  // Keep the static layout for the rest of this visit to avoid moving focus targets.
+  document.addEventListener('keydown', function (event) {
+    if (event.key === 'Tab' && !keyboardMode) {
+      keyboardMode = true;
+      var focused = document.activeElement;
+      setup();
+      if (focused && focused !== document.body && focused.focus) focused.focus({preventScroll: true});
+    }
+  });
   document.addEventListener('visibilitychange', requestPaint);
   window.addEventListener('pageshow', setup);
   window.addEventListener('load', measure, {once: true});
