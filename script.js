@@ -479,7 +479,196 @@
   });
   document.addEventListener('visibilitychange', requestPaint);
   window.addEventListener('pageshow', setup);
+  document.addEventListener('idle:hero-layout', measure);
   window.addEventListener('load', measure, {once: true});
   if (document.fonts && document.fonts.ready) document.fonts.ready.then(measure);
   setup();
+}());
+
+/* Opening artifacts use only crops of the supplied UI artwork. A decorative,
+   inert bridge carries the same map/meet pixels into Discover on wide screens. */
+(function () {
+  var hero = document.querySelector('.home-hero');
+  var stage = hero && hero.querySelector('[data-product-stage]');
+  if (!stage || !window.matchMedia || !window.requestAnimationFrame) return;
+  var reduced = window.matchMedia('(prefers-reduced-motion: reduce)');
+  var wide = window.matchMedia('(min-width: 981px) and (min-height: 700px)');
+  var meet = stage.querySelector('.product-fragment-meet');
+  var map = stage.querySelector('.product-fragment-map');
+  var profile = stage.querySelector('.product-fragment-profile');
+  if (!meet || !map || !profile) return;
+  var frame = 0, geometry, keyboard = false, bridgeEnabled = false;
+  var clamp = function (n) { return Math.max(0, Math.min(1, n)); };
+  var ease = function (n) { n = clamp(n); return n * n * (3 - 2 * n); };
+  var mix = function (a, b, n) { return a + (b - a) * n; };
+  function wrap(button, className) {
+    var face = document.createElement('span');
+    face.className = 'hero-face ' + className;
+    face.appendChild(button.querySelector('picture'));
+    button.appendChild(face);
+    return face;
+  }
+  function detail(button, className, crop, sourceSize) {
+    var el = document.createElement('span');
+    el.className = 'hero-detail ' + className;
+    el.setAttribute('aria-hidden', 'true');
+    el.style.setProperty('--crop-width', sourceSize[0] / crop[2] * 100 + '%');
+    el.style.setProperty('--crop-left', -crop[0] / crop[2] * 100 + '%');
+    el.style.setProperty('--crop-top', -crop[1] / crop[3] * 100 + '%');
+    el.appendChild(button.querySelector('picture').cloneNode(true));
+    button.appendChild(el);
+    return el;
+  }
+  wrap(map, 'hero-map-face');
+  wrap(meet, 'hero-meet-face');
+  wrap(profile, 'hero-profile-face');
+  var details = [
+    detail(meet, 'hero-date', [934, 212, 300, 84], [1536, 1024]),
+    detail(meet, 'hero-location', [287, 264, 264, 64], [1536, 1024]),
+    detail(profile, 'hero-avatar', [280, 258, 356, 366], [1748, 900])
+  ];
+  hero.classList.add('hero-artifacts');
+  function arrive() {
+    if (reduced.matches) return;
+    hero.classList.add('hero-arriving');
+    window.setTimeout(function () { hero.classList.remove('hero-arriving'); measureSoon(); }, 1450);
+  }
+  if (!reduced.matches && window.scrollY < 100) {
+    if ('IntersectionObserver' in window) {
+      var arrival = new IntersectionObserver(function (entries) {
+        if (entries[0].isIntersecting) { arrival.disconnect(); arrive(); }
+      }, {threshold: .16});
+      arrival.observe(stage);
+    } else arrive();
+  }
+  var bridge = document.createElement('div');
+  bridge.className = 'hero-bridge hero-artifacts';
+  bridge.setAttribute('aria-hidden', 'true');
+  bridge.inert = true;
+  document.body.appendChild(bridge);
+  var sources = [map, meet, profile];
+  var copies = sources.map(function (button, i) {
+    var picture = button.querySelector('.hero-face picture').cloneNode(true);
+    var img = picture.querySelector('img');
+    img.removeAttribute('fetchpriority'); img.removeAttribute('loading');
+    img.className = 'hero-bridge-' + ['map', 'meet', 'profile'][i];
+    bridge.appendChild(picture);
+    return img;
+  });
+  var detailCopies = details.map(function (el) {
+    var copy = el.cloneNode(true); copy.style.zIndex = '4'; bridge.appendChild(copy); return copy;
+  });
+  function rect(el) {
+    var r = el.getBoundingClientRect();
+    return {x: r.left, y: r.top + window.scrollY, w: r.width, h: r.height};
+  }
+  function restore() {
+    bridge.classList.remove('is-visible');
+    stage.style.visibility = '';
+    var discover = document.querySelector('[data-discover-stage]');
+    if (discover) discover.style.visibility = '';
+  }
+  function measure() {
+    bridgeEnabled = wide.matches && !reduced.matches && !keyboard;
+    document.body.classList.toggle('has-hero-bridge', bridgeEnabled);
+    document.dispatchEvent(new Event('idle:hero-layout'));
+    restore();
+    var discover = document.querySelector('[data-discover-stage]');
+    var canvas = discover && discover.closest('.motion-canvas');
+    var mobileMotion = !wide.matches && !reduced.matches && !keyboard;
+    hero.classList.toggle('is-hero-mobile', mobileMotion);
+    if (!bridgeEnabled || !canvas) { geometry = mobileMotion ? {mobile: true, stage: rect(stage)} : null; requestPaint(); return; }
+    var stickyTop = parseFloat(window.getComputedStyle(canvas).top) || 96;
+    var savedStyle = discover.getAttribute('style');
+    discover.removeAttribute('style');
+    var targetCanvas = rect(canvas), targetRail = rect(canvas.parentElement);
+    var targets = ['.discover-fragment-map img', '.discover-fragment-meet img'].map(function (selector) {
+      var r = rect(discover.querySelector(selector));
+      return {x: r.x, y: r.y - targetCanvas.y + stickyTop, w: r.w, h: r.h};
+    });
+    if (savedStyle === null) discover.removeAttribute('style'); else discover.setAttribute('style', savedStyle);
+    var faces = sources.map(rect);
+    // Use stable button geometry, independent of the one-time inner entrance.
+    var imageFrames = [[-.268, -.152, 1.508, 1086 / 1448], [-.209, -.263, 1.398, 1024 / 1536], [-.155, -.353, 1.29, 900 / 1748]];
+    var sourceRects = faces.map(function (r, i) {
+      var f = imageFrames[i], w = r.w * f[2];
+      return {x: r.x + r.w * f[0], y: r.y + r.h * f[1], w: w, h: w * f[3]};
+    });
+    var m = faces[1], p = faces[2], avatarSize = p.w * .27, avatarHeight = avatarSize * 366 / 356;
+    var detailRects = [
+      {x: m.x + m.w * .70, y: m.y, w: m.w * .28, h: m.w * .28 * 84 / 300},
+      {x: m.x + m.w * .03, y: m.y + m.h * .09, w: m.w * .30, h: m.w * .30 * 64 / 264},
+      {x: p.x - avatarSize * .06, y: p.y + p.h * .10 - avatarHeight * .13, w: avatarSize, h: avatarHeight}
+    ];
+    var stageRect = rect(stage);
+    var start = Math.max(0, stageRect.y - stickyTop);
+    geometry = {start: start, end: targetRail.y - stickyTop, sources: sourceRects, targets: targets, details: detailRects, opacities: sources.map(function (button) { return parseFloat(window.getComputedStyle(button).opacity); }), layers: sources.map(function (button) { return window.getComputedStyle(button).zIndex; }), discover: discover};
+    geometry.clips = faces.map(function (r, i) {
+      var s = sourceRects[i], top = i === 1 ? .23 : i === 2 ? .17 : 0;
+      var right = 0, bottom = i === 2 ? .10 : 0, left = i === 2 ? .31 : 0;
+      return [(r.y + r.h * top - s.y) / s.h * 100, (s.x + s.w - r.x - r.w * (1 - right)) / s.w * 100, (s.y + s.h - r.y - r.h * (1 - bottom)) / s.h * 100, (r.x + r.w * left - s.x) / s.w * 100];
+    });
+    copies.forEach(function (img, i) { img.style.width = sourceRects[i].w + 'px'; img.style.height = sourceRects[i].h + 'px'; });
+    detailCopies.forEach(function (copy, i) { copy.style.width = geometry.details[i].w + 'px'; copy.style.height = geometry.details[i].h + 'px'; copy.style.top = '0'; copy.style.left = '0'; copy.style.right = 'auto'; });
+    requestPaint();
+  }
+  var measureFrame = 0;
+  function measureSoon() {
+    if (measureFrame) window.cancelAnimationFrame(measureFrame);
+    measureFrame = window.requestAnimationFrame(function () {
+      measureFrame = window.requestAnimationFrame(function () { measureFrame = 0; measure(); });
+    });
+  }
+  function paint() {
+    frame = 0;
+    if (!geometry || document.hidden) return;
+    var y = window.scrollY;
+    if (geometry.mobile) {
+      var gather = ease((y - geometry.stage.y + window.innerHeight * .64) / Math.max(180, geometry.stage.h * .78));
+      stage.style.setProperty('--hero-crop', (23 * (1 - gather)).toFixed(3) + '%');
+      stage.style.setProperty('--hero-lift', (-22 * gather).toFixed(2) + 'px');
+      stage.style.setProperty('--hero-detail-opacity', (1 - ease((gather - .35) / .55)).toFixed(4));
+      return;
+    }
+    var start = geometry.start, end = geometry.end;
+    if (y <= start || y >= end) { restore(); return; }
+    var p = clamp((y - start) / Math.max(1, end - start));
+    var travel = ease(p), unfold = ease((p - .55) / .45);
+    stage.style.visibility = 'hidden';
+    geometry.discover.style.visibility = 'hidden';
+    bridge.classList.add('is-visible');
+    copies.forEach(function (img, i) {
+      var s = geometry.sources[i], t = geometry.targets[Math.min(i, 1)];
+      img.style.zIndex = p < .55 ? String(parseInt(geometry.layers[i], 10) * 2) : String(i === 0 ? 1 : i === 1 ? 2 : 3);
+      var sx = i === 2 ? 1 - travel * .14 : mix(1, t.w / s.w, travel);
+      var sy = i === 2 ? sx : mix(1, t.h / s.h, travel);
+      var x = i === 2 ? s.x + travel * 38 : mix(s.x, t.x, travel);
+      var posY = i === 2 ? s.y - start - travel * 70 : mix(s.y - start, t.y, travel);
+      img.style.transform = 'translate3d(' + x.toFixed(2) + 'px,' + posY.toFixed(2) + 'px,0) scale(' + sx.toFixed(4) + ',' + sy.toFixed(4) + ')';
+      img.style.opacity = i === 2 ? (geometry.opacities[i] * (1 - ease(p / .48))).toFixed(4) : mix(geometry.opacities[i], 1, travel).toFixed(4);
+      var crop = geometry.clips[i].map(function (n) { return (Math.max(0, n) * (1 - (i === 2 ? 0 : unfold))).toFixed(3) + '%'; });
+      img.style.clipPath = 'inset(' + crop.join(' ') + ' round ' + (26 * (1 - unfold)).toFixed(2) + 'px)';
+    });
+    detailCopies.forEach(function (copy, i) {
+      var r = geometry.details[i];
+      copy.style.zIndex = String(parseInt(geometry.layers[i === 2 ? 2 : 1], 10) * 2 + 1);
+      copy.style.transform = 'translate3d(' + (r.x + travel * (i === 0 ? 18 : -20)).toFixed(2) + 'px,' + (r.y - start - travel * 36).toFixed(2) + 'px,0)';
+      copy.style.opacity = (geometry.opacities[i === 2 ? 2 : 1] * (1 - ease(p / .38))).toFixed(4);
+    });
+  }
+  function requestPaint() { if (!frame) frame = window.requestAnimationFrame(paint); }
+  window.addEventListener('scroll', requestPaint, {passive: true});
+  window.addEventListener('resize', measureSoon, {passive: true});
+  window.addEventListener('load', measureSoon, {once: true});
+  window.addEventListener('pageshow', measureSoon);
+  [wide, reduced].forEach(function (query) {
+    if (query.addEventListener) query.addEventListener('change', measureSoon);
+    else if (query.addListener) query.addListener(measureSoon);
+  });
+  document.addEventListener('keydown', function (event) {
+    if (event.key === 'Tab' && !keyboard) { keyboard = true; measure(); }
+  });
+  stage.addEventListener('click', function () { window.setTimeout(measureSoon, 680); });
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(measureSoon);
+  measureSoon();
 }());
