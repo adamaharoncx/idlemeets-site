@@ -5754,7 +5754,7 @@ body.not-found-page::after {
     height: 94%;
     border-radius: 30px;
     transform: translate3d(var(--host-x, 0px), var(--host-y, 0px), 0) scale(var(--host-scale, 1));
-    clip-path: inset(var(--host-crop, 0%) 0 round 30px);
+    clip-path: inset(0 0 var(--host-crop, 100%) round 30px);
     opacity: var(--host-opacity, 0);
   }
   .motion-canvas .feature-fragment-host-command .feature-shot {

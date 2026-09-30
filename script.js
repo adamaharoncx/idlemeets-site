@@ -348,6 +348,7 @@
         canvas.appendChild(discoverStage);
         canvas.appendChild(hostStage);
         sequence.classList.add('is-motion-ready');
+        exposeHost(false);
       } else if (mode === 'inline') {
         sequence.classList.add('is-motion-inline');
       }
@@ -360,6 +361,10 @@
     var y = window.scrollY;
     if (y + geometry.view < geometry.top - 150 || y > geometry.end + 150) {
       canvas.classList.remove('is-in-view');
+      if (mode === 'desktop' && y + geometry.view < geometry.top) {
+        exposeHost(false);
+        if (flyer) flyer.tabIndex = -1;
+      }
       return;
     }
     if (mode === 'inline') {
@@ -378,7 +383,8 @@
     oldProgress = progress;
     var gather = smooth(.05, .55, progress);
     var morph = smooth(.28, .78, progress);
-    var transfer = smooth(.36, .6, progress);
+    var transfer = smooth(.4, .62, progress);
+    var unfold = smooth(.32, .78, progress);
     var support = smooth(.64, .95, progress);
     set('--map-x', (gather * -42).toFixed(2) + 'px');
     set('--map-y', (gather * 45).toFixed(2) + 'px');
@@ -389,10 +395,11 @@
     set('--meet-scale', (1 - morph * .22).toFixed(4));
     set('--meet-opacity', (1 - transfer).toFixed(4));
     set('--host-x', ((1 - morph) * 24).toFixed(2) + 'px');
-    set('--host-y', ((1 - morph) * 38).toFixed(2) + 'px');
+    set('--host-y', ((1 - unfold) * 138).toFixed(2) + 'px');
     set('--host-scale', (1.11 - morph * .11).toFixed(4));
-    set('--host-crop', ((1 - morph) * 27).toFixed(3) + '%');
-    set('--host-opacity', transfer.toFixed(4));
+    set('--host-crop', ((1 - unfold) * 100).toFixed(3) + '%');
+    // An opaque expanding mask avoids superimposing two sets of UI text.
+    set('--host-opacity', '1');
     set('--flyer-x', ((1 - support) * -32).toFixed(2) + 'px');
     set('--flyer-y', ((1 - support) * 24).toFixed(2) + 'px');
     set('--flyer-scale', (.93 + support * .07).toFixed(4));
