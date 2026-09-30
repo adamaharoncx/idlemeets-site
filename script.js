@@ -625,9 +625,9 @@
     var y = window.scrollY;
     if (geometry.mobile) {
       var gather = ease((y - geometry.stage.y + window.innerHeight * .64) / Math.max(180, geometry.stage.h * .78));
-      stage.style.setProperty('--hero-crop', (23 * (1 - gather)).toFixed(3) + '%');
+      stage.style.setProperty('--hero-crop', (23 * (1 - ease((gather - .35) / .65))).toFixed(3) + '%');
       stage.style.setProperty('--hero-lift', (-22 * gather).toFixed(2) + 'px');
-      stage.style.setProperty('--hero-detail-opacity', (1 - ease((gather - .35) / .55)).toFixed(4));
+      stage.style.setProperty('--hero-detail-opacity', (1 - ease(gather / .35)).toFixed(4));
       return;
     }
     var start = geometry.start, end = geometry.end;
