@@ -1,0 +1,14 @@
+/* Scoped to Pulse, polls, profile/garage, and badge help articles. */
+.community-illustrated .community-capture-note { color: var(--muted); }
+.community-illustrated .community-step { display: grid; grid-template-columns: minmax(0, 1fr) 228px; align-items: start; gap: 32px; padding: 28px 0; border-bottom: 1px solid var(--line); }
+.community-illustrated .community-step > div { min-width: 0; }
+.community-illustrated .community-step > div:first-child { display: grid; align-content: start; gap: 16px; }
+.community-illustrated .community-step h2 { margin-top: 0; }
+.community-illustrated .policy-list li > strong:not(:first-child) { display: inline; margin: 0; }
+.community-illustrated .community-screen { width: 100%; max-width: 260px; margin: 0; }
+.community-illustrated .community-screens { display: grid; gap: 28px; min-width: 0; }
+.community-illustrated .community-screen a, .community-illustrated .community-screen img { display: block; }
+.community-illustrated .community-screen img { width: 100%; height: auto; border-radius: 12px; box-shadow: 0 0 0 1px rgba(255,255,255,.13); }
+.community-illustrated .community-screen a:focus-visible { outline: 2px solid currentColor; outline-offset: 5px; border-radius: 12px; }
+.community-illustrated .community-screen figcaption { margin-top: 12px; color: var(--muted); font-size: .875rem; line-height: 1.6; }
+@media (max-width: 600px) { .community-illustrated .community-step { grid-template-columns: minmax(0,1fr); gap:20px; } }

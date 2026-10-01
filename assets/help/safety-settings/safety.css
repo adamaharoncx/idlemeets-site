@@ -1,0 +1,29 @@
+/* Scoped to the illustrated safety and notification help articles. Original images remain unedited. */
+.help-safety .safety-capture-note { color: var(--muted); }
+.help-safety .safety-section {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 228px;
+  align-items: start;
+  gap: 32px;
+  padding: 24px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+.help-safety .safety-copy { display: grid; gap: 20px; min-width: 0; }
+.help-safety .safety-screens { display: grid; gap: 28px; min-width: 0; }
+.help-safety .safety-screen { width: 100%; max-width: 260px; margin: 0; }
+.help-safety .safety-crop {
+  position: relative;
+  display: block;
+  width: 100%;
+  overflow: hidden;
+  background: #000;
+  border-radius: 12px;
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.13);
+}
+.help-safety .safety-crop img { position: absolute; display: block; max-width: none; height: auto; }
+.help-safety .safety-screen a:focus-visible { outline: 2px solid currentColor; outline-offset: 5px; border-radius: 12px; }
+.help-safety .safety-screen figcaption { margin-top: 12px; color: var(--muted); font-size: 0.875rem; line-height: 1.6; }
+.help-safety .safety-screen figcaption a { text-decoration: underline; text-underline-offset: 3px; }
+@media (max-width: 600px) {
+  .help-safety .safety-section { grid-template-columns: minmax(0, 1fr); gap: 20px; }
+}

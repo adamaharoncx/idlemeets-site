@@ -1,0 +1,61 @@
+.help-evidence .evidence-capture-note {
+  color: var(--muted);
+}
+
+.help-evidence .evidence-row {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 228px;
+  align-items: start;
+  gap: 32px;
+}
+
+.help-evidence .evidence-copy {
+  display: grid;
+  align-content: start;
+  gap: 26px;
+  min-width: 0;
+}
+
+.help-evidence .evidence-screens {
+  display: grid;
+  gap: 28px;
+  min-width: 0;
+}
+
+.help-evidence .evidence-screen {
+  width: 100%;
+  max-width: 260px;
+  margin: 0;
+}
+
+.help-evidence .evidence-screen a,
+.help-evidence .evidence-screen img {
+  display: block;
+}
+
+.help-evidence .evidence-screen img {
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.13);
+}
+
+.help-evidence .evidence-screen a:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 5px;
+  border-radius: 12px;
+}
+
+.help-evidence .evidence-screen figcaption {
+  margin-top: 12px;
+  color: var(--muted);
+  font-size: 0.875rem;
+  line-height: 1.6;
+}
+
+@media (max-width: 600px) {
+  .help-evidence .evidence-row {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 20px;
+  }
+}

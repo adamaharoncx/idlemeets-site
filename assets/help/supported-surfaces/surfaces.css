@@ -1,0 +1,11 @@
+/* Only the illustrated membership and Convoy entry sections use these rules. */
+.surface-illustrated .surface-capture-note { color: var(--muted); }
+.surface-illustrated .surface-step { display: grid; grid-template-columns: minmax(0, 1fr) 228px; align-items: start; gap: 32px; padding: 28px 0; border-bottom: 1px solid var(--line); }
+.surface-illustrated .surface-step > div { min-width: 0; display: grid; align-content: start; gap: 16px; }
+.surface-illustrated .surface-step h2 { margin-top: 0; }
+.surface-illustrated .surface-screen { width: 100%; max-width: 260px; margin: 0; }
+.surface-illustrated .surface-screen a, .surface-illustrated .surface-screen img { display: block; }
+.surface-illustrated .surface-screen img { width: 100%; height: auto; border-radius: 12px; box-shadow: 0 0 0 1px rgba(255,255,255,.13); }
+.surface-illustrated .surface-screen a:focus-visible { outline: 2px solid currentColor; outline-offset: 5px; border-radius: 12px; }
+.surface-illustrated .surface-screen figcaption { margin-top: 12px; color: var(--muted); font-size: .875rem; line-height: 1.6; }
+@media (max-width: 600px) { .surface-illustrated .surface-step { grid-template-columns: minmax(0,1fr); gap: 20px; } }
