@@ -1,0 +1,29 @@
+/* Scoped to the four meet-planning help articles. Original images remain unedited. */
+.help-planning .planning-capture-note { color: var(--muted); }
+.help-planning .planning-section {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 228px;
+  align-items: start;
+  gap: 32px;
+  padding: 24px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+.help-planning .planning-copy { display: grid; gap: 20px; min-width: 0; }
+.help-planning .planning-screens { display: grid; gap: 28px; min-width: 0; }
+.help-planning .planning-screen { width: 100%; max-width: 260px; margin: 0; }
+.help-planning .planning-crop {
+  position: relative;
+  display: block;
+  width: 100%;
+  overflow: hidden;
+  background: #000;
+  border-radius: 12px;
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.13);
+}
+.help-planning .planning-crop img { position: absolute; display: block; max-width: none; height: auto; }
+.help-planning .planning-screen a:focus-visible { outline: 2px solid currentColor; outline-offset: 5px; border-radius: 12px; }
+.help-planning .planning-screen figcaption { margin-top: 12px; color: var(--muted); font-size: 0.875rem; line-height: 1.6; }
+.help-planning .planning-screen figcaption a { text-decoration: underline; text-underline-offset: 3px; }
+@media (max-width: 600px) {
+  .help-planning .planning-section { grid-template-columns: minmax(0, 1fr); gap: 20px; }
+}

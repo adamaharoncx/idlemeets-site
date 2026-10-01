@@ -1,0 +1,33 @@
+/* Scoped to the five social help articles. Original images remain unedited. */
+.help-social .social-capture-note { color: var(--muted); }
+.help-social .social-section,
+.help-social .social-feature {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 228px;
+  align-items: start;
+  gap: 32px;
+  padding: 24px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+.help-social .social-copy { display: grid; gap: 20px; min-width: 0; }
+.help-social .social-screens { display: grid; gap: 28px; min-width: 0; }
+.help-social .social-screen { width: 100%; max-width: 260px; margin: 0; }
+.help-social .social-crop {
+  position: relative;
+  display: block;
+  width: 100%;
+  overflow: hidden;
+  background: #000;
+  border-radius: 12px;
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.13);
+}
+.help-social .social-crop img { position: absolute; display: block; max-width: none; height: auto; }
+.help-social .social-screen a:focus-visible { outline: 2px solid currentColor; outline-offset: 5px; border-radius: 12px; }
+.help-social .social-screen figcaption { margin-top: 12px; color: var(--muted); font-size: 0.875rem; line-height: 1.6; }
+.help-social .social-screen figcaption a { text-decoration: underline; text-underline-offset: 3px; }
+@media (max-width: 600px) {
+  .help-social .social-section,
+.help-social .social-feature { grid-template-columns: minmax(0, 1fr); gap: 20px; }
+}
+
+.help-social .policy-list .social-inline { display: inline; font: inherit; font-weight: 600; color: inherit; margin: 0; }

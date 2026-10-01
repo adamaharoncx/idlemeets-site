@@ -1,0 +1,22 @@
+.help-capture-note { color: var(--muted); }
+.help-capture-row {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 228px;
+  align-items: start;
+  gap: 32px;
+}
+.help-capture-copy { display: grid; gap: 26px; min-width: 0; align-content: start; }
+.overview-screens { display: grid; gap: 28px; min-width: 0; }
+.overview-screen { width: 100%; max-width: 260px; margin: 0; }
+.overview-screen a, .overview-screen img { display: block; }
+.overview-screen img {
+  width: 100%; height: auto; border-radius: 12px;
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, .13);
+}
+.overview-screen a:focus-visible {
+  outline: 2px solid currentColor; outline-offset: 5px; border-radius: 12px;
+}
+.overview-screen figcaption { margin-top: 12px; color: var(--muted); font-size: .875rem; line-height: 1.6; }
+@media (max-width: 600px) {
+  .help-capture-row { grid-template-columns: minmax(0, 1fr); gap: 20px; }
+}

@@ -56,6 +56,7 @@
     <link rel="canonical" href="https://idlemeets.com/support/help/turn-on-notifications/">
     <link rel="icon" href="../../../assets/idle-favicon.png" type="image/png" sizes="192x192">
     <link rel="stylesheet" href="../../../styles.css?v=20260904-typography">
+    <link rel="stylesheet" href="../../../assets/help/safety-settings/safety.css?v=20261001">
   </head>
   <body>
     <a class="skip-link" href="#main-content">Skip to main content</a>
@@ -79,7 +80,7 @@
     </header>
 
     <main id="main-content" class="site-shell">
-      <article class="help-article">
+      <article class="help-article help-safety">
         <p class="breadcrumb"><a href="../../">Support</a> / <a href="../">Help Center</a> / Notifications</p>
         <header class="article-header">
           <p class="story-label">Notifications</p>
@@ -88,6 +89,7 @@
         </header>
 
         <section class="article-body">
+          <p class="safety-capture-note">Screenshots show sample content from the Idle test drive in a prerelease build, version 1.3.0 (1), using Dark appearance and Alpine White. Your app may look different. These views show the available controls, without completing a report, block, or notification setup. <a href="../demo-mode/">Learn about the test drive</a>.</p>
           <h2>Turn on Idle notifications</h2>
           <ol class="article-steps">
             <li>Open the iPhone <strong>Settings</strong> app.</li>
@@ -98,14 +100,23 @@
             <li>Turn on <strong>Sounds</strong> or <strong>Badges</strong> if you want them.</li>
           </ol>
 
-          <h2>Check Idle notification settings</h2>
-          <ol class="article-steps">
-            <li>Open Idle.</li>
-            <li>Go to <strong>Settings</strong>.</li>
-            <li>Open <strong>Notifications</strong>.</li>
-            <li>Review the notification categories you want, such as messages, meet reminders, host updates, group activity, Pulse activity, Forum replies, and nearby meets.</li>
-            <li>If a test notification option appears, use it to confirm this iPhone can show an Idle alert.</li>
-          </ol>
+<section class="safety-section" aria-labelledby="idle-alert-settings">
+            <div class="safety-copy"><h2 id="idle-alert-settings">Check Idle notification settings</h2>
+              <ol class="article-steps">
+                <li>Open Idle and go to <strong>Settings &gt; Notifications</strong>.</li>
+                <li>Review <strong>System alerts</strong>. In the pictured unconfigured state, it says <strong>Not set</strong> and offers <strong>Allow</strong>.</li>
+                <li>Review the notification categories you want, such as messages, meet reminders, host updates, group activity, Pulse activity, Forum replies, and nearby meets.</li>
+                <li>If a test notification option appears, use it to check whether this iPhone can show a local Idle alert.</li>
+              </ol>
+              <p>The screenshot is Idle’s own Notifications page. The iPhone Settings steps above are a separate system setting.</p>
+            </div>
+            <div class="safety-screens"><figure class="safety-screen">
+                <a class="safety-crop" href="../../../assets/help/safety-settings/originals/122-notifications-unset-entry-demo-dark-alpine-white.png" style="aspect-ratio: 1116 / 915" aria-label="View full-size Idle System alerts status screenshot">
+                  <img src="../../../assets/help/safety-settings/originals/122-notifications-unset-entry-demo-dark-alpine-white.png" width="1206" height="2622" style="width: 108.064516%; left: -4.032258%; top: -45.355191%" alt="Idle Demo Notifications page showing System alerts with Not set and an Allow button." loading="lazy" decoding="async">
+                </a>
+                <figcaption>System alerts is Not set in this Demo capture. Allow has not been pressed. Cropped for detail; <a href="../../../assets/help/safety-settings/originals/122-notifications-unset-entry-demo-dark-alpine-white.png">view the full screen</a>.</figcaption>
+              </figure></div>
+          </section>
 
           <div class="article-note">
             <h2>Forum replies and safety notices</h2>
@@ -123,14 +134,35 @@
           <h2>After signing out or switching accounts</h2>
           <p>Notifications follow the Idle account currently signed in on that iPhone. After switching accounts, open Idle and allow a moment for notification settings to update.</p>
 
-          <h2>Sync this iPhone</h2>
-          <ol class="article-steps">
-            <li>Open Idle and go to <strong>Settings</strong>.</li>
-            <li>Tap <strong>Notifications</strong>.</li>
-            <li>Tap <strong>Sync this iPhone</strong> to request a fresh notification sync for the account currently signed in.</li>
-            <li>Follow any permission prompt or retry message that appears.</li>
-          </ol>
-          <p>A local test alert confirms that this iPhone can present an Idle notification. It does not confirm remote notification delivery.</p>
+<section class="safety-section" aria-labelledby="sync-notifications">
+            <div class="safety-copy"><h2 id="sync-notifications">Sync this iPhone</h2>
+              <ol class="article-steps">
+                <li>Open Idle and go to <strong>Settings &gt; Notifications</strong>.</li>
+                <li>Scroll to <strong>Push registration</strong>.</li>
+                <li>Use the registration control shown beneath <strong>Sync this iPhone</strong>. In the pictured unconfigured state, the button is <strong>Allow and register</strong>.</li>
+                <li>Follow any permission prompt or retry message that appears.</li>
+              </ol>
+              <p><strong>Sync this iPhone</strong> is the section heading in this view. The current state determines which registration control is offered.</p>
+              <p>A local test alert confirms that this iPhone can present an Idle notification. It does not confirm remote notification delivery.</p>
+            </div>
+            <div class="safety-screens"><figure class="safety-screen">
+                <a class="safety-crop" href="../../../assets/help/safety-settings/originals/123-notifications-demo-inbox-push-entry-demo-dark-alpine-white.png" style="aspect-ratio: 1116 / 1145" aria-label="View full-size push registration controls screenshot">
+                  <img src="../../../assets/help/safety-settings/originals/123-notifications-demo-inbox-push-entry-demo-dark-alpine-white.png" width="1206" height="2622" style="width: 108.064516%; left: -4.032258%; top: -120.524017%" alt="Idle Demo Push registration card showing No APNs token yet on this iPhone, Sync this iPhone, Allow and register, and Send test notification." loading="lazy" decoding="async">
+                </a>
+                <figcaption>Unconfigured Demo registration and test controls. No permission, registration, sync, or test alert has been completed. Cropped for detail; <a href="../../../assets/help/safety-settings/originals/123-notifications-demo-inbox-push-entry-demo-dark-alpine-white.png">view the full screen</a>.</figcaption>
+              </figure></div>
+          </section><section class="safety-section" aria-labelledby="demo-inbox">
+            <div class="safety-copy"><h2 id="demo-inbox">Activity in the test drive</h2>
+              <p>The local test drive uses sample Activity items. Its <strong>Activity inbox</strong> explanation says those notifications stay local rather than coming from the real backend inbox.</p>
+              <p>Seeing a sample Activity item does not confirm that a remote notification was delivered to this iPhone.</p>
+            </div>
+            <div class="safety-screens"><figure class="safety-screen">
+                <a class="safety-crop" href="../../../assets/help/safety-settings/originals/123-notifications-demo-inbox-push-entry-demo-dark-alpine-white.png" style="aspect-ratio: 1116 / 775" aria-label="View full-size Demo Activity inbox screenshot">
+                  <img src="../../../assets/help/safety-settings/originals/123-notifications-demo-inbox-push-entry-demo-dark-alpine-white.png" width="1206" height="2622" style="width: 108.064516%; left: -4.032258%; top: -71.612903%" alt="Idle Demo Activity inbox card explaining that Activity is local with seeded notifications, followed by Open notification inbox and Open Activity." loading="lazy" decoding="async">
+                </a>
+                <figcaption>The Demo inbox explanation. Open Activity has not been pressed in this capture. Cropped for detail; <a href="../../../assets/help/safety-settings/originals/123-notifications-demo-inbox-push-entry-demo-dark-alpine-white.png">view the full screen</a>.</figcaption>
+              </figure></div>
+          </section>
 
           <h2>Check Focus modes</h2>
           <p>Focus can silence notifications even when Idle notifications are turned on.</p>
@@ -150,7 +182,7 @@
             <li><strong>Low connection</strong>Weak Wi-Fi or cellular service can delay alerts.</li>
             <li><strong>Old app version</strong>Check the <a class="contact-link" href="../../../updates/">Updates page</a> for the current public release, update Idle from the App Store, then compare it with <strong>Idle &gt; Settings &gt; About Idle</strong>.</li>
             <li><strong>Recently changed settings</strong>Close Idle fully, reopen it, and give notifications a moment to update.</li>
-            <li><strong>Alerts appear tied to an older account</strong>Sign into the account you want to use, open Idle Settings &gt; Notifications, and tap <strong>Sync this iPhone</strong>.</li>
+            <li><strong>Alerts appear tied to an older account</strong>Sign into the account you want to use, open Idle Settings &gt; Notifications, and review the <strong>Push registration</strong> controls under <strong>Sync this iPhone</strong>. In the pictured unconfigured state, the button is <strong>Allow and register</strong>.</li>
           </ul>
 
           <div class="article-note">

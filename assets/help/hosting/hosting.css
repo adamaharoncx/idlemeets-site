@@ -1,0 +1,19 @@
+/* Scoped to the four illustrated hosting help articles. */
+.hosting-illustrated .hosting-capture-note { color: var(--muted); }
+.hosting-illustrated .hosting-step { display: grid; grid-template-columns: minmax(0, 1fr) 228px; align-items: start; gap: 32px; padding: 28px 0; border-bottom: 1px solid var(--line); }
+.hosting-illustrated .hosting-step > div { min-width: 0; }
+.hosting-illustrated .hosting-step > div:first-child { display: grid; align-content: start; gap: 16px; }
+.hosting-illustrated .hosting-step h2 { margin-top: 0; }
+.hosting-illustrated .hosting-screen { width: 100%; max-width: 260px; margin: 0; }
+.hosting-illustrated .hosting-screens { display: grid; gap: 28px; min-width: 0; }
+.hosting-illustrated .hosting-screen a, .hosting-illustrated .hosting-screen img { display: block; }
+.hosting-illustrated .hosting-screen img { width: 100%; height: auto; border-radius: 12px; box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.13); }
+.hosting-illustrated .hosting-screen a:focus-visible { outline: 2px solid currentColor; outline-offset: 5px; border-radius: 12px; }
+.hosting-illustrated .hosting-screen figcaption { margin-top: 12px; color: var(--muted); font-size: 0.875rem; line-height: 1.6; }
+@media (max-width: 600px) {
+  .hosting-illustrated .hosting-step { grid-template-columns: minmax(0, 1fr); gap: 20px; }
+}
+.hosting-illustrated .policy-list li > strong:not(:first-child) {
+  display: inline;
+  margin: 0;
+}
