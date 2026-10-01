@@ -3796,14 +3796,15 @@ body.not-found-page::after {
   }
 
   .footer-social {
-    display: grid;
-    grid-template-columns: repeat(4, 44px);
-    gap: 4px 8px;
+    flex-wrap: nowrap;
+    min-width: 0;
+    gap: 0;
     justify-content: center;
     padding-bottom: 24px;
   }
 
   .footer-social a {
+    flex: 0 1 44px;
     width: 44px;
     min-height: 44px;
   }
