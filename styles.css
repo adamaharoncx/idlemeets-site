@@ -865,6 +865,12 @@ p {
   border-top: 1px solid rgba(255, 255, 255, 0.13);
 }
 
+/* Keep the hero-to-feature separators invisible without shifting the story. */
+.home-page .product-index,
+.home-page .product-index > .editorial-stack {
+  border-top-color: transparent;
+}
+
 .product-chapter {
   display: grid;
   grid-template-columns: minmax(300px, 0.72fr) minmax(520px, 1.28fr);
