@@ -276,3 +276,12 @@
     margin-bottom: 0;
   }
 }
+
+/* Display the supplied originals in full, preserving their backgrounds and proportions. */
+.partner-original-logo {
+  display: block;
+  width: 144px;
+  max-width: 100%;
+  height: auto;
+  margin-bottom: 22px;
+}
