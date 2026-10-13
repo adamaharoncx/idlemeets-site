@@ -1,0 +1,50 @@
+/* Shared by the Duo support guide and editorial preview. */
+.duo-studio-screen {
+  width: 100%;
+  margin: 0;
+}
+
+.duo-studio-screen a,
+.duo-studio-screen img {
+  display: block;
+}
+
+.duo-studio-screen img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 2853 / 2007;
+  border-radius: 12px;
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.13);
+}
+
+.duo-studio-screen a:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 5px;
+  border-radius: 12px;
+}
+
+.duo-studio-screen figcaption {
+  margin-top: 12px;
+  color: var(--muted);
+  font-size: 0.875rem;
+  line-height: 1.6;
+}
+
+.duo-capture-note,
+.guide-prose p.duo-capture-note {
+  color: var(--muted);
+  font-size: 1rem;
+  line-height: 1.7;
+}
+
+.guide-duo .guide-opening {
+  margin-bottom: 32px;
+}
+
+.guide-duo .duo-studio-screen {
+  margin-bottom: 20px;
+}
+
+.guide-duo .duo-capture-note {
+  margin-bottom: 48px;
+}

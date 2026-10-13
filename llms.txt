@@ -66,11 +66,14 @@ Human-readable sitemap: https://idlemeets.com/sitemap/
 
 These editorial guides answer broad, practical enthusiast questions. They stand on their own and introduce Idle only where a product feature genuinely helps. The Help Center below explains how to use Idle itself.
 
+- Idle on iPhone Duo: A First Look for Car-Meet Hosts (preview): https://idlemeets.com/guides/idle-iphone-duo/
+
 ## Help Center Topics
 
 - What is Idle: https://idlemeets.com/support/help/what-is-idle/
 - Find meets: https://idlemeets.com/support/help/find-meets/
 - Host a meet: https://idlemeets.com/support/help/host-a-meet/
+- Use Flyer Studio on iPhone Duo (preview build; current download may differ): https://idlemeets.com/support/help/duo-flyer-studio/
 - Host Tools: https://idlemeets.com/support/help/host-tools/
 - Groups: https://idlemeets.com/support/help/groups/
 - Connections: https://idlemeets.com/support/help/connections/
