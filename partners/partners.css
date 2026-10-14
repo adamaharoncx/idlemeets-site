@@ -1,5 +1,6 @@
 /* Community Partners page styles. */
 .partners-page {
+  --partner-logo-radius: 10px;
   background: #000;
 }
 
@@ -284,6 +285,7 @@
   max-width: 100%;
   height: auto;
   margin-bottom: 22px;
+  border-radius: var(--partner-logo-radius);
 }
 
 /* A light surface provides contrast for this supplied transparent logo. */
@@ -293,7 +295,8 @@
   box-sizing: border-box;
   margin-bottom: 22px;
   padding: 16px;
-  border-radius: 10px;
+  border-radius: var(--partner-logo-radius);
+  overflow: hidden;
   background: #fff;
 }
 
