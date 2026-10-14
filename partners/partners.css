@@ -285,3 +285,19 @@
   height: auto;
   margin-bottom: 22px;
 }
+
+/* A light surface provides contrast for this supplied transparent logo. */
+.partner-logo-surface {
+  width: 300px;
+  max-width: 100%;
+  box-sizing: border-box;
+  margin-bottom: 22px;
+  padding: 16px;
+  border-radius: 10px;
+  background: #fff;
+}
+
+.partner-logo-surface .partner-original-logo {
+  width: 100%;
+  margin-bottom: 0;
+}
