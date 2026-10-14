@@ -286,6 +286,7 @@
   height: auto;
   margin-bottom: 22px;
   border-radius: var(--partner-logo-radius);
+  object-fit: contain;
 }
 
 /* A light surface provides contrast for this supplied transparent logo. */
@@ -303,4 +304,10 @@
 .partner-logo-surface .partner-original-logo {
   width: 100%;
   margin-bottom: 0;
+}
+
+/* Keep edge artwork inside the shared corner radius without trimming the source. */
+.partner-original-logo-inset {
+  box-sizing: border-box;
+  padding: 6px;
 }
