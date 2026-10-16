@@ -33,10 +33,11 @@ disable the hook to get around an unexpected failure. If footer navigation
 changes intentionally, update its manifest and all pages together.
 
 GitHub runs the footer checks and regression tests on pushes and pull requests.
-With the current branch-based GitHub Pages hosting, a failed Actions check alone
-does not stop deployment. The installed hook blocks ordinary local pushes;
-other clones must install it too. GitHub branch protection or a validated Pages
-deployment workflow is needed for enforcement across every publishing route.
+The Pages deployment job depends on those checks passing, so a failing check
+leaves the previously published site live. Pages must use GitHub Actions as its
+deployment source; do not switch it back to branch-based publishing, which
+bypasses this gate. The local hook also blocks ordinary unsafe pushes before
+they reach GitHub; other clones must install it too.
 
 These checks catch missing links, stale branches, deletions, and exact older-file
 restorations. They cannot determine whether every prose edit is intentional;

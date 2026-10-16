@@ -5,6 +5,9 @@ on:
     branches: [main]
 permissions:
   contents: read
+concurrency:
+  group: website-${{ github.event_name == 'push' && 'pages' || github.ref }}
+  cancel-in-progress: false
 jobs:
   footer-safety:
     runs-on: ubuntu-latest
@@ -19,3 +22,23 @@ jobs:
       - run: node scripts/check-site.mjs --ref HEAD --base "$BASE_SHA"
         env:
           BASE_SHA: ${{ github.event.pull_request.base.sha || github.event.before }}
+  deploy:
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+    needs: footer-safety
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: .
+      - name: Deploy validated website
+        id: deployment
+        uses: actions/deploy-pages@v4
