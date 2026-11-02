@@ -82,6 +82,7 @@ These editorial guides answer broad, practical enthusiast questions. They stand 
 - E85 and fuel tools: https://idlemeets.com/support/help/e85-and-fuel-tools/
 - Photo spots: https://idlemeets.com/support/help/photo-spots/
 - Garage and profile: https://idlemeets.com/support/help/manage-garage-profile/
+- Profile achievements and host standing: https://idlemeets.com/support/help/profile-achievements/
 - Safety and reporting: https://idlemeets.com/support/help/report-safety-issue/
 - Delete account: https://idlemeets.com/support/help/delete-account/
 
