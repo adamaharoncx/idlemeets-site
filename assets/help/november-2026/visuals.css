@@ -1,0 +1,10 @@
+/* November help additions, scoped to articles that opt in. */
+.help-visuals .help-visual-note { color: var(--muted); }
+.help-visuals .help-visual { width: 100%; max-width: 480px; margin: 28px auto 36px; }
+.help-visuals .help-visual-entry { max-width: 680px; }
+.help-visuals .help-visual-progress { max-width: 440px; }
+.help-visuals .help-visual-diagram { max-width: 600px; }
+.help-visuals .help-visual a { display: block; border-radius: 12px; }
+.help-visuals .help-visual img { display: block; width: 100%; height: auto; border-radius: 12px; box-shadow: 0 0 0 1px rgba(255,255,255,.13); }
+.help-visuals .help-visual a:focus-visible { outline: 2px solid currentColor; outline-offset: 5px; }
+.help-visuals .help-visual figcaption { margin-top: 12px; color: var(--muted); font-size: .875rem; line-height: 1.6; }
